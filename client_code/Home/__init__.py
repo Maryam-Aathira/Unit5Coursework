@@ -15,3 +15,7 @@ class Home(HomeTemplate):
   def browse_button_click(self, **event_args):
     open_form("Browse")
     pass
+
+  def create_button_click(self, **event_args):
+    open_form("CustomCake")
+    pass

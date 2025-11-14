@@ -65,7 +65,8 @@ components:
   properties: {}
   type: ColumnPanel
 - components:
-  - layout_properties: {}
+  - event_bindings: {click: home_click}
+    layout_properties: {}
     name: home
     properties: {text: Home}
     type: Button

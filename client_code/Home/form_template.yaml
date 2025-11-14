@@ -6,16 +6,19 @@ components:
     properties: {text: Browse}
     type: Button
   - layout_properties: {grid_position: 'TXBIEN,LQUJKS'}
-    name: label_1
-    properties: {text: 'Cake Care:Sponge and buttercream standard flavours:VanillaChocolate Salted CaramelLemon Orange Almond Chocolate orange Additional fillings:Raspberry jamStrawberry jamAny flavours or fillings not listed can be requested and made with an extra cost. '}
+    name: cake_care1
+    properties:
+      text: "Cake Care:\nSponge and buttercream standard flavours:\nVanilla\nChocolate Salted Caramel\nLemon \nOrange \nAlmond \nChocolate orange \n\nAdditional fillings:\nRaspberry jam\nStrawberry jam\n\nAny flavours or fillings not listed can be requested and made with an extra cost. \n\n"
     type: Label
-  - layout_properties: {grid_position: 'YTAXFQ,HEMDUI'}
+  - event_bindings: {click: create_button_click}
+    layout_properties: {grid_position: 'YTAXFQ,HEMDUI'}
     name: create_button
     properties: {text: Create a Custom Cake}
     type: Button
   - layout_properties: {grid_position: 'YTAXFQ,ENFXVG'}
-    name: label_2
-    properties: {}
+    name: cake_care2
+    properties:
+      text: "Cake Care:\n- In the summer it is important to keep the cake as cool as possible as buttercream can melt/soften.\n\n- Prior to serving, keep the cake out of direct sunlight to maintain firmness. \n\n- If the cake isn’t being served on the day of collection, keep the cake in the fridge to ensure the buttercream stays firm. \n\n- Take the cake out of the fridge approximately 2 hours prior to serving for best texture.\n\n"
     type: Label
   layout_properties: {slot: default}
   name: content_panel
