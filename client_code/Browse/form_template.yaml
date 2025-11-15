@@ -24,6 +24,10 @@ components:
     name: image_1
     properties: {}
     type: Image
+  - layout_properties: {grid_position: 'ZRRCYF,HDEZGW TSYSAZ,LCORBH'}
+    name: vanilla_add
+    properties: {role: outlined-button, text: Add to order}
+    type: Button
   - layout_properties: {grid_position: 'ZRRCYF,HDEZGW XKDAOB,KTUUUU'}
     name: the_orange
     properties: {text: Orange Cake}
@@ -32,10 +36,18 @@ components:
     name: image_5
     properties: {}
     type: Image
+  - layout_properties: {grid_position: 'ZRRCYF,HDEZGW NVSKIY,TGPWOY'}
+    name: orange_add
+    properties: {role: outlined-button, text: Add to order}
+    type: Button
   - layout_properties: {grid_position: 'ZRRCYF,IPLKRM ZNGWIG,NGYCYG'}
     name: image_2
     properties: {}
     type: Image
+  - layout_properties: {grid_position: 'ZRRCYF,IPLKRM ZXGGBH,YXSXCP'}
+    name: chocolate_add
+    properties: {role: outlined-button, text: Add to order}
+    type: Button
   - layout_properties: {grid_position: 'ZRRCYF,IPLKRM HJDXGF,WTHSHU'}
     name: the_almond
     properties: {text: Almond Cake}
@@ -44,10 +56,18 @@ components:
     name: image_6
     properties: {}
     type: Image
+  - layout_properties: {grid_position: 'ZRRCYF,IPLKRM QAOYSD,XWKTOR'}
+    name: almond_add
+    properties: {role: outlined-button, text: Add to order}
+    type: Button
   - layout_properties: {grid_position: 'ZRRCYF,QEEEIP WBVKVU,FACCVC'}
     name: image_3
     properties: {}
     type: Image
+  - layout_properties: {grid_position: 'ZRRCYF,QEEEIP POVCKV,YUUMTX'}
+    name: s_caramel_add
+    properties: {role: outlined-button, text: Add to order}
+    type: Button
   - layout_properties: {grid_position: 'ZRRCYF,QEEEIP ZMYCRF,TUMEXU'}
     name: the_choc_orange
     properties: {text: Chocolate Orange Cake}
@@ -56,10 +76,18 @@ components:
     name: image_7
     properties: {}
     type: Image
-  - layout_properties: {grid_position: 'ZRRCYF,DFPGAN'}
+  - layout_properties: {grid_position: 'ZRRCYF,QEEEIP BLAJIX,ILSQXP'}
+    name: choc_orange_add
+    properties: {role: outlined-button, text: Add to order}
+    type: Button
+  - layout_properties: {grid_position: 'ZRRCYF,DFPGAN NIMUAS,XBBVXL'}
     name: image_4
     properties: {}
     type: Image
+  - layout_properties: {grid_position: 'ZRRCYF,DFPGAN IJVYAR,XSHTHY'}
+    name: lemon_add
+    properties: {role: outlined-button, text: Add to order}
+    type: Button
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
