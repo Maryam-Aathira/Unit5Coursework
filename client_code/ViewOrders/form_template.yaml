@@ -17,8 +17,8 @@ components:
   properties: {}
   type: FlowPanel
 - layout_properties: {slot: title}
-  name: title
-  properties: {text: Cakes Bakes Cardiff}
+  name: title_view_orders
+  properties: {text: View Orders}
   type: Label
 container:
   properties: {html: '@theme:standard-page.html'}

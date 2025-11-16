@@ -12,11 +12,13 @@ class Browse(BrowseTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.current_order = None
+    self.chosen_customer = None
 
   # Direct to home page
   def home_click(self, **event_args):
     open_form("Home")
     pass
+    
   # Directs to view orders page
   def view_orders_click(self, **event_args):
     open_form('ViewOrders')
@@ -25,9 +27,9 @@ class Browse(BrowseTemplate):
   # CHECK!!!!!!!!
   def vanilla_add_click(self, **event_args):
     if self.current_order == None:
-      self.current_order = app_tables.tblOrders.add_row(
+      self.current_order=app_tables.tblOrders.add_row(
         order_status = 'Pending Review',
-        customer = self.chosen_customer
+        customer_ID = self.chosen_customer
       )
           
     vanilla_cake = self.the_vanilla
