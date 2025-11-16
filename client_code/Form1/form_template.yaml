@@ -1,7 +1,8 @@
 components:
-- layout_properties: {grid_position: 'NJTYUR,GDRSHW'}
-  name: label_1
-  properties: {}
+- data_bindings: []
+  layout_properties: {grid_position: 'NJTYUR,GDRSHW'}
+  name: title_browse
+  properties: {bold: true, font_size: 20, text: Browse}
   type: Label
 - layout_properties: {grid_position: 'NJTYUR,SGTHKF'}
   name: spacer_1
@@ -11,13 +12,111 @@ components:
   name: spacer_2
   properties: {height: 32}
   type: Spacer
+- layout_properties: {grid_position: 'NJTYUR,QEPSNU'}
+  name: button_home
+  properties: {text: Home}
+  type: Button
 - layout_properties: {grid_position: 'NJTYUR,YAZALU'}
-  name: button_2
-  properties: {text: button_2}
+  name: button_view_orders
+  properties: {text: View Orders}
   type: Button
 - layout_properties: {grid_position: 'NJTYUR,GTTULG'}
-  name: button_1
-  properties: {text: button_1}
+  name: button_view_account
+  properties: {text: View Account}
   type: Button
+- layout_properties: {grid_position: 'VDPWDA,BXKWRK'}
+  name: browse_description
+  properties:
+    text: "These standard cakes can be customised after adding them to your order  \n"
+  type: Label
+- components:
+  - layout_properties: {col_xs: 0, row: LFWSWI, width_xs: 3}
+    name: label_2
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 3, row: LFWSWI, width_xs: 3}
+    name: label_3
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 6, row: LFWSWI, width_xs: 3}
+    name: label_4
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 9, row: LFWSWI, width_xs: 3}
+    name: label_5
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 0, row: UFFJPB, width_xs: 3}
+    name: image_1
+    properties: {}
+    type: Image
+  - layout_properties: {col_xs: 3, row: UFFJPB, width_xs: 3}
+    name: image_2
+    properties: {}
+    type: Image
+  - layout_properties: {col_xs: 6, row: UFFJPB, width_xs: 3}
+    name: image_3
+    properties: {}
+    type: Image
+  - layout_properties: {col_xs: 9, row: UFFJPB, width_xs: 3}
+    name: image_4
+    properties: {}
+    type: Image
+  - layout_properties: {col_xs: 0, row: ETAICE, width_xs: 3}
+    name: outlined_button_1
+    properties: {role: outlined-button, text: outlined_button_1}
+    type: Button
+  - layout_properties: {col_xs: 3, row: ETAICE, width_xs: 3}
+    name: outlined_button_2
+    properties: {role: outlined-button, text: outlined_button_2}
+    type: Button
+  - layout_properties: {col_xs: 6, row: ETAICE, width_xs: 3}
+    name: outlined_button_3
+    properties: {role: outlined-button, text: outlined_button_3}
+    type: Button
+  - layout_properties: {col_xs: 9, row: ETAICE, width_xs: 3}
+    name: outlined_button_4
+    properties: {role: outlined-button, text: outlined_button_4}
+    type: Button
+  - layout_properties: {col_xs: 0, row: ZUHEPX, width_xs: 3}
+    name: label_6
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 3, row: ZUHEPX, width_xs: 3}
+    name: label_9
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 6, row: ZUHEPX, width_xs: 3}
+    name: label_8
+    properties: {}
+    type: Label
+  - layout_properties: {col_xs: 0, row: GOPUPH, width_xs: 3}
+    name: image_5
+    properties: {}
+    type: Image
+  - layout_properties: {col_xs: 3, row: GOPUPH, width_xs: 3}
+    name: image_6
+    properties: {}
+    type: Image
+  - layout_properties: {col_xs: 6, row: GOPUPH, width_xs: 3}
+    name: image_7
+    properties: {}
+    type: Image
+  - layout_properties: {col_xs: 0, row: JGKFCF, width_xs: 3}
+    name: outlined_button_5
+    properties: {role: outlined-button, text: outlined_button_5}
+    type: Button
+  - layout_properties: {col_xs: 3, row: JGKFCF, width_xs: 3}
+    name: outlined_button_6
+    properties: {role: outlined-button, text: outlined_button_6}
+    type: Button
+  - layout_properties: {col_xs: 6, row: JGKFCF, width_xs: 3}
+    name: outlined_button_7
+    properties: {role: outlined-button, text: outlined_button_7}
+    type: Button
+  layout_properties: {grid_position: 'TCOCPQ,TPKGNT'}
+  name: grid_panel_1
+  properties: {}
+  type: GridPanel
 container: {type: ColumnPanel}
 is_package: true

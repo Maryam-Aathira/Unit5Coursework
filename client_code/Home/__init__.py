@@ -16,7 +16,7 @@ class Home(HomeTemplate):
     pass
 
   def browse_button_click(self, **event_args):
-    open_form("Browse")
+    open_form("Form1")
     pass
 
   def create_button_click(self, **event_args):
