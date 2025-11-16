@@ -2,6 +2,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import anvil.users
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -18,6 +19,7 @@ import anvil.server
 # Adding Standard cakes to the customer's order
 @anvil.server.callable
 def add_the_vanilla_cake():
+  anvil.users.get_user()
   app_tables.tblorderitems.add_row(cake_type="Sponge Cake",
                                          occasion="",
                                          no_of_tiers= 1,
