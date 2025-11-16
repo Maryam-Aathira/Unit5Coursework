@@ -14,7 +14,31 @@ class Browse(BrowseTemplate):
     self.init_components(**properties)
 
   def button_add_v_click(self, **event_args):
-    Vanilla().add_to_order()
+    anvil.server.call('add_the_vanilla_cake')
+    pass
+
+  def button_add_c_click(self, **event_args):
+    anvil.server.call('add_the_chocolate_cake')
+    pass
+
+  def button_add_s_c_click(self, **event_args):
+    anvil.server.call('add_the_salted_caramel_cake')
+    pass
+
+  def button_add_l_click(self, **event_args):
+    anvil.server.call('add_the_lemon_cake')
+    pass
+
+  def button_add_o_click(self, **event_args):
+    anvil.server.call('add_the_orange_cake')
+    pass
+
+  def button_add_a_click(self, **event_args):
+    anvil.server.call('add_the_almond_cake')
+    pass
+
+  def button_add_c_o_click(self, **event_args):
+    anvil.server.call('add_the_chocolate_orange_cake')
     pass
 
 

@@ -14,16 +14,17 @@ from anvil.tables import app_tables
 
 
 class Cake():
-  def __init__(self, name = "Blank", price = 0.00):
-    self.name = name 
+  def __init__(self, cake_type = "Sponge Cake", flavour = "Blank", price = 0.00):
+    self.cake_type = cake_type
+    self.flavour = flavour
     self.price = price
 
-  def add_standard_cake_to_order(self):
-    anvil.server.call('add_standard_cake', self.name, self.price)
+  def add_to_order(self):
+    anvil.server.call('add_standard_cake', self.cake_type, self.flavour, self.price)
 
 
 class Vanilla(Cake):
-  def __init__(self, name, price):
-    super.__init__
-    self.name = "Vanilla"
+  def __init__(self):
+    super().__init__
+    self.flavour = "Vanilla"
     self.price = 30.00

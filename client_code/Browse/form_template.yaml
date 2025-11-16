@@ -67,15 +67,18 @@ components:
     name: button_add_v
     properties: {role: outlined-button, text: Add to Order}
     type: Button
-  - layout_properties: {col_xs: 3, row: ETAICE, width_xs: 3}
+  - event_bindings: {click: button_add_c_click}
+    layout_properties: {col_xs: 3, row: ETAICE, width_xs: 3}
     name: button_add_c
     properties: {role: outlined-button, text: Add to Order}
     type: Button
-  - layout_properties: {col_xs: 6, row: ETAICE, width_xs: 3}
+  - event_bindings: {click: button_add_s_c_click}
+    layout_properties: {col_xs: 6, row: ETAICE, width_xs: 3}
     name: button_add_s_c
     properties: {role: outlined-button, text: Add to Order}
     type: Button
-  - layout_properties: {col_xs: 9, row: ETAICE, width_xs: 3}
+  - event_bindings: {click: button_add_l_click}
+    layout_properties: {col_xs: 9, row: ETAICE, width_xs: 3}
     name: button_add_l
     properties: {role: outlined-button, text: Add to Order}
     type: Button
@@ -103,15 +106,18 @@ components:
     name: image_7
     properties: {}
     type: Image
-  - layout_properties: {col_xs: 0, row: JGKFCF, width_xs: 3}
+  - event_bindings: {click: button_add_o_click}
+    layout_properties: {col_xs: 0, row: JGKFCF, width_xs: 3}
     name: button_add_o
     properties: {role: outlined-button, text: Add to Order}
     type: Button
-  - layout_properties: {col_xs: 3, row: JGKFCF, width_xs: 3}
+  - event_bindings: {click: button_add_a_click}
+    layout_properties: {col_xs: 3, row: JGKFCF, width_xs: 3}
     name: button_add_a
     properties: {role: outlined-button, text: Add to Order}
     type: Button
-  - layout_properties: {col_xs: 6, row: JGKFCF, width_xs: 3}
+  - event_bindings: {click: button_add_c_o_click}
+    layout_properties: {col_xs: 6, row: JGKFCF, width_xs: 3}
     name: button_add_c_o
     properties: {role: outlined-button, text: Add to Order}
     type: Button
