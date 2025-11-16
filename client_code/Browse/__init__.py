@@ -14,7 +14,7 @@ class Browse(BrowseTemplate):
     self.init_components(**properties)
 
   def button_add_v_click(self, **event_args):
-    anvil.server.call('add_standard_cake')
+    Vanilla().add_to_order()
     pass
 
 

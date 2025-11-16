@@ -17,12 +17,13 @@ import anvil.server
 #
 
 @anvil.server.callable
-def add_standard_cake():
+def add_standard_cake(frosting_flavour):
   app_tables.tblorderitems.add_row(cake_type="Sponge Cake",
                                          occasion="",
                                          no_of_tiers= 1,
                                          frosting_type = "Buttercream",
                                          frosting_flavour="Vanilla",
+                                         price=30.00,
                                         
                                         )
 
