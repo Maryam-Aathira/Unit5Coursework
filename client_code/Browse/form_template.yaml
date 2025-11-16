@@ -62,7 +62,8 @@ components:
     name: image_4
     properties: {}
     type: Image
-  - layout_properties: {col_xs: 0, row: ETAICE, width_xs: 3}
+  - event_bindings: {click: button_add_v_click}
+    layout_properties: {col_xs: 0, row: ETAICE, width_xs: 3}
     name: button_add_v
     properties: {role: outlined-button, text: Add to Order}
     type: Button
