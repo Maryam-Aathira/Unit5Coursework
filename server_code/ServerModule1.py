@@ -17,10 +17,10 @@ import anvil.users
 #   return 42
 
 # Adding Standard cakes to the customer's order
-@anil.server.callable
-def add_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, serving_size, sponge_flavour, filling)
+@anvil.server.callable
+def add_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, serving_size, sponge_flavour, filling):
   anvil.users.get_user()
-  app_tables.tblorderitems.add_row('', '', '', '', cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, serving_size, sponge_flavour, filling)
+  app_tables.tblorderitems.add_row(cake_type = cake_type, occasion = occasion, no_of_tiers = no_of_tiers, frosting_type = frosting_type, frosting_flavour = frosting_flavour, price = price, serving_size = serving_size, sponge_flavour = sponge_flavour, filling = filling)
 
 @anvil.server.callable
 def add_the_vanilla_cake():

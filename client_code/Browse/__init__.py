@@ -23,8 +23,8 @@ class Browse(BrowseTemplate):
     pass
 
   def button_add_s_c_click(self, **event_args):
-    anvil.server.call('add_the_salted_caramel_cake')
-    anvil.server.call('add_cake', '')
+    #anvil.server.call('add_the_salted_caramel_cake')
+    anvil.server.call('add_cake', 'Sponge Cake', '', 1, 'Buttercream', 'Vanilla', 30.00, 8, 'Vanilla', 'Vanilla cream')
     pass
 
   def button_add_l_click(self, **event_args):
