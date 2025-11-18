@@ -17,6 +17,17 @@ db_schema:
       type: string
     server: full
     title: tblCustomers
+  tbldropdownoptions:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: category
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: choice
+      type: string
+    server: full
+    title: tblDropdownOptions
   tblorderitems:
     client: none
     columns:

@@ -18,6 +18,8 @@ class CustomCake(CustomCakeTemplate):
     open_form('Home')
     pass
 
-  def drop_down_1_change(self, **event_args):
-    """This method is called when an item is selected"""
+  def cake_type_dropdown_change(self, **event_args):
+    item_list = []
+    for row in app_tables.tbldropdownoptions.search():
+      item_list.append
     pass

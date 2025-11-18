@@ -63,35 +63,35 @@ components:
     properties: {}
     type: Image
   - layout_properties: {col_xs: 0, row: YIGSHS, width_xs: 3}
-    name: Vanilla_description
+    name: vanilla_description
     properties: {text: 'Soft sponge vanilla sponge cake topped with buttercream swirls of vanilla icing . '}
     type: Label
   - layout_properties: {col_xs: 3, row: YIGSHS, width_xs: 3}
-    name: Chocolate_description
+    name: chocolate_description
     properties: {text: 'A chocolate sponge cake with chocolate ganache and a creamy chocolate filling.  '}
     type: Label
   - layout_properties: {col_xs: 6, row: YIGSHS, width_xs: 3}
-    name: Salted_caramel_description
+    name: salted_caramel_description
     properties: {text: 'Vanilla sponge cake with salted caramel fillings and buttercream icing. '}
     type: Label
   - layout_properties: {col_xs: 9, row: YIGSHS, width_xs: 3}
-    name: Lemon_description
+    name: lemon_description
     properties: {text: 'Soft vanilla sponge cream with lemon meringue cream. '}
     type: Label
   - layout_properties: {col_xs: 0, row: CXBWKY, width_xs: 3}
-    name: Vanilla_price
+    name: vanilla_price
     properties: {text: 'Price: £30.00'}
     type: Label
   - layout_properties: {col_xs: 3, row: CXBWKY, width_xs: 3}
-    name: Chocolate_price
+    name: chocolate_price
     properties: {text: 'Price: £30.00'}
     type: Label
   - layout_properties: {col_xs: 6, row: CXBWKY, width_xs: 3}
-    name: Salted_caramel_price
+    name: salted_caramel_price
     properties: {text: 'Price: £35.00'}
     type: Label
   - layout_properties: {col_xs: 9, row: CXBWKY, width_xs: 3}
-    name: Lemon_price
+    name: lemon_price
     properties: {text: 'Price: £30.00'}
     type: Label
   - event_bindings: {click: button_add_v_click}
@@ -139,27 +139,27 @@ components:
     properties: {}
     type: Image
   - layout_properties: {col_xs: 0, row: XCDDIY, width_xs: 3}
-    name: Orange_description
+    name: orange_description
     properties: {text: 'Plain butter cake with orange flavoured buttercream icing. '}
     type: Label
   - layout_properties: {col_xs: 3, row: XCDDIY, width_xs: 3}
-    name: Almond_description
+    name: almond_description
     properties: {text: 'Soft plain butter cake with almond flavoured cream filling and icing.  '}
     type: Label
   - layout_properties: {col_xs: 6, row: XCDDIY, width_xs: 3}
-    name: Chocolate_orange_description
+    name: chocolate_orange_description
     properties: {text: Sweet chocolate cake with chocolate orange icing.}
     type: Label
   - layout_properties: {col_xs: 0, row: FYVRNT, width_xs: 3}
-    name: Orange_price
+    name: orange_price
     properties: {text: 'Price: £35.00'}
     type: Label
   - layout_properties: {col_xs: 3, row: FYVRNT, width_xs: 3}
-    name: Almond_price
+    name: almond_price
     properties: {text: 'Price: £25.00'}
     type: Label
   - layout_properties: {col_xs: 6, row: FYVRNT, width_xs: 3}
-    name: Chocolate_orange_price
+    name: chocolate_orange_price
     properties: {text: 'Price: £25.00'}
     type: Label
   - event_bindings: {click: button_add_o_click}

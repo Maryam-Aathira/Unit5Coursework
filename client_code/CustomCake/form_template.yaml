@@ -4,9 +4,9 @@ components:
     name: cake_type_label
     properties: {text: 'Cake type:'}
     type: Label
-  - event_bindings: {change: drop_down_1_change}
+  - event_bindings: {change: cake_type_dropdown_change}
     layout_properties: {grid_position: 'AVCHEA,LJMEVW DWRYBM,XUUKXZ'}
-    name: drop_down_1
+    name: cake_type_dropdown
     properties: {}
     type: DropDown
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW YOBQRE,NDBHSB'}
@@ -14,7 +14,7 @@ components:
     properties: {text: 'Sponge flavour:'}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW DSNXMN,KSQOVC'}
-    name: drop_down_3
+    name: sponge_flavour_dropdown
     properties: {}
     type: DropDown
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW GOEZXN,MSILZE'}
@@ -26,7 +26,7 @@ components:
     properties: {text: Filling}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW CINMHO,TSKCZK'}
-    name: drop_down_4
+    name: filling_dropdown
     properties: {}
     type: DropDown
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW BNSPHM,YWNDIT'}
@@ -38,7 +38,7 @@ components:
     properties: {text: 'Frosting type:'}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW WSBGGY,UUWQEZ'}
-    name: drop_down_5
+    name: frosting_type_dropdown
     properties: {}
     type: DropDown
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW LUKTIU,FKPEUJ'}
@@ -46,7 +46,7 @@ components:
     properties: {text: Frosting flavour}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW PXQIPU,WRBXBE'}
-    name: drop_down_6
+    name: frosting_flavour_dropdown
     properties: {}
     type: DropDown
   - layout_properties: {grid_position: 'AVCHEA,LJMEVW KPVSCU,WQOZDZ'}
@@ -58,7 +58,7 @@ components:
     properties: {text: 'Occasion:'}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM XDUDIK,CMJMJQ'}
-    name: drop_down_2
+    name: occasion_dropdown
     properties: {}
     type: DropDown
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM GYBQFN,DFGUPG'}
@@ -70,7 +70,7 @@ components:
     properties: {text: 'Serving size:'}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM FXNGWI,QQNVAI'}
-    name: drop_down_7
+    name: serving_size_dropdown
     properties: {}
     type: DropDown
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM XKOJIR,NXHKZQ'}
@@ -78,7 +78,7 @@ components:
     properties: {text: 'Number of tiers:'}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM MTEFRO,LASCDJ'}
-    name: drop_down_8
+    name: no_of_tiers_dropdown
     properties: {}
     type: DropDown
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM XNDWYC,UHVJAJ'}
