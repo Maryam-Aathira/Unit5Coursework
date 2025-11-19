@@ -12,6 +12,12 @@ class CustomCake(CustomCakeTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    # Sponge flavour dropdown
+    item_list = []
+    for row in app_tables.tbldropdownoptions.search(category="sponge_flavour"):
+      item_list.append((row["choice"], row))
+    self.sponge_flavour_dropdown.items = item_list
+  
     # Frosting Flavour dropdown 
     item_list = []
     for row in app_tables.tbldropdownoptions.search(category="frosting_flavour"):
@@ -22,11 +28,6 @@ class CustomCake(CustomCakeTemplate):
     for row in app_tables.tbldropdownoptions.search(category="cake_type"):
       item_list.append((row["choice"], row))
     self.cake_type_dropdown.items = item_list
-    
-    # Sponge flavour dropdown
-    for row in app_tables.tbldropdownoptions.search(category="sponge_flavour"):
-      item_list.append((row["choice"], row))
-    self.sponge_flavour_dropdown.items = item_list
 
     # Frosting type dropdown 
     item_list = []
@@ -34,7 +35,17 @@ class CustomCake(CustomCakeTemplate):
       item_list.append((row["choice"], row))
     self.frosting_type_dropdown.items = item_list
 
-    
+    # Occassion dropdown
+    item_list = []
+    for row in app_tables.tbldropdownoptions.search(category="occasion"):
+      item_list.append((row["choice"], row))
+    self.occasion_dropdown.items = item_list
+
+    # Number of tiers dropdown
+    item_list = []
+    for row in app_tables.tbldropdownoptions.search(category="no_of_tiers"):
+      item_list.append((row["choice"], row))
+    self.no_of_tiers_dropdown.items = item_list
     # Any code you write here will run before the form opens.
 
   def home_click(self, **event_args):

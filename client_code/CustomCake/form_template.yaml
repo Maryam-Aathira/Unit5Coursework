@@ -69,10 +69,10 @@ components:
     name: serving_size_label
     properties: {text: 'Serving size:'}
     type: Label
-  - layout_properties: {grid_position: 'AVCHEA,RBYJAM FXNGWI,QQNVAI'}
-    name: serving_size_dropdown
+  - layout_properties: {grid_position: 'AVCHEA,RBYJAM OYGZOG,FYYMHW'}
+    name: enter_serving_size
     properties: {}
-    type: DropDown
+    type: TextBox
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM XKOJIR,NXHKZQ'}
     name: no_of_tiers_label
     properties: {text: 'Number of tiers:'}
