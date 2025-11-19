@@ -12,7 +12,8 @@ components:
   name: spacer_2
   properties: {height: 32}
   type: Spacer
-- layout_properties: {grid_position: 'NJTYUR,QEPSNU'}
+- event_bindings: {click: button_home_click}
+  layout_properties: {grid_position: 'NJTYUR,QEPSNU'}
   name: button_home
   properties: {text: Home}
   type: Button

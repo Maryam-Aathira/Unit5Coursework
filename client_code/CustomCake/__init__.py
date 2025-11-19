@@ -12,6 +12,11 @@ class CustomCake(CustomCakeTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    item_list = []
+    for row in app_tables.tbldropdownoptions.search():
+      item_list.append((row["choice"], row))
+    self.frosting_flavour_dropdown.items = item_list
+
     # Any code you write here will run before the form opens.
 
   def home_click(self, **event_args):
@@ -19,7 +24,5 @@ class CustomCake(CustomCakeTemplate):
     pass
 
   def cake_type_dropdown_change(self, **event_args):
-    item_list = []
-    for row in app_tables.tbldropdownoptions.search():
-      item_list.append
     pass
+  

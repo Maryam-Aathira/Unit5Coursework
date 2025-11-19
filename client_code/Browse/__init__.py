@@ -43,6 +43,9 @@ class Browse(BrowseTemplate):
     anvil.server.call('add_standard_cake', 'Sponge Cake', '', 1, 'Buttercream', 'Chocolate Orange', 25.00, 8, 'Chocolate', 'Orange cream')
     pass
 
+  def button_home_click(self, **event_args):
+    open_form("Home")
+
 
     
 
