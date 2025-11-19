@@ -13,7 +13,7 @@ class CustomCake(CustomCakeTemplate):
     self.init_components(**properties)
 
     item_list = []
-    for row in app_tables.tbldropdownoptions.search():
+    for row in app_tables.tbldropdownoptions.search(category="frosting_flavour"):
       item_list.append((row["choice"], row))
     self.frosting_flavour_dropdown.items = item_list
 
