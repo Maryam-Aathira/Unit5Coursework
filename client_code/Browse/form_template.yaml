@@ -178,7 +178,7 @@ components:
     name: button_add_c_o
     properties: {role: outlined-button, text: Add to Order}
     type: Button
-  layout_properties: {grid_position: 'TCOCPQ,TPKGNT'}
+  layout_properties: {grid_position: 'YMKKGD,SRJYHJ'}
   name: grid_panel_1
   properties: {}
   type: GridPanel
