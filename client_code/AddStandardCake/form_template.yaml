@@ -2,24 +2,36 @@ components:
 - components:
   - layout_properties: {grid_position: 'VGKTLU,SLARRA'}
     name: CakeTitle
-    properties: {}
+    properties: {bold: false}
     type: Label
   - layout_properties: {grid_position: 'CZUASN,UZFYYH'}
     name: image_1
-    properties: {}
+    properties: {height: 259}
     type: Image
   - layout_properties: {grid_position: 'CZUASN,KBJYHH DBPISN,MPURPZ'}
     name: CakeSize
-    properties: {}
+    properties: {text: 'Single tier 6" - serves around 10 '}
     type: Label
   - layout_properties: {grid_position: 'CZUASN,KBJYHH HHLOGX,FMNICZ'}
-    name: CakeFlavour
+    name: cake_flavour
     properties: {}
     type: Label
   - layout_properties: {grid_position: 'CZUASN,KBJYHH UOFCDU,ZBFRYO'}
-    name: Price
+    name: price
     properties: {}
     type: Label
+  - layout_properties: {grid_position: 'CZUASN,KBJYHH ILVJSZ,ZTBXIX'}
+    name: cake_description
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'CZUASN,KBJYHH TVVUWR,KXBBNB'}
+    name: collection_date
+    properties: {}
+    type: DatePicker
+  - layout_properties: {grid_position: 'CZUASN,KBJYHH MPOMPE,YJDTXB'}
+    name: confirm_order_button
+    properties: {role: outlined-button, text: Confirm Order}
+    type: Button
   layout_properties: {slot: default}
   name: content_panel
   properties: {}

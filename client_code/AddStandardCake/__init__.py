@@ -19,6 +19,6 @@ class AddStandardCake(AddStandardCakeTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.CakeTitle.text = NameArray[CakeNo]
-    self.CakeFlavour.text = FlavourArray[CakeNo]
-    self.Price.text = PriceArray[CakeNo]
+    self.cake_flavour.text = FlavourArray[CakeNo]
+    self.price.text = PriceArray[CakeNo]
     # Any code you write here will run before the form opens.
