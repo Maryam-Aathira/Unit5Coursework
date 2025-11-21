@@ -6,12 +6,16 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-NameArray = ["Vanilla Cake","Chocolate Cake", "Salted Caramel Cake", "Lemon Cake", "Orange Cake", "Almond Cake", "Chocolate Orange Cake"]
-FlavourArray = ["Vanilla Sponge - Vanilla Buttercream Frosting", 
-                "Chocolate Sponge - Chocolate Ganache", "Vanilla Sponge - Salted Caramel Frosting"
-                , "Vanilla Sponge - Lemon Frosting", "Plain Sponge - Orange Frosting"
-                ,"Plain Sponge - Almond Frosting", "Chocolate Sponge - Chocolate Orange Frosting"]
+NameArray = ["Vanilla Cake","Chocolate Cake", "Salted Caramel Cake", "Lemon Cake", 
+             "Orange Cake", "Almond Cake", "Chocolate Orange Cake"]
+
+FlavourArray = ["Vanilla Sponge" , "Chocolate Sponge", "Vanilla Sponge", 
+              "Vanilla Sponge", "Plain Sponge", "Plain Sponge", "Chocolate Sponge"]
+
 PriceArray = ["£30","£30","£35","£30","£35","£25","£25"]
+
+FrostingArray = ["Vanilla", "Chocolate Ganache", "Salted Caramel", "Lemon", 
+                "Orange Flavoured", "Almond Flavoured", "Chocolate orange"]
 
 
 class AddStandardCake(AddStandardCakeTemplate):
@@ -19,22 +23,24 @@ class AddStandardCake(AddStandardCakeTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.CakeTitle.text = NameArray[CakeNo]
-    self.cake_flavour.text = FlavourArray[CakeNo]
+    self.sponge_flavour.text = FlavourArray[CakeNo]
+    self.frosting_flavour.text = FrostingArray[CakeNo]
     self.price.text = PriceArray[CakeNo]
     # Any code you write here will run before the form opens.
 
   def confirm_order_button_click(self, **event_args,):
     cake_type = "Sponge cake"
     occasion = "None"
-    sponge_flavour = self.cake_flavour.text
+    sponge_flavour = self.sponge_flavour.text
     no_of_tiers = 1
     frosting_type = "Buttercream"
-    frosting_flavour = ''
-    price = float(self.price.text)
+    frosting_flavour = self.frosting_flavour.text
+    price = float(self.price.text[1:5])
     serving_size = 10
     filling = "None"
     anvil.server.call('confirm_standard_order', cake_type, occasion, no_of_tiers, 
-                      frosting_type, frosting_flavour, price, serving_size, 
+                      frosting_type, frosting_flavour, price, 
+                      serving_size, 
                       sponge_flavour, filling)
 
   pass
