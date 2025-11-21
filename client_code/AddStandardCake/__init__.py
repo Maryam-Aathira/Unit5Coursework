@@ -35,7 +35,7 @@ class AddStandardCake(AddStandardCakeTemplate):
     no_of_tiers = 1
     frosting_type = "Buttercream"
     frosting_flavour = self.frosting_flavour.text
-    price = float(self.price.text[1:5])
+    price = float(self.price.text[1:])
     serving_size = 10
     filling = "None"
     anvil.server.call('confirm_standard_order', cake_type, occasion, no_of_tiers, 
