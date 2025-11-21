@@ -29,15 +29,14 @@ class AddStandardCake(AddStandardCakeTemplate):
     sponge_flavour = self.cake_flavour.text
     no_of_tiers = 1
     frosting_type = "Buttercream"
-    price = self.price.text
-    filling = "None"
+    frosting_flavour = ''
+    price = float(self.price.text)
     serving_size = 10
+    filling = "None"
     anvil.server.call('confirm_standard_order', cake_type, occasion, no_of_tiers, 
-                      frosting_type, price, 
-                      serving_size, sponge_flavour, filling,)
+                      frosting_type, frosting_flavour, price, serving_size, 
+                      sponge_flavour, filling)
 
-    
-    
   pass
 
   def view_orders_button_click(self, **event_args):
