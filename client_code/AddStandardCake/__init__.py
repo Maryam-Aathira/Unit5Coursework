@@ -40,8 +40,7 @@ class AddStandardCake(AddStandardCakeTemplate):
     filling = "None"
     anvil.server.call('confirm_standard_order', cake_type, occasion, no_of_tiers, 
                       frosting_type, frosting_flavour, price, 
-                      serving_size, 
-                      sponge_flavour, filling)
+                      serving_size, sponge_flavour, filling)
 
   pass
 

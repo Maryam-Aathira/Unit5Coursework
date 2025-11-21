@@ -27,13 +27,16 @@ def add_standard_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_
                                    sponge_flavour = sponge_flavour, filling = filling)
 
 @anvil.server.callable
-def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, serving_size, sponge_flavour, filling):
+def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, #price, 
+                    serving_size, sponge_flavour, filling, allergies, additional_details, inscription):
   anvil.users.get_user()
   app_tables.tblorderitems.add_row(cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 
                                    frosting_flavour = frosting_flavour, 
-                                   price = price, serving_size = serving_size, 
-                                   sponge_flavour = sponge_flavour, filling = filling)
+                                   #price = price, 
+                                   serving_size = serving_size, 
+                                   sponge_flavour = sponge_flavour, filling = filling, allergies = allergies, 
+                                   additional_details = additional_details, inscription = inscription)
 
 @anvil.server.callable
 def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type, 

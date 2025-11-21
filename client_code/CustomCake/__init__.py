@@ -51,8 +51,27 @@ class CustomCake(CustomCakeTemplate):
   def home_click(self, **event_args):
     open_form('Home')
     pass
-
   
   def cake_type_dropdown_change(self, **event_args):
+    pass
+
+  def add_to_order_button_click(self, **event_args):
+    cake_type = ""
+    occasion = "None"
+    sponge_flavour = ""
+    no_of_tiers = 1
+    frosting_type = "Buttercream"
+    frosting_flavour = ""
+    #price = float(self.price.text[1:])
+    serving_size = 10
+    filling = "None"
+    allergies = ""
+    inscription = ""
+    additional_details = ""
+    anvil.server.call("add_custom_cake", cake_type, occasion, no_of_tiers, 
+                      frosting_type, frosting_flavour, #price, 
+                      serving_size, 
+                      sponge_flavour, filling, allergies, additional_details, 
+                      inscription)
     pass
   
