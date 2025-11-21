@@ -22,3 +22,28 @@ class AddStandardCake(AddStandardCakeTemplate):
     self.cake_flavour.text = FlavourArray[CakeNo]
     self.price.text = PriceArray[CakeNo]
     # Any code you write here will run before the form opens.
+
+  def confirm_order_button_click(self, **event_args,):
+    cake_type = "Sponge cake"
+    occasion = "None"
+    sponge_flavour = self.cake_flavour.text
+    no_of_tiers = 1
+    frosting_type = "Buttercream"
+    price = self.price.text
+    filling = "None"
+    serving_size = 10
+    anvil.server.call('confirm_standard_order', cake_type, occasion, no_of_tiers, 
+                      frosting_type, price, 
+                      serving_size, sponge_flavour, filling,)
+
+    
+    
+  pass
+
+  def view_orders_button_click(self, **event_args):
+    
+    pass
+
+  def home_click(self, **event_args):
+    open_form('Home')
+    pass
