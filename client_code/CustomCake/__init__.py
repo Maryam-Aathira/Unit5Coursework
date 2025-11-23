@@ -68,14 +68,15 @@ class CustomCake(CustomCakeTemplate):
     no_of_tiers = int(self.no_of_tiers_dropdown.selected_value)
     frosting_type = self.frosting_type_dropdown.selected_value
     frosting_flavour = self.frosting_flavour_dropdown.selected_value
-    #price = float(self.price.text[1:])
+   # price = float(self.price.text[1:])
     serving_size = int(self.enter_serving_size.text)
     filling = self.filling_dropdown.selected_value
     allergies = self.enter_allergies.text
     inscription = self.enter_inscription.text
     additional_details = self.enter_additional_info.text
     anvil.server.call("add_custom_cake", cake_type, occasion, no_of_tiers, 
-                      frosting_type, frosting_flavour, #price, 
+                      frosting_type, frosting_flavour, 
+                      #price, 
                       serving_size, 
                       sponge_flavour, filling, allergies, additional_details, 
                       inscription)
