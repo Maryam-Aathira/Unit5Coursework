@@ -106,7 +106,7 @@ components:
     properties: {text: 'Additional details:'}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM LCFXXZ,HPTCJX'}
-    name: enter_any_other_info
+    name: enter_additional_info
     properties: {}
     type: TextArea
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM VVGFOK,BJCUME'}
