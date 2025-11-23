@@ -12,7 +12,7 @@ NameArray = ["Vanilla Cake","Chocolate Cake", "Salted Caramel Cake", "Lemon Cake
 FlavourArray = ["Vanilla Sponge" , "Chocolate Sponge", "Vanilla Sponge", 
               "Vanilla Sponge", "Plain Sponge", "Plain Sponge", "Chocolate Sponge"]
 
-PriceArray = ["£30","£30","£35","£30","£35","£25","£25"]
+PriceArray = ["£25","£25","£30","£25","£30","£20","£20"]
 
 FrostingArray = ["Vanilla", "Chocolate Ganache", "Salted Caramel", "Lemon", 
                 "Orange Flavoured", "Almond Flavoured", "Chocolate orange"]

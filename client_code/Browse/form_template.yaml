@@ -81,19 +81,19 @@ components:
     type: Label
   - layout_properties: {col_xs: 0, row: CXBWKY, width_xs: 3}
     name: vanilla_price
-    properties: {text: 'Price: £30.00'}
+    properties: {text: 'Price: £25.00'}
     type: Label
   - layout_properties: {col_xs: 3, row: CXBWKY, width_xs: 3}
     name: chocolate_price
-    properties: {text: 'Price: £30.00'}
+    properties: {text: 'Price: £25.00'}
     type: Label
   - layout_properties: {col_xs: 6, row: CXBWKY, width_xs: 3}
     name: salted_caramel_price
-    properties: {text: 'Price: £35.00'}
+    properties: {text: 'Price: £30.00'}
     type: Label
   - layout_properties: {col_xs: 9, row: CXBWKY, width_xs: 3}
     name: lemon_price
-    properties: {text: 'Price: £30.00'}
+    properties: {text: 'Price: £25.00'}
     type: Label
   - event_bindings: {click: button_add_v_click}
     layout_properties: {col_xs: 0, row: ETAICE, width_xs: 3}
@@ -153,15 +153,15 @@ components:
     type: Label
   - layout_properties: {col_xs: 0, row: FYVRNT, width_xs: 3}
     name: orange_price
-    properties: {text: 'Price: £35.00'}
+    properties: {text: 'Price: £30.00'}
     type: Label
   - layout_properties: {col_xs: 3, row: FYVRNT, width_xs: 3}
     name: almond_price
-    properties: {text: 'Price: £25.00'}
+    properties: {text: 'Price: £20.00'}
     type: Label
   - layout_properties: {col_xs: 6, row: FYVRNT, width_xs: 3}
     name: chocolate_orange_price
-    properties: {text: 'Price: £25.00'}
+    properties: {text: 'Price: £20.00'}
     type: Label
   - event_bindings: {click: button_add_o_click}
     layout_properties: {col_xs: 0, row: JGKFCF, width_xs: 3}
