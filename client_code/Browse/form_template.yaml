@@ -17,7 +17,8 @@ components:
   name: button_home
   properties: {text: Home}
   type: Button
-- layout_properties: {grid_position: 'NJTYUR,YAZALU'}
+- event_bindings: {click: button_view_orders_click}
+  layout_properties: {grid_position: 'NJTYUR,YAZALU'}
   name: button_view_orders
   properties: {text: View Orders}
   type: Button

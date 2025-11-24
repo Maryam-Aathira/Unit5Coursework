@@ -24,3 +24,7 @@ class Home(HomeTemplate):
   def create_button_click(self, **event_args):
     open_form("CustomCake")
     pass
+
+  def view_account_click(self, **event_args):
+    open_form('ViewAccount')
+    pass

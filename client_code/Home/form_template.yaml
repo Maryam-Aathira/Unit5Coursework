@@ -30,7 +30,8 @@ components:
     name: view_orders
     properties: {text: View Orders}
     type: Button
-  - layout_properties: {}
+  - event_bindings: {click: view_account_click}
+    layout_properties: {}
     name: view_account
     properties: {text: View Account}
     type: Button

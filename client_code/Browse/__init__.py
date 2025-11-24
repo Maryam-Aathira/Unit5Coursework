@@ -45,5 +45,9 @@ class Browse(BrowseTemplate):
   def button_home_click(self, **event_args):
     open_form("Home")
 
+  def button_view_orders_click(self, **event_args):
+    open_form("ViewOrders")
+    pass
+
 
     

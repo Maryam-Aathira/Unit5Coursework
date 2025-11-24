@@ -1,0 +1,27 @@
+components:
+- layout_properties: {slot: default}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+- components:
+  - layout_properties: {}
+    name: home_button
+    properties: {text: Home}
+    type: Button
+  - event_bindings: {click: view_order_button_click}
+    layout_properties: {}
+    name: view_order_button
+    properties: {text: View Orders}
+    type: Button
+  layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
+  name: view_account_title
+  properties: {text: Your Account}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

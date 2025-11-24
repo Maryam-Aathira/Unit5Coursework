@@ -45,7 +45,7 @@ class AddStandardCake(AddStandardCakeTemplate):
   pass
 
   def view_orders_button_click(self, **event_args):
-    
+    open_form("ViewOrders")
     pass
 
   def home_click(self, **event_args):

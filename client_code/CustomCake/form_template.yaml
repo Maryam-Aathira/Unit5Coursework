@@ -156,7 +156,8 @@ components:
     name: home
     properties: {text: Home}
     type: Button
-  - layout_properties: {}
+  - event_bindings: {click: view_orders_click}
+    layout_properties: {}
     name: view_orders
     properties: {text: View Orders}
     type: Button
