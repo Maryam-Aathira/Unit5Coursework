@@ -14,7 +14,7 @@ class Home(HomeTemplate):
     # Any code you write here will run before the form opens.
 
   def view_orders_click(self, **event_args):
-    """This method is called when the button is clicked"""
+    open_form('ViewOrders')
     pass
 
   def browse_button_click(self, **event_args):

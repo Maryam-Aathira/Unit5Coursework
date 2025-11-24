@@ -1,7 +1,35 @@
 components:
 - components:
+  - layout_properties: {grid_position: 'ZMMNBZ,AGKJJS'}
+    name: image_1
+    properties: {}
+    type: Image
+  - layout_properties: {grid_position: 'ZMMNBZ,XFVFHD QBNTGY,YDUZPV'}
+    name: label_2
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'ZMMNBZ,XFVFHD XGFMMV,PQGBSB'}
+    name: label_1
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'ZMMNBZ,XFVFHD ZCLMRI,ENSGXW'}
+    name: label_3
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'ZMMNBZ,PUIAFE'}
+    name: label_4
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'ZMMNBZ,EOBSGF JXZNGR,WPMXJU'}
+    name: button_1
+    properties: {text: button_1}
+    type: Button
+  - layout_properties: {grid_position: 'ZMMNBZ,EOBSGF COPWDU,MXOFAP'}
+    name: button_2
+    properties: {text: button_2}
+    type: Button
   - event_bindings: {click: confirm_order_click}
-    layout_properties: {grid_position: 'PNUWHQ,UXRZJV'}
+    layout_properties: {grid_position: 'WNAWYZ,TEYFDE'}
     name: confirm_order
     properties: {role: outlined-button, text: Confirm Order}
     type: Button

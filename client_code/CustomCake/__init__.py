@@ -162,6 +162,10 @@ class CustomCake(CustomCakeTemplate):
     self.reference_pic.source = file
     pass
 
+  def view_orders_click(self, **event_args):
+    open_form('ViewOrders')
+    pass
+
 
 
 
