@@ -13,6 +13,7 @@ class CustomCake(CustomCakeTemplate):
     self.init_components(**properties)
     self.calculated_price = 0.00
     self.calculate_price()
+   # self.reference_image.source
 
     # Sponge flavour dropdown
     item_list = []
@@ -115,8 +116,8 @@ class CustomCake(CustomCakeTemplate):
     elif frosting_type == "Fondant":
       price = price + 7.00
 
-    tiers = self.no_of_tiers_dropdown.selected_value
-    int(tiers or 1)
+    tiers = int(self.no_of_tiers_dropdown.selected_value or 1)
+    #int(tiers)
     if tiers == 1:
       price = price + 0.00
     if tiers == 2:
@@ -149,11 +150,16 @@ class CustomCake(CustomCakeTemplate):
     allergies = self.enter_allergies.text
     inscription = self.enter_inscription.text
     additional_details = self.enter_additional_info.text
+    image = self.reference_pic.source
     anvil.server.call("add_custom_cake", cake_type, occasion, no_of_tiers, 
                       frosting_type, frosting_flavour, 
                       price, serving_size, 
                       sponge_flavour, filling, allergies, additional_details, 
-                      inscription)
+                      inscription, image)
+    pass
+
+  def upload_image_change(self, file, **event_args):
+    self.reference_pic.source = file
     pass
 
 

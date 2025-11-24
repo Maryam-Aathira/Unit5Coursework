@@ -73,12 +73,12 @@ components:
     name: other_occasion
     properties: {}
     type: TextBox
-  - layout_properties: {grid_position: 'AVCHEA,RBYJAM GJRFTB,HFDFTR'}
+  - layout_properties: {grid_position: 'AVCHEA,LJMEVW ZEPZJP,QPPDWF'}
     name: serving_size_label
     properties: {text: 'Serving size:'}
     type: Label
   - event_bindings: {pressed_enter: enter_serving_size_pressed_enter}
-    layout_properties: {grid_position: 'AVCHEA,RBYJAM OYGZOG,FYYMHW'}
+    layout_properties: {grid_position: 'AVCHEA,LJMEVW SLIGHZ,GEVVVH'}
     name: enter_serving_size
     properties: {}
     type: TextBox
@@ -128,7 +128,12 @@ components:
     name: upload_image_label
     properties: {text: 'Upload any reference image:'}
     type: Label
-  - layout_properties: {grid_position: 'AVCHEA,RBYJAM IVSVCQ,MXWULF'}
+  - layout_properties: {grid_position: 'AVCHEA,RBYJAM CKQLVD,ZVTIPZ'}
+    name: reference_pic
+    properties: {display_mode: original_size}
+    type: Image
+  - event_bindings: {change: upload_image_change}
+    layout_properties: {grid_position: 'AVCHEA,RBYJAM IVSVCQ,MXWULF'}
     name: upload_image
     properties: {}
     type: FileLoader
