@@ -12,6 +12,7 @@ class CustomCake(CustomCakeTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.calculated_price = 0.00
+    self.calculate_price()
 
     # Sponge flavour dropdown
     item_list = []
@@ -108,7 +109,7 @@ class CustomCake(CustomCakeTemplate):
     elif frosting_flavour == "Salted Caramel" or frosting_flavour == "Almond":
       price = price + 10.00
 
-    frosting_type = self.frosting_flavour_dropdown.selected_value
+    frosting_type = self.frosting_type_dropdown.selected_value
     if frosting_type == "Buttercream":
       price = price + 3.00
     elif frosting_type == "Fondant":
@@ -128,7 +129,7 @@ class CustomCake(CustomCakeTemplate):
       price = price + 120.00
     
     inscription = self.enter_inscription.text
-    if inscription != "" or inscription != "":
+    if inscription != "" or inscription != " ":
       price = price + 2.00
 
     self.price_label.text = "£" + str(price)
