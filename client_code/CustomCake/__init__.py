@@ -13,22 +13,21 @@ class CustomCake(CustomCakeTemplate):
     self.init_components(**properties)
     self.calculated_price = 0.00
     self.calculate_price()
-    self.current_order = []
-   # self.reference_image.source
+    # self.reference_image.source
 
     # Sponge flavour dropdown
     item_list = []
     for row in app_tables.tbldropdownoptions.search(category="sponge_flavour"):
       item_list.append(row["choice"])
     self.sponge_flavour_dropdown.items = item_list
-    
-  
+
+
     # Frosting Flavour dropdown 
     item_list = []
     for row in app_tables.tbldropdownoptions.search(category="frosting_flavour"):
       item_list.append(row["choice"])
     self.frosting_flavour_dropdown.items = item_list
-    
+
     item_list = []
     for row in app_tables.tbldropdownoptions.search(category="cake_type"):
       item_list.append(row["choice"])
@@ -129,7 +128,7 @@ class CustomCake(CustomCakeTemplate):
       price = price + 75.00
     if tiers == 5:
       price = price + 120.00
-    
+
     inscription = self.enter_inscription.text
     if inscription != "" or inscription != " ":
       price = price + 2.00
@@ -139,65 +138,29 @@ class CustomCake(CustomCakeTemplate):
     pass
 
   def add_to_order_button_click(self, **event_args):
-    # Dictionary to temporarily store the cake order into the list
-    # This is only added to the database when the customer confirms their order
-    custom_cake = { "cake_type" : self.cake_type_dropdown.selected_value,
-     "occasion" : self.occasion_dropdown.selected_value,
-     "sponge_flavour" : self.sponge_flavour_dropdown.selected_value,
-     "no_of_tiers" : int(self.no_of_tiers_dropdown.selected_value or 1),
-     "frosting_type" : self.frosting_type_dropdown.selected_value,
-     "frosting_flavour" : self.frosting_flavour_dropdown.selected_value,
-     "price" : self.calculated_price,
-     "serving_size" : int(self.enter_serving_size.text or 1),
-     "filling" : self.filling_dropdown.selected_value,
-     "allergies" : self.enter_allergies.text,
-     "inscription" : self.enter_inscription.text,
-     "additional_details" : self.enter_additional_info.text,
-     "image" : self.reference_pic.source
-      
-    }
-    self.current_order.append(custom_cake)
-    
-
-
-
-
-    
-   # cake_type = self.cake_type_dropdown.selected_value
-   # occasion = self.occasion_dropdown.selected_value
-   # sponge_flavour =  self.sponge_flavour_dropdown.selected_value
-   # no_of_tiers = int(self.no_of_tiers_dropdown.selected_value or 1)
-   # frosting_type = self.frosting_type_dropdown.selected_value
-   # frosting_flavour = self.frosting_flavour_dropdown.selected_value
-   # price = self.calculated_price
-   # serving_size = int(self.enter_serving_size.text or 1)
-   # filling = self.filling_dropdown.selected_value
-   # allergies = self.enter_allergies.text
-   # inscription = self.enter_inscription.text
-   # additional_details = self.enter_additional_info.text
-   # image = self.reference_pic.source
-   # anvil.server.call("add_custom_cake", cake_type, occasion, no_of_tiers, 
-     #                 frosting_type, frosting_flavour, 
-      #                price, serving_size, 
-       #               sponge_flavour, filling, allergies, additional_details, 
-        #              inscription, image)
-    #pass
+    cake_type = self.cake_type_dropdown.selected_value
+    occasion = self.occasion_dropdown.selected_value
+    sponge_flavour =  self.sponge_flavour_dropdown.selected_value
+    no_of_tiers = int(self.no_of_tiers_dropdown.selected_value or 1)
+    frosting_type = self.frosting_type_dropdown.selected_value
+    frosting_flavour = self.frosting_flavour_dropdown.selected_value
+    price = self.calculated_price
+    serving_size = int(self.enter_serving_size.text or 1)
+    filling = self.filling_dropdown.selected_value
+    allergies = self.enter_allergies.text
+    inscription = self.enter_inscription.text
+    additional_details = self.enter_additional_info.text
+    image = self.reference_pic.source
+    anvil.server.call("add_custom_cake", cake_type, occasion, no_of_tiers, 
+                      frosting_type, frosting_flavour, 
+                      price, serving_size, 
+                      sponge_flavour, filling, allergies, additional_details, 
+                      inscription, image)
+    pass
 
   def upload_image_change(self, file, **event_args):
     self.reference_pic.source = file
     pass
-
-  # Navigate between pages
-  def view_orders_click(self, **event_args):
-    open_form("ViewOrders")
-    pass
-
-  def view_account_click(self, **event_args):
-    open_form('ViewAccount')
-    pass
-
-
-
 
 
 
