@@ -139,7 +139,6 @@ class CustomCake(CustomCakeTemplate):
     pass
 
   def add_to_order_button_click(self, **event_args):
-    self.current_order = []
     # Dictionary to temporarily store the cake order into the list
     # This is only added to the database when the customer confirms their order
     custom_cake = { "cake_type" : self.cake_type_dropdown.selected_value,
