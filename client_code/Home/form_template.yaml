@@ -25,6 +25,11 @@ components:
   properties: {}
   type: ColumnPanel
 - components:
+  - event_bindings: {click: login_button_click}
+    layout_properties: {}
+    name: login_button
+    properties: {text: Login}
+    type: Button
   - event_bindings: {click: view_orders_click}
     layout_properties: {}
     name: view_orders

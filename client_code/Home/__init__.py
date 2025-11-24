@@ -28,3 +28,7 @@ class Home(HomeTemplate):
   def view_account_click(self, **event_args):
     open_form('ViewAccount')
     pass
+
+  def login_button_click(self, **event_args):
+    open_form('Login')
+    pass

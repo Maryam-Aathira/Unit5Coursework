@@ -13,3 +13,7 @@ class CustomerLogin(CustomerLoginTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def sign_in_button_click(self, **event_args):
+    app_tables.Users.add_row(email = self.email.text)
+    pass

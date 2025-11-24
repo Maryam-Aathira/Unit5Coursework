@@ -17,12 +17,13 @@ components:
     properties: {}
     type: TextBox
   - layout_properties: {grid_position: 'FFQQRF,JHABPC'}
-    name: button_1
-    properties: {text: button_1}
+    name: back_button
+    properties: {text: Back}
     type: Button
-  - layout_properties: {grid_position: 'FFQQRF,WSGBNG'}
-    name: button_2
-    properties: {text: button_2}
+  - event_bindings: {click: sign_in_button_click}
+    layout_properties: {grid_position: 'FFQQRF,WSGBNG'}
+    name: sign_in_button
+    properties: {text: 'Sign in '}
     type: Button
   - layout_properties: {grid_position: 'FFQQRF,NZHWTT'}
     name: button_3
