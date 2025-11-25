@@ -10,7 +10,8 @@ components:
     name: employee_login_button
     properties: {role: outlined-button, text: Employee Login}
     type: Button
-  - layout_properties: {grid_position: 'NXUZNQ,VCBJCU'}
+  - event_bindings: {click: manager_login_button_click}
+    layout_properties: {grid_position: 'NXUZNQ,VCBJCU'}
     name: manager_login_button
     properties: {role: outlined-button, text: 'Manager Login '}
     type: Button

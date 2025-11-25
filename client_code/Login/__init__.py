@@ -21,3 +21,7 @@ class Login(LoginTemplate):
   def customer_login_button_click(self, **event_args):
     open_form('CustomerLogin')
     pass
+
+  def manager_login_button_click(self, **event_args):
+    open_form('ManagerDashboard')
+    pass

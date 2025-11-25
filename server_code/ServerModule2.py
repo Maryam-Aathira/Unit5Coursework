@@ -31,8 +31,8 @@ def add_standard_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_
 def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, 
                     serving_size, sponge_flavour, filling, allergies, additional_details, inscription, 
                     reference_image):
-  anvil.users.get_user()
-  app_tables.tblorderitems.add_row(cake_type = cake_type, occasion = occasion, 
+  user = anvil.users.get_user()
+  app_tables.tblorderitems.add_row(user = user, cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 
                                    frosting_flavour = frosting_flavour, 
                                    price = price, 
