@@ -58,3 +58,9 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
                                    frosting_flavour = frosting_flavour, 
                                    price = price, serving_size = serving_size, 
                                    sponge_flavour = sponge_flavour, filling = filling)
+
+@anvil.server.callable
+def retrieve_orders():
+  user = anvil.users.get_user()
+  return app_tables.tblorders.search(user = user)
+ # print(temp)
