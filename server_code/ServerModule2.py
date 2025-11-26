@@ -3,6 +3,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import anvil.users
+import datetime
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -31,8 +32,13 @@ def add_standard_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_
 def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, 
                     serving_size, sponge_flavour, filling, allergies, additional_details, inscription, 
                     reference_image):
-  customer = anvil.users.get_user()
-  app_tables.tblorderitems.add_row(customer = customer, 
+  user = anvil.users.get_user()
+  order = app_tables.tblorders.add_row(user = user, 
+                                      date_of_order = datetime.datetime.now(),
+                                      #collection_date = collection_date,
+                                      order_status = "Pending",
+                                      total_price = price)
+  app_tables.tblorderitems.add_row(order = order, 
                                    cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 
                                    frosting_flavour = frosting_flavour, 

@@ -129,7 +129,7 @@ components:
     properties: {text: 'Upload any reference image:'}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM CKQLVD,ZVTIPZ'}
-    name: reference_pic
+    name: reference_image
     properties: {display_mode: original_size}
     type: Image
   - event_bindings: {change: upload_image_change}

@@ -150,16 +150,16 @@ class CustomCake(CustomCakeTemplate):
     allergies = self.enter_allergies.text
     inscription = self.enter_inscription.text
     additional_details = self.enter_additional_info.text
-    image = self.reference_pic.source
+    reference_image = self.reference_image.source or None
     anvil.server.call("add_custom_cake", cake_type, occasion, no_of_tiers, 
                       frosting_type, frosting_flavour, 
                       price, serving_size, 
                       sponge_flavour, filling, allergies, additional_details, 
-                      inscription, image)
+                      inscription, reference_image)
     pass
 
   def upload_image_change(self, file, **event_args):
-    self.reference_pic.source = file
+    self.reference_image.source = file
     pass
 
   def view_orders_click(self, **event_args):
