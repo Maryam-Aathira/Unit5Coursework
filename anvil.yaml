@@ -112,14 +112,15 @@ db_schema:
     - admin_ui: {order: 5, width: 200}
       name: total_price
       type: number
+    - admin_ui: {order: 0.5, width: 200}
+      name: cust_ID
+      target: users
+      type: link_single
     server: full
     title: tblOrders
   tblstaff:
     client: none
     columns:
-    - admin_ui: {order: 0, width: 200}
-      name: staff_ID
-      type: string
     - admin_ui: {order: 1, width: 200}
       name: firstname
       type: string
@@ -132,6 +133,10 @@ db_schema:
     - admin_ui: {order: 4, width: 200}
       name: role
       type: string
+    - admin_ui: {order: -1, width: 200}
+      name: staff_ID
+      target: users
+      type: link_single
     server: full
     title: tblStaff
   tblunavailability:
