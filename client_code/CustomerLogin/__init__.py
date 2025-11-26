@@ -14,6 +14,10 @@ class CustomerLogin(CustomerLoginTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def sign_in_button_click(self, **event_args):
-    app_tables.Users.add_row(email = self.email.text)
+#  def sign_in_button_click(self, **event_args):
+   # if 
+    #pass
+
+  def create_account_button_click(self, **event_args):
+    app_tables.users.add_row(email = self.email.text)
     pass

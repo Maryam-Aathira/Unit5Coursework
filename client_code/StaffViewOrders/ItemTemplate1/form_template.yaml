@@ -1,0 +1,6 @@
+components: []
+container:
+  event_bindings: {refreshing_data_bindings: form_refreshing_data_bindings}
+  properties: {visible: true}
+  type: ColumnPanel
+is_package: true

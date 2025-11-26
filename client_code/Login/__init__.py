@@ -14,8 +14,8 @@ class Login(LoginTemplate):
 
     # Any code you write here will run before the form opens.
 
-  def employee_login_button_click(self, **event_args):
-    """This method is called when the button is clicked"""
+  def staff_login_button_click(self, **event_args):
+    open_form('StaffLogin')
     pass
 
   def customer_login_button_click(self, **event_args):

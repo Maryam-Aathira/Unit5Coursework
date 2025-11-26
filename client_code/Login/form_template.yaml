@@ -5,15 +5,10 @@ components:
     name: customer_login_button
     properties: {role: outlined-button, text: Customer Login}
     type: Button
-  - event_bindings: {click: employee_login_button_click}
+  - event_bindings: {click: staff_login_button_click}
     layout_properties: {grid_position: 'ORGOEI,HIDTKD'}
-    name: employee_login_button
-    properties: {role: outlined-button, text: Employee Login}
-    type: Button
-  - event_bindings: {click: manager_login_button_click}
-    layout_properties: {grid_position: 'NXUZNQ,VCBJCU'}
-    name: manager_login_button
-    properties: {role: outlined-button, text: 'Manager Login '}
+    name: staff_login_button
+    properties: {role: outlined-button, text: Staff Login}
     type: Button
   layout_properties: {slot: default}
   name: content_panel

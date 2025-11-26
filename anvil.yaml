@@ -84,6 +84,10 @@ db_schema:
     - admin_ui: {order: 15, width: 200}
       name: reference_image
       type: media
+    - admin_ui: {order: 2.25, width: 200}
+      name: customer
+      target: users
+      type: link_single
     server: full
     title: tblOrderItems
   tblorders:
@@ -174,6 +178,9 @@ db_schema:
       type: string
     - admin_ui: {order: -0.5, width: 200}
       name: surname
+      type: string
+    - admin_ui: {order: -2, width: 200}
+      name: user_ID
       type: string
     server: full
     title: Users

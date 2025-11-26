@@ -163,8 +163,13 @@ class CustomCake(CustomCakeTemplate):
     pass
 
   def view_orders_click(self, **event_args):
-    open_form('ViewOrders')
+    open_form("ViewOrders")
     pass
+
+  def view_account_click(self, **event_args):
+    open_form("ViewAccount")
+    pass
+
 
 
 

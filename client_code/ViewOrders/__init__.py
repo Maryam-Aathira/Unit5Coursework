@@ -11,7 +11,7 @@ class ViewOrders(ViewOrdersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.current_order = []
-    user = anvil.users.get_user()
+   # user = anvil.users.get_user()
     
 
     # Any code you write here will run before the form opens.
