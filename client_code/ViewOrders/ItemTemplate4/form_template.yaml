@@ -1,0 +1,19 @@
+components:
+- layout_properties: {grid_position: 'JWOIZT,MCPIYU'}
+  name: order_id_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'ZEZUHX,WWFVPF'}
+  name: date_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'FEESSA,TQQNKI'}
+  name: status_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'FRNMPE,PHIWMW'}
+  name: price_label
+  properties: {}
+  type: Label
+container: {type: ColumnPanel}
+is_package: true

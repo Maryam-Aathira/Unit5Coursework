@@ -1,21 +1,27 @@
 components:
 - components:
-  - layout_properties: {grid_position: 'AQTMOM,SQSQEX'}
+  - layout_properties: {grid_position: 'QKQORP,LYTELM'}
+    name: order_panel
+    properties: {item_template: ViewOrders.ItemTemplate4}
+    type: RepeatingPanel
+  - data_bindings:
+    - {code: 'self.item[''order_id'']', property: text, writeback: false}
+    layout_properties: {grid_position: 'RDVLLW,UUKOEP'}
     name: order_id_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'FVOPTZ,MNADYJ'}
+  - data_bindings:
+    - {code: 'self.item[''date_of_order'']', property: text, writeback: false}
+    layout_properties: {grid_position: 'ABPKHX,UAKRSP'}
     name: date_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'KPSEHY,GIBKDS'}
+  - data_bindings:
+    - {code: 'self.item[''order_status'']', property: text, writeback: false}
+    layout_properties: {grid_position: 'QRQQHR,EATXEQ'}
     name: status_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'ZMYBCE,DIWGFG'}
-    name: order_panel
-    properties: {item_template: ViewOrders.ItemTemplate2}
-    type: RepeatingPanel
   - layout_properties: {grid_position: 'ZMMNBZ,AGKJJS'}
     name: image_1
     properties: {}

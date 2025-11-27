@@ -11,20 +11,33 @@ class ViewOrders(ViewOrdersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     
-    self.order_id_label.text = self.item["order"]
-    self.date_label.text = str(self.item["date_of_order"])
-    self.status_label.text = str(self.item["order_status"])
+    #self.order_id_label.text = self.item["order"]
+   # self.date_label.text = str(self.item["date_of_order"])
+    #self.status_label.text = str(self.item["order_status"])
 
     
     self.current_order = []
     self.get_orders()
 
+   # orders = anvil.server.call('retrieve_orders')
+    #self.order_panel = orders
+
+
+
+    
+#class OrderPanel(OrderPanelTemplate):
+ # def __init__(self, **properties):
+     #Set Form properties and Data Bindings.
+  #   self.init_components(**properties)
+   #  self.date_label.text = str(self.item["date_of_order"])
+    # self.status_label.text = str(self.item["order_status"])
+    
 
   def get_orders(self):
     user = anvil.users.get_user()
     all_customer_orders = anvil.server.call("retrieve_orders")
     self.order_panel.items = all_customer_orders
-   # user = anvil.users.get_user()
+   
     
 
     # Any code you write here will run before the form opens.
