@@ -7,10 +7,11 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
-class OrderTemplate(OrderTemplate):
+class OrderTemplate(OrderTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.date_label.text = str(self.item["date_of_order"])
-    self.status_label.text = str(self.item["order_status"])
+    self.date_label.text = "Date of Order: " + str(self.item["date_of_order"])
+    self.status_label.text = "Order Status: " + str(self.item["order_status"])
+    self.price_label.text = "£" + str(self.item["total_price"])
     # Any code you write here will run before the form opens.
