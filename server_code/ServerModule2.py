@@ -37,7 +37,7 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
                                       date_of_order = datetime.datetime.now(),
                                       collection_date = collection_date,
                                       order_status = "Pending",
-                                      total_price = price)
+                                      total_price = 0)
   app_tables.tblorderitems.add_row(order = order, 
                                    cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 

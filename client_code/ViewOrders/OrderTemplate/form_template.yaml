@@ -19,5 +19,9 @@ components:
   name: price_label
   properties: {}
   type: Label
+- layout_properties: {grid_position: 'FEZKGJ,TGTUIU'}
+  name: break_label
+  properties: {}
+  type: Label
 container: {type: ColumnPanel}
 is_package: true
