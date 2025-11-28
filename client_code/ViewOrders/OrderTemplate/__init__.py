@@ -11,6 +11,7 @@ class OrderTemplate(OrderTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.cake_name_label = "Cake: " + str(self.item["cake_type"]) + str(self.item["sponge_flavour"])
     self.date_label.text = "Date of Order: " + str(self.item["date_of_order"])
     self.status_label.text = "Order Status: " + str(self.item["order_status"])
     self.price_label.text = "£" + str(self.item["total_price"])

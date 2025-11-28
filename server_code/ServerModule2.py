@@ -31,11 +31,11 @@ def add_standard_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_
 @anvil.server.callable
 def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, 
                     serving_size, sponge_flavour, filling, allergies, additional_details, inscription, 
-                    reference_image):
+                    reference_image, collection_date):
   user = anvil.users.get_user()
   order = app_tables.tblorders.add_row(user = user, 
                                       date_of_order = datetime.datetime.now(),
-                                      #collection_date = collection_date,
+                                      collection_date = collection_date,
                                       order_status = "Pending",
                                       total_price = price)
   app_tables.tblorderitems.add_row(order = order, 

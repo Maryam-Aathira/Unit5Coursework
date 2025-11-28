@@ -151,11 +151,12 @@ class CustomCake(CustomCakeTemplate):
     inscription = self.enter_inscription.text
     additional_details = self.enter_additional_info.text
     reference_image = self.reference_image.source or None
+    collection_date = self.collection_date_picker.date
     anvil.server.call("add_custom_cake", cake_type, occasion, no_of_tiers, 
                       frosting_type, frosting_flavour, 
                       price, serving_size, 
                       sponge_flavour, filling, allergies, additional_details, 
-                      inscription, reference_image)
+                      inscription, reference_image, collection_date)
     pass
 
   def upload_image_change(self, file, **event_args):

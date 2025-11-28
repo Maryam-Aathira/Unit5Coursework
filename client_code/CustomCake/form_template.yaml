@@ -121,7 +121,7 @@ components:
     properties: {text: 'Collection Date:'}
     type: Label
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM CYNRMP,ZTDZNQ'}
-    name: date_picker_1
+    name: collection_date_picker
     properties: {}
     type: DatePicker
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM CQJHZA,VAMRRY'}
