@@ -22,34 +22,6 @@ components:
     name: status_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'ZMMNBZ,AGKJJS'}
-    name: image_1
-    properties: {}
-    type: Image
-  - layout_properties: {grid_position: 'ZMMNBZ,XFVFHD QBNTGY,YDUZPV'}
-    name: label_2
-    properties: {}
-    type: Label
-  - layout_properties: {grid_position: 'ZMMNBZ,XFVFHD XGFMMV,PQGBSB'}
-    name: label_1
-    properties: {}
-    type: Label
-  - layout_properties: {grid_position: 'ZMMNBZ,XFVFHD ZCLMRI,ENSGXW'}
-    name: label_3
-    properties: {}
-    type: Label
-  - layout_properties: {grid_position: 'ZMMNBZ,PUIAFE'}
-    name: label_4
-    properties: {}
-    type: Label
-  - layout_properties: {grid_position: 'ZMMNBZ,EOBSGF JXZNGR,WPMXJU'}
-    name: edit_order_button
-    properties: {text: Edit Order}
-    type: Button
-  - layout_properties: {grid_position: 'ZMMNBZ,EOBSGF COPWDU,MXOFAP'}
-    name: cancel_order_button
-    properties: {text: Cancel Order}
-    type: Button
   layout_properties: {slot: default}
   name: content_panel
   properties: {}
