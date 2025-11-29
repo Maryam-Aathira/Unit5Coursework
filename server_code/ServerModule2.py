@@ -39,7 +39,8 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
                                       order_status = "Pending",
                                       total_price = 0)
   
-  app_tables.tblorderitems.add_row(order = order, 
+  app_tables.tblorderitems.add_row(#user = user,
+                                   order = order, 
                                    cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 
                                    frosting_flavour = frosting_flavour, 
@@ -54,18 +55,53 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
   for cake in cakes:
     total_price = total_price + cake["price"]
   order["total_price"] = total_price
+
+#@anvil.server.callable
+#def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
+ #                          frosting_flavour, price, serving_size,
+  #                         sponge_flavour, filling, collection_date):
+
+  #user = anvil.users.get_user()
+  #order = app_tables.tblorders.add_row(user = user, 
+   #                                    date_of_order = datetime.datetime.now(),
+    #                                   collection_date = collection_date,
+     #                                  order_status = "Pending",
+      #                                 total_price = 0)
+
+#  app_tables.tblorderitems.add_row(
+ #   order = order,
+  #  user=user,
+#    cake_type=cake_type,
+ #   occasion=occasion,
+  #  no_of_tiers=no_of_tiers,
+   # frosting_type=frosting_type,
+    #frosting_flavour=frosting_flavour,
+#    price=price,
+ #   serving_size=serving_size,
+  #  sponge_flavour=sponge_flavour,
+   # filling=filling,
+    #collection_date=collection_date,
+    #order_status="Pending"
+ # )
+
   
 @anvil.server.callable
 def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type, 
                            frosting_flavour, price,
                            serving_size, sponge_flavour, filling, collection_date):
   user = anvil.users.get_user()
-  app_tables.tblorderitems.add_row(cake_type = cake_type, occasion = occasion, 
+  
+  order = app_tables.tblorders.add_row(user = user, 
+                                       date_of_order = datetime.datetime.now(),
+                                       collection_date = collection_date,
+                                       order_status = "Pending",
+                                       total_price = 0)
+  
+  app_tables.tblorderitems.add_row(order = order, cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 
                                    frosting_flavour = frosting_flavour, 
                                    price = price, serving_size = serving_size, 
-                                   sponge_flavour = sponge_flavour, filling = filling, 
-                                   user = user)
+                                   sponge_flavour = sponge_flavour, filling = filling,)
   
 @anvil.server.callable
 def retrieve_orders():
