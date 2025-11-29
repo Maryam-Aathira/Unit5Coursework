@@ -19,9 +19,15 @@ components:
   name: price_label
   properties: {}
   type: Label
-- layout_properties: {grid_position: 'FITIBQ,MUBVHS'}
+- event_bindings: {click: cancel_order_button_click}
+  layout_properties: {grid_position: 'FITIBQ,MUBVHS YEFHIG,RPYUDN'}
   name: cancel_order_button
   properties: {text: Cancel Order}
+  type: Button
+- event_bindings: {click: remove_order_button_click}
+  layout_properties: {grid_position: 'FITIBQ,MUBVHS DXGDJE,HWKZCV'}
+  name: remove_order_button
+  properties: {text: Remove from order list}
   type: Button
 - layout_properties: {grid_position: 'FITIBQ,JLOTUH'}
   name: order_spacer

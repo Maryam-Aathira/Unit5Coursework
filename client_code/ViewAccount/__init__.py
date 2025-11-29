@@ -17,3 +17,7 @@ class ViewAccount(ViewAccountTemplate):
   def view_order_button_click(self, **event_args):
     open_form("ViewOrders")
     pass
+
+  def home_button_click(self, **event_args):
+    open_form("Home")
+    pass

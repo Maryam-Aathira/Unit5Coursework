@@ -20,4 +20,22 @@ class OrderTemplate(OrderTemplateTemplate):
     # Need to get price from tblOrderItems
     self.price_label.text = "£" + str(self.item["total_price"])
     self.break_label.text = "-----------------------------------------------------------------------------------"
+    self.remove_order_button.visible = False
+
     # Any code you write here will run before the form opens.
+
+  def cancel_order_button_click(self, **event_args):
+    anvil.server.call('cancel_order', self.item)
+    self.status_label.text = "Order Status: " + str(self.item["order_status"])
+    self.remove_order_button.visible = True
+    pass
+
+  def remove_order_button_click(self, **event_args):
+    self.date_label.text = ""
+    self.status_label.text = ""
+# Need to get price from tblOrderItems
+    self.price_label.text = ""
+    self.break_label.text = ""
+    self.remove_order_button.visible = False
+    self.cancel_order_button.visible = False
+  pass
