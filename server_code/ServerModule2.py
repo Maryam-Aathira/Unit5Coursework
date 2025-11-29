@@ -102,6 +102,12 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
                                    frosting_flavour = frosting_flavour, 
                                    price = price, serving_size = serving_size, 
                                    sponge_flavour = sponge_flavour, filling = filling,)
+
+  cakes = app_tables.tblorderitems.search(order = order)
+  total_price = 0
+  for cake in cakes:
+    total_price = total_price + cake["price"]
+  order["total_price"] = total_price
   
 @anvil.server.callable
 def retrieve_orders():
