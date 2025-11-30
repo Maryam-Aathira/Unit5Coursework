@@ -29,7 +29,7 @@ components:
   properties: {}
   type: FlowPanel
 - layout_properties: {slot: title}
-  name: manager_title
+  name: dashboard_title
   properties: {text: Manager Dashboard}
   type: Label
 container:

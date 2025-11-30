@@ -100,6 +100,15 @@ class CustomCake(CustomCakeTemplate):
     self.calculate_price()
     pass
 
+  def occasion_dropdown_change(self, **event_args):
+    occasion = self.occasion_dropdown.selected_value
+    if occasion != "Other":
+      self.other_occasion.visible = False
+      self.other_occasion.text = ""
+    else:
+      self.other_occasion.visible = True
+    pass
+
   def enter_serving_size_pressed_enter(self, **event_args):
     self.calculate_price()
     pass
@@ -205,6 +214,7 @@ class CustomCake(CustomCakeTemplate):
   def view_account_click(self, **event_args):
     open_form("ViewAccount")
     pass
+
 
 
 

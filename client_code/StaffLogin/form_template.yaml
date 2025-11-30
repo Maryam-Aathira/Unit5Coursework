@@ -5,7 +5,8 @@ components:
     name: employee_radio_button
     properties: {text: Employee}
     type: RadioButton
-  - layout_properties: {grid_position: 'GCJYNL,KNGPLQ'}
+  - event_bindings: {clicked: manager_radio_button_clicked}
+    layout_properties: {grid_position: 'GCJYNL,KNGPLQ'}
     name: manager_radio_button
     properties: {text: Manager}
     type: RadioButton
@@ -25,7 +26,8 @@ components:
     name: password_textbox
     properties: {}
     type: TextBox
-  - layout_properties: {grid_position: 'TKJOYC,PWUXAL'}
+  - event_bindings: {click: back_button_click}
+    layout_properties: {grid_position: 'TKJOYC,PWUXAL'}
     name: back_button
     properties: {text: Back}
     type: Button
