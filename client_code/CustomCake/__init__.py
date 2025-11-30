@@ -15,6 +15,12 @@ class CustomCake(CustomCakeTemplate):
     self.calculate_price()
     # self.reference_image.source
 
+    # Makes the additional boxes unseen initially.  
+    self.other_frosting.visible = False
+    self.other_filling.visible = False
+    self.other_occasion.visible = False
+    
+
     # Sponge flavour dropdown
     item_list = []
     for row in app_tables.tbldropdownoptions.search(category="sponge_flavour"):
@@ -67,6 +73,12 @@ class CustomCake(CustomCakeTemplate):
     pass
 
   def filling_dropdown_change(self, **event_args):
+    filling = self.filling_dropdown.selected_value
+    if filling != "Other":
+      self.other_filling.visible = False
+      self.other_filling.text = ""
+    else:
+      self.other_filling.visible = True
     self.calculate_price()
     pass
 
@@ -79,6 +91,12 @@ class CustomCake(CustomCakeTemplate):
     pass
 
   def frosting_flavour_dropdown_change(self, **event_args):
+    frosting_flavour = self.frosting_type_dropdown.selected_value
+    if frosting_flavour != "Other":
+      self.other_frosting.visible = False
+      self.other_frosting.text = ""
+    else:
+      self.other_frosting.visible = True
     self.calculate_price()
     pass
 
@@ -96,19 +114,30 @@ class CustomCake(CustomCakeTemplate):
 
 
 
-
-
-
   # Calculated the cost of each cake
   def calculate_price(self, **event_args):
+    # Starting price of a plain one tier cake
     price = 20.00
 
+    # Increases the price if the filling isn't a standard one
+    filling = self.filling_dropdown.selected_value
+    if filling == "Other":
+      self.other_filling.visible = True
+      price = price + 5.00
+
+      
     # Gets the frosting flavour from the dropdown and sets this as a new variable to compare for price
     frosting_flavour = self.frosting_flavour_dropdown.selected_value
     if frosting_flavour == "Vanilla" or frosting_flavour == "Chocolate" or frosting_flavour == "Lemon":
       price = price + 5.00
     elif frosting_flavour == "Salted Caramel" or frosting_flavour == "Almond":
       price = price + 10.00
+    if frosting_flavour == "Other":
+      self.other_frosting.visible = True
+      price = price + 8.00
+
+
+      
 
     frosting_type = self.frosting_type_dropdown.selected_value
     if frosting_type == "Buttercream":
@@ -140,13 +169,19 @@ class CustomCake(CustomCakeTemplate):
   def add_to_order_button_click(self, **event_args):
     cake_type = self.cake_type_dropdown.selected_value
     occasion = self.occasion_dropdown.selected_value
+    if occasion == "Other":
+      occasion = self.other_occasion.text
     sponge_flavour =  self.sponge_flavour_dropdown.selected_value
     no_of_tiers = int(self.no_of_tiers_dropdown.selected_value or 1)
     frosting_type = self.frosting_type_dropdown.selected_value
     frosting_flavour = self.frosting_flavour_dropdown.selected_value
+    if frosting_flavour == "Other":
+      frosting_flavour = self.other_frosting.text
     price = self.calculated_price
     serving_size = int(self.enter_serving_size.text or 1)
     filling = self.filling_dropdown.selected_value
+    if filling == "Other":
+      filling = self.other_filling.text
     allergies = self.enter_allergies.text
     inscription = self.enter_inscription.text
     additional_details = self.enter_additional_info.text
