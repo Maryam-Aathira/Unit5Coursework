@@ -44,7 +44,7 @@ class AddStandardCake(AddStandardCakeTemplate):
                       serving_size, sponge_flavour, filling, collection_date)
 
   pass
-
+ 
   def view_orders_button_click(self, **event_args):
     open_form("ViewOrders")
     pass

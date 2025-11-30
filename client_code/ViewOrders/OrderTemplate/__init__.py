@@ -31,12 +31,13 @@ class OrderTemplate(OrderTemplateTemplate):
 
   def cancel_order_button_click(self, **event_args):
     if self.days_until_collection <= 7:
-      print("can't cancel")
-      alert("Can't cancel")
+      #print("can't cancel")
+      alert("An order cannot be cancelled within 7 days of the collection date")
     else:
       anvil.server.call('cancel_order', self.item)
       self.status_label.text = "Order Status: " + str(self.item["order_status"])
       self.remove_order_button.visible = True
+      self.cancel_order_button.visible = False
     pass
 
   def remove_order_button_click(self, **event_args):
