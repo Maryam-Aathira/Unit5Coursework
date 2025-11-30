@@ -21,3 +21,7 @@ class StaffDashboard(StaffDashboardTemplate):
       self.dashboard_title.text = "Employee Dashboard"
 
     # Any code you write here will run before the form opens.
+
+  def view_orders_button_click(self, **event_args):
+    open_form("StaffViewOrders")
+    pass
