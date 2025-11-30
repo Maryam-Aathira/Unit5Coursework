@@ -91,3 +91,8 @@ def retrieve_orders():
 def cancel_order(order):
   order["order_status"] = "Cancelled"
   pass
+
+@anvil.server.callable
+def display_cake(order):
+  cakes = app_tables.tblorderitems.search(order=order)
+  return cakes
