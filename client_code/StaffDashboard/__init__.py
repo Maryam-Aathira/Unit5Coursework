@@ -11,6 +11,7 @@ class StaffDashboard(StaffDashboardTemplate):
   def __init__(self, role, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.role = role
     self.calendar_button.visible = False
     self.statistics_button.visible = False
     if role == "Manager":
@@ -23,5 +24,5 @@ class StaffDashboard(StaffDashboardTemplate):
     # Any code you write here will run before the form opens.
 
   def view_orders_button_click(self, **event_args):
-    open_form("StaffViewOrders")
+    open_form("StaffViewOrders", role = self.role)
     pass

@@ -5,12 +5,17 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import datetime 
 
 
 class OrderTemplate(OrderTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+    selected_date = self.collection_date_picker.date
+    current_date = datetime.date.today()
+    days_until_collection = (selected_date - current_date).days
     #order = self.item
    # cakes = app_tables.tblorderitems.search(order=order)
     
@@ -25,9 +30,13 @@ class OrderTemplate(OrderTemplateTemplate):
     # Any code you write here will run before the form opens.
 
   def cancel_order_button_click(self, **event_args):
-    anvil.server.call('cancel_order', self.item)
-    self.status_label.text = "Order Status: " + str(self.item["order_status"])
-    self.remove_order_button.visible = True
+    if days_until_collection <= 7:
+      print("can't cancel")
+      alert("Can't cancel")
+    else:
+      anvil.server.call('cancel_order', self.item)
+      self.status_label.text = "Order Status: " + str(self.item["order_status"])
+      self.remove_order_button.visible = True
     pass
 
   def remove_order_button_click(self, **event_args):
