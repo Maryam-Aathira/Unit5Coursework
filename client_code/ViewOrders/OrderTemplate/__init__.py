@@ -12,10 +12,10 @@ class OrderTemplate(OrderTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
-    selected_date = self.collection_date_picker.date
+    
+    selected_date = self.item["collection_date"]
     current_date = datetime.date.today()
-    days_until_collection = (selected_date - current_date).days
+    self.days_until_collection = (selected_date - current_date).days
     #order = self.item
    # cakes = app_tables.tblorderitems.search(order=order)
     
@@ -30,7 +30,7 @@ class OrderTemplate(OrderTemplateTemplate):
     # Any code you write here will run before the form opens.
 
   def cancel_order_button_click(self, **event_args):
-    if days_until_collection <= 7:
+    if self.days_until_collection <= 7:
       print("can't cancel")
       alert("Can't cancel")
     else:
