@@ -12,7 +12,8 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-  self.sort_dropdown.items = anvil.server.call('get_all_orders')
+    self.orders_label = "orders[price]"
+
 
   def form_refreshing_data_bindings(self, **event_args):
     """This method is called when refresh_data_bindings is called"""

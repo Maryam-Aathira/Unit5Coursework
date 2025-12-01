@@ -13,6 +13,10 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     self.init_components(**properties)
     self.role = role
 
+    self.sort_dropdown.items = anvil.server.call('get_all_orders')
+    self.orders = app_tables.tblorders.search()
+    self.staff_order_panel = self.orders
+    
     item_list = []
     for row in app_tables.tblstaffdropdown.search(category="sort"):
       item_list.append(row["choice"])
