@@ -13,8 +13,52 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     self.init_components(**properties)
     self.role = role
 
-    # Any code you write here will run before the form opens.
+    item_list = []
+    for row in app_tables.tblstaffdropdown.search(category="sort"):
+      item_list.append(row["choice"])
+    self.sort_dropdown.items = item_list
 
+  def quicksort(self, orders, start, end, sort_value):
+    if start >= end:
+      return orders
+    else:
+      pivot = orders[start]
+      low = start + 1
+      high = end
+      finished = False 
+
+    while finished == False:
+      while low <= high and orders[low][sort_value] <= pivot[sort_value]:
+        low = low + 1
+      while orders[high][sort_value] >= pivot[sort_value] and high >= low:
+        high = high - 1
+
+      if low < high:
+        temp = orders[low]
+        orders[low] = orders[high]
+        orders[high] = temp
+      else:
+        finished = True
+
+    temp = orders[start]
+    orders[start] = orders[high]
+    orders[high] = temp
+
+    self.quicksort(orders, start, high - 1)
+    self.quicksort(orders, high + 1, end)
+    
+    return orders
+
+    
+      
   def home_button_click(self, **event_args):
     open_form("StaffDashboard", role = self.role)
+    pass
+    
+  def sort_dropdown_change(self, **event_args):
+    selected = self.sort_dropdown.selected_value
+    print(selected)
+
+    if selected == "Price low to high: ":
+      sort_value = "total_price"
     pass

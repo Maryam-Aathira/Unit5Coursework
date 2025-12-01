@@ -1,8 +1,17 @@
 components:
 - components:
-  - layout_properties: {grid_position: 'GDKXLD,IXVFHT'}
-    name: repeating_panel_1
-    properties: {item_template: StaffViewOrders.ItemTemplate1}
+  - layout_properties: {grid_position: 'OPZKKY,HLQGGF'}
+    name: filter
+    properties: {}
+    type: DropDown
+  - event_bindings: {change: sort_dropdown_change}
+    layout_properties: {grid_position: 'OPZKKY,RXENHV'}
+    name: sort_dropdown
+    properties: {}
+    type: DropDown
+  - layout_properties: {grid_position: 'OTIMMQ,RAFACG'}
+    name: staff_order_panel
+    properties: {item_template: StaffViewOrders.StaffOrderTemplate}
     type: RepeatingPanel
   layout_properties: {slot: default}
   name: content_panel

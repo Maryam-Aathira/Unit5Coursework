@@ -12,7 +12,8 @@ unique_ids:
     StaffDashboard: '1764060546815270407309700.335'
     StaffLogin: '1764161983657798093004353.7109'
     StaffViewOrders: '1764165558462185820363816.49347'
-    StaffViewOrders.ItemTemplate1: '1764165625514572088371302.6599'
+    StaffViewOrders.StaffOrderTemplate: '1764165625514572088371302.6599'
+    StaffViewOrders.StaffOrderTemplate.ItemTemplate2: '1764580588030727797436946.0746'
     ViewAccount: '1763982703753781132502385.7795'
     ViewOrders: '1763288001892898734297910.3292'
     ViewOrders.OrderTemplate: '1764267812889406017736197.5104'
@@ -21,3 +22,4 @@ unique_ids:
   scripts: {}
   server_modules:
     ServerModule2: '1763905240675954485867829.4056'
+    StaffServerModule: '1764580133589287802216348.99164'
