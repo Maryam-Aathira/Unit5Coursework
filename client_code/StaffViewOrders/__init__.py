@@ -12,8 +12,9 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.role = role
-    
-    self.all_orders = anvil.server.call('get_all_orders')
+    self.all_orders = anvil.server.call('get_every_order')
+   # self.orders = anvil.server.call('get_all_orders_from_orderitems')
+    self.staff_order_panel.items = self.all_orders
     #self.orders = app_tables.tblorders.search()
    # self.staff_order_panel = self.orders
     
@@ -22,6 +23,7 @@ class StaffViewOrders(StaffViewOrdersTemplate):
       item_list.append(row["choice"])
     self.sort_dropdown.items = item_list
 
+  # Quicksort to sort orders based on the selected dropdown 
   def quicksort(self, orders, start, end, sort_value):
     if start >= end:
       return orders
@@ -65,6 +67,6 @@ class StaffViewOrders(StaffViewOrdersTemplate):
 
     if selected == "Price low to high: ":
       sort_value = "total_price"
-      sorted_orders = self.quicksort(self.orders, 0, len(orders) - 1, sort_value)
-      self.staff_order_panel = sorted_orders
+      sorted_orders = self.quicksort(self.all_orders, 0, len(self.all_orders) - 1, sort_value)
+      self.staff_order_panel.items = sorted_orders
     pass

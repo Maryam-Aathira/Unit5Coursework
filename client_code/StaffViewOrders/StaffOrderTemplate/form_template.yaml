@@ -1,6 +1,6 @@
 components:
 - layout_properties: {grid_position: 'KUFIJQ,SMBAFA'}
-  name: orders_label
+  name: price_label
   properties: {}
   type: Label
 container:

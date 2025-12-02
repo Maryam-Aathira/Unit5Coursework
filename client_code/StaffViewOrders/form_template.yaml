@@ -13,6 +13,29 @@ components:
     name: staff_order_panel
     properties: {item_template: StaffViewOrders.StaffOrderTemplate}
     type: RepeatingPanel
+  - components:
+    - name: repeating_panel_1
+      properties: {item_template: StaffViewOrders.StaffOrder}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'XGEQUS,LGOJRR'}
+    name: order_data_grid
+    properties:
+      columns:
+      - {data_key: column_1, expand: false, id: JKSDUP, title: Order ID, width: 52.6666259765625}
+      - {data_key: column_2, expand: false, id: VJQQOR, title: Customer, width: 73.33331298828125}
+      - {data_key: column_3, expand: false, id: OJLQEN, title: Cake type, width: 61}
+      - {data_key: column_1, expand: false, id: BXGJXG, title: Sponge flavour, width: 65.33331298828125}
+      - {data_key: column_4, expand: false, id: YGXQHD, title: Filling, width: 57}
+      - {data_key: column_5, expand: false, id: SKOMER, title: Frosting type, width: 61.6666259765625}
+      - {data_key: column_6, expand: false, id: RYSZEI, title: Occasion, width: 69}
+      - {data_key: column_7, expand: false, id: WMQJXG, title: Serving size, width: 58.6666259765625}
+      - {data_key: column_8, expand: false, id: BCYEXU, title: Number of tiers, width: 67}
+      - {data_key: column_1, expand: false, id: ABFYKR, title: Collection date, width: 79.33331298828125}
+      - {data_key: column_2, expand: false, id: VRCPSS, title: Allergies, width: 66}
+      - {data_key: column_3, expand: false, id: JRHTMS, title: Inscription, width: 78}
+      - {data_key: column_1, id: CDTTHF, title: Date of order}
+      - {data_key: column_1, id: PSJIOF, title: Order status}
+    type: DataGrid
   layout_properties: {slot: default}
   name: content_panel
   properties: {}

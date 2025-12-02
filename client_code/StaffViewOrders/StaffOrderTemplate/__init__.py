@@ -12,7 +12,9 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    self.orders_label = "orders[price]"
+    order = self.item
+
+    self.price_label.text = "£" + str(order["total_price"]) + "   " + str(order['collection_date']) + "   " + order["cake_type"]
 
 
   def form_refreshing_data_bindings(self, **event_args):
