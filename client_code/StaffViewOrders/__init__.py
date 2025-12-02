@@ -12,7 +12,8 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.role = role
-    self.all_orders = anvil.server.call('get_every_order')
+    #self.all_orders = anvil.server.call('get_every_order')
+    self.all_orders = anvil.server.call('get_all_orders')
    # self.orders = anvil.server.call('get_all_orders_from_orderitems')
     self.staff_order_panel.items = self.all_orders
     #self.orders = app_tables.tblorders.search()

@@ -12,24 +12,24 @@ def get_all_orders():
 def get_all_orders_from_orderitems():
   return app_tables.tblorderitems.search()#
 
-@anvil.server.callable
-def get_every_order():
-  all_orders = []
-  for order in app_tables.tblorders.search():
-    cakes = list(app_tables.tblorderitems.search(order = order))
-    cake_info = []
-    for cake in cakes:
-      cake_info.append({"cake_type" : cake["cake_type"],
-                   "sponge_flavour" : cake["sponge_flavour"],
+#@anvil.server.callable
+#def get_every_order():
+ # all_orders = []
+  #for order in app_tables.tblorders.search():
+   # cakes = list(app_tables.tblorderitems.search(order = order))
+    #cake_info = []
+#    for cake in cakes:
+ #     cake_info.append({"cake_type" : cake["cake_type"],
+  #                 "sponge_flavour" : cake["sponge_flavour"],
 
-                  })
-      all_orders.append({
-        "total_price" : order['total_price'],
-        "collection_date" : order['collection_date']     
-      }
+   #               })
+    #  all_orders.append({
+     #   "total_price" : order['total_price'],
+      #  "collection_date" : order['collection_date']     
+   #   }
         
-      )
-  return all_orders
+    #  )
+ # return all_orders
   
                    #"order_id" : order["order"],
   

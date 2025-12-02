@@ -14,7 +14,8 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
 
     order = self.item
 
-    self.price_label.text = "£" + str(order["total_price"]) + "   " + str(order['collection_date']) + "   " + order["cake_type"]
+    self.price_label.text = "£" + str(order["total_price"]) + "   " + str(order['collection_date']) + "   " + order['order_status']
+    #+ order["cake_type"]
 
 
   def form_refreshing_data_bindings(self, **event_args):
