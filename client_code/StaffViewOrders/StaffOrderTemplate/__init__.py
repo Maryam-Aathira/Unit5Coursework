@@ -21,6 +21,7 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
     else:
       self.staff_confirm_button.visible = False
       self.staff_reject_button.visible = False
+
       
 
     #order = self.item
@@ -31,5 +32,15 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
 
   def form_refreshing_data_bindings(self, **event_args):
     """This method is called when refresh_data_bindings is called"""
+    pass
+
+  def staff_confirm_button_click(self, **event_args):
+    anvil.server.call('confirm_order_status', self.item)
+    alert("Order confirmed")
+    pass
+
+  def staff_reject_button_click(self, **event_args):
+    anvil.server.call('reject_order_status', self.item['user'])
+    alert("Order rejected")
     pass
 

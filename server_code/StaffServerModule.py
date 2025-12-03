@@ -12,6 +12,22 @@ def get_all_orders():
 def get_all_orders_from_orderitems():
   return app_tables.tblorderitems.search()#
 
+@anvil.server.callable
+def confirm_order_status(order):
+  orders = app_tables.tblorders.search(order = order)
+  for order in orders:
+    if order['order_status'] == "Pending":
+      order['order_status'] = "Confirmed"
+
+@anvil.server.callable
+def reject_order_status(order):
+  orders = app_tables.tblorders.search(order = order)
+  for order in orders:
+    if order['order_status'] == "Pending":
+      order['order_status'] = "Rejected"
+    
+  
+    
 #@anvil.server.callable
 #def get_every_order():
  # all_orders = []
