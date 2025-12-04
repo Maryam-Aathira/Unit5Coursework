@@ -141,7 +141,7 @@ class CustomCake(CustomCakeTemplate):
       price = price + 5.00
     elif frosting_flavour == "Salted Caramel" or frosting_flavour == "Almond":
       price = price + 10.00
-    if frosting_flavour == "Other":
+    elif frosting_flavour == "Other":
       self.other_frosting.visible = True
       price = price + 8.00
 
@@ -167,8 +167,8 @@ class CustomCake(CustomCakeTemplate):
     if tiers == 5:
       price = price + 120.00
 
-    inscription = self.enter_inscription.text
-    if inscription != "" or inscription != " ":
+    inscription = self.enter_inscription.text.strip()
+    if inscription != "":
       price = price + 2.00
 
     self.price_label.text = "£" + str(price)
