@@ -8,9 +8,10 @@ import random
 
 @anvil.server.callable
 def generate_order_id():
-  order_id = random.randint(100000, 999999)
-  existing = app_tables.tblorders.get(order_id = order_id)
-  if existing is None:
+  while True:
+   order_id = random.randint(100000, 999999)
+   existing = app_tables.tblorders.get(order_id = order_id)
+   if existing is None:
     return order_id
 
 # This is a server module. It runs on the Anvil server,
@@ -41,8 +42,8 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
                     serving_size, sponge_flavour, filling, allergies, additional_details, inscription, 
                     reference_image, collection_date):
   user = anvil.users.get_user()
-  order_id = generate_order_id()
-  order = app_tables.tblorders.add_row(order_id = order_id, 
+  order_id_number = generate_order_id()
+  order = app_tables.tblorders.add_row(order_id = order_id_number, 
                                       user = user, 
                                       date_of_order = datetime.datetime.now(),
                                       collection_date = collection_date,
@@ -60,7 +61,7 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
                                    additional_details = additional_details, 
                                    inscription = inscription, reference_image = reference_image)
  
-  cakes = app_tables.tblorderitems.search(order_id = order_id_row)
+  cakes = app_tables.tblorderitems.search(order_id = order)
   total_price = 0
   for cake in cakes:
     total_price = total_price + cake["price"]
@@ -73,22 +74,22 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
                            frosting_flavour, price,
                            serving_size, sponge_flavour, filling, collection_date):
   user = anvil.users.get_user()
-  order_id = generate_order_id()
+  order_id_number = generate_order_id()
   
-  order = app_tables.tblorders.add_row(order_id = order_id,
+  order = app_tables.tblorders.add_row(order_id = order_id_number,
                                        user = user, 
                                        date_of_order = datetime.datetime.now(),
                                        collection_date = collection_date,
                                        order_status = "Pending",
                                        total_price = 0)
   
-  app_tables.tblorderitems.add_row(order = order, cake_type = cake_type, occasion = occasion, 
+  app_tables.tblorderitems.add_row(order_id = order, cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 
                                    frosting_flavour = frosting_flavour, 
                                    price = price, serving_size = serving_size, 
                                    sponge_flavour = sponge_flavour, filling = filling,)
 
-  cakes = app_tables.tblorderitems.search(order_id = order_row)
+  cakes = app_tables.tblorderitems.search(order_id = order)
   total_price = 0
   for cake in cakes:
     total_price = total_price + cake["price"]
@@ -106,5 +107,5 @@ def cancel_order(order):
 
 @anvil.server.callable
 def display_cake(order):
-  cakes = app_tables.tblorderitems.search(order_id = order["order_id"])
+  cakes = app_tables.tblorderitems.search(order_id = order)
   return cakes
