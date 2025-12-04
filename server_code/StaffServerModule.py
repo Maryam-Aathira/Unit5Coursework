@@ -21,7 +21,7 @@ def confirm_order_status(order):
 
 @anvil.server.callable
 def reject_order_status(order):
-  orders = app_tables.tblorders.search(order = order)
+  orders = app_tables.tblorders.search(order_id = order_id)
   for order in orders:
     if order['order_status'] == "Pending":
       order['order_status'] = "Rejected"
