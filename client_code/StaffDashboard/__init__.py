@@ -26,3 +26,11 @@ class StaffDashboard(StaffDashboardTemplate):
   def view_orders_button_click(self, **event_args):
     open_form("StaffViewOrders", role = self.role)
     pass
+
+  def view_account_button_click(self, **event_args):
+    open_form('StaffViewAccount', role = self.role)
+    pass
+
+  def statistics_button_click(self, **event_args):
+    open_form("Statistics", role = self.role)
+    pass
