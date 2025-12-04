@@ -15,7 +15,8 @@ class OrderTemplate(OrderTemplateTemplate):
     
     selected_date = self.item["collection_date"]
     current_date = datetime.date.today()
-    self.days_until_collection = (selected_date - current_date).days
+    if selected_date is not None:
+      self.days_until_collection = (selected_date - current_date).days
     order = self.item
     cakes = anvil.server.call('display_cake',order)
 
