@@ -14,6 +14,7 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
    # self.role = role
     order = self.item
     role = get_open_form().role
+    #self.price_label.visible = True
     
     if role == "Manager":
       self.staff_confirm_button.visible = True
@@ -26,8 +27,8 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
 
     #order = self.item
 
-    self.price_label.text = "£" + str(order["total_price"]) + "   " + str(order['collection_date']) + "   " + order['order_status']
-    #+ order["cake_type"]
+    self.price_label.text = "£" + str(order["total_price"]) + "   " + str(order['collection_date']) + "   " 
+    self.status_label.text = str(order['order_status'])
 
 
   def form_refreshing_data_bindings(self, **event_args):
@@ -37,10 +38,12 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
   def staff_confirm_button_click(self, **event_args):
     anvil.server.call('confirm_order_status', self.item)
     alert("Order confirmed")
+    self.status_label.text = "Confirmed"
     pass
 
   def staff_reject_button_click(self, **event_args):
-    anvil.server.call('reject_order_status', self.item['user'])
+    anvil.server.call('reject_order_status', self.item)
     alert("Order rejected")
+    self.status_label.text = "Rejected"
     pass
 
