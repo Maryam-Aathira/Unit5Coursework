@@ -12,17 +12,23 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.role = role
-    #self.all_orders = anvil.server.call('get_every_order')
+    #self.order = order
     self.all_orders = anvil.server.call('get_all_orders')
-   # self.orders = anvil.server.call('get_all_orders_from_orderitems')
+    self.orders = anvil.server.call('get_all_orders_from_orderitems')
     self.staff_order_panel.items = self.all_orders
-    #self.orders = app_tables.tblorders.search()
-   # self.staff_order_panel = self.orders
-    
+
+
+
+    # Getting dropdowns to display
     item_list = []
     for row in app_tables.tblstaffdropdown.search(category="sort"):
       item_list.append(row["choice"])
     self.sort_dropdown.items = item_list
+
+    item_list = []
+    for row in app_tables.tblstaffdropdown.search(category = "filter"):
+      item_list.append(row['choice'])
+    self.filter_dropdown.items = item_list
 
   # Quicksort to sort orders based on the selected dropdown 
   def quicksort(self, orders, start, end, sort_value):

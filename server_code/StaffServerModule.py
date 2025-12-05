@@ -29,7 +29,10 @@ def reject_order_status(order):
       order['order_status'] = "Rejected"
     return order
     
-  
+@anvil.server.callable
+def display_order(order):
+  cakes = app_tables.tblorderitems.search(order_id = order)
+  return cakes
     
 #@anvil.server.callable
 #def get_every_order():

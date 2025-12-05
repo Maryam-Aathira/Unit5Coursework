@@ -11,9 +11,7 @@ class Statistics(StatisticsTemplate):
   def __init__(self,role, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.role = role
-
-    # Any code you write here will run before the form opens.
+    self.role = role 
 
   def home_button_click(self, **event_args):
     open_form('StaffDashboard', self.role)
