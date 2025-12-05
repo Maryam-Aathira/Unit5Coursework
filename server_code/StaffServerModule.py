@@ -33,25 +33,4 @@ def reject_order_status(order):
 def display_order(order):
   cakes = app_tables.tblorderitems.search(order_id = order)
   return cakes
-    
-#@anvil.server.callable
-#def get_every_order():
- # all_orders = []
-  #for order in app_tables.tblorders.search():
-   # cakes = list(app_tables.tblorderitems.search(order = order))
-    #cake_info = []
-#    for cake in cakes:
- #     cake_info.append({"cake_type" : cake["cake_type"],
-  #                 "sponge_flavour" : cake["sponge_flavour"],
-
-   #               })
-    #  all_orders.append({
-     #   "total_price" : order['total_price'],
-      #  "collection_date" : order['collection_date']     
-   #   }
-        
-    #  )
- # return all_orders
-  
-                   #"order_id" : order["order"],
   
