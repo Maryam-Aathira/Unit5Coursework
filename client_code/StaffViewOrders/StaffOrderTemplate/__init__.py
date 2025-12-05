@@ -17,7 +17,7 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
     #self.price_label.visible = True
 
     order = self.item
-    cakes = anvil.server.call('display_cake',order)
+    cakes = anvil.server.call('display_cake', order)
 
     # Adding information from tblOrderItems into a list for each cake
     for cake in cakes:

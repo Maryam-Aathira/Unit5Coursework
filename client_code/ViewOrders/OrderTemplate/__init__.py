@@ -12,6 +12,8 @@ class OrderTemplate(OrderTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+    self.reason_dropdown.visible = False
     
     selected_date = self.item["collection_date"]
     current_date = datetime.date.today()
@@ -32,7 +34,7 @@ class OrderTemplate(OrderTemplateTemplate):
     # Need to get price from tblOrderItems
     self.price_label.text = "£" + str(self.item["total_price"])
     self.break_label.text = "-----------------------------------------------------------------------------------"
-    self.remove_order_button.visible = False
+    self.confirm_cancellation_button.visible = False
 
     # Any code you write here will run before the form opens.
 
@@ -41,13 +43,19 @@ class OrderTemplate(OrderTemplateTemplate):
       #print("can't cancel")
       alert("An order cannot be cancelled within 7 days of the collection date")
     else:
+      self.reason_dropdown.visible = True
+      # Getting dropdowns to display
+      #item_list = []
+      #for row in app_tables.tblstaffdropdown.search(category="cancellation"):
+       # item_list.append(row["choice"])
+      #self.sort_dropdown.items = item_list
       anvil.server.call('cancel_order', self.item)
       self.status_label.text = "Order Status: " + str(self.item["order_status"])
-      self.remove_order_button.visible = True
+      self.confirm_cancellation_button.visible = True
       self.cancel_order_button.visible = False
     pass
 
-  def remove_order_button_click(self, **event_args):
+  def confirm_cancellation_button_click(self, **event_args):
     self.date_label.text = ""
     self.status_label.text = ""
     
@@ -57,6 +65,6 @@ class OrderTemplate(OrderTemplateTemplate):
     self.cake_name_label.text = ""
     self.date_label.text = ""
     self.collection_date_label.text = ""
-    self.remove_order_button.visible = False
+    self.confirm_cancellation_button.visible = False
     self.cancel_order_button.visible = False
   pass

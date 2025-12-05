@@ -89,7 +89,7 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
                                    price = price, serving_size = serving_size, 
                                    sponge_flavour = sponge_flavour, filling = filling,)
 
-  cakes = app_tables.tblorderitems.search(order_id = order)
+  cakes = app_tables.tblorderitems.search(order_id = order_id_number)
   total_price = 0
   for cake in cakes:
     total_price = total_price + cake["price"]
@@ -103,6 +103,7 @@ def retrieve_orders():
 @anvil.server.callable
 def cancel_order(order):
   order["order_status"] = "Cancelled"
+ # order["cancellation_reason"] = reason
   pass
 
 @anvil.server.callable
