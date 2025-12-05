@@ -101,9 +101,9 @@ def retrieve_orders():
   return app_tables.tblorders.search(user = user)
 
 @anvil.server.callable
-def cancel_order(order):
+def cancel_order(order, reason):
   order["order_status"] = "Cancelled"
- # order["cancellation_reason"] = reason
+  order["cancellation_reason"] = reason
   pass
 
 @anvil.server.callable

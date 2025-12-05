@@ -14,9 +14,11 @@ class OrderTemplate(OrderTemplateTemplate):
     self.init_components(**properties)
 
     self.reason_dropdown.visible = False
+    self.other_reason.visible = False
     
     selected_date = self.item["collection_date"]
     current_date = datetime.date.today()
+    
     if selected_date is not None:
       self.days_until_collection = (selected_date - current_date).days
     order = self.item
@@ -45,11 +47,15 @@ class OrderTemplate(OrderTemplateTemplate):
     else:
       self.reason_dropdown.visible = True
       # Getting dropdowns to display
-      #item_list = []
-      #for row in app_tables.tblstaffdropdown.search(category="cancellation"):
-       # item_list.append(row["choice"])
-      #self.sort_dropdown.items = item_list
-      anvil.server.call('cancel_order', self.item)
+      item_list = []
+      for row in app_tables.tbldropdownoptions.search(category="cancellation"):
+        item_list.append(row["choice"])
+      self.reason_dropdown.items = item_list
+      reason = self.reason_dropdown.selected_value 
+      if reason == "Other":
+        self.other_reason.visible = True
+      
+      anvil.server.call('cancel_order', self.item, reason)
       self.status_label.text = "Order Status: " + str(self.item["order_status"])
       self.confirm_cancellation_button.visible = True
       self.cancel_order_button.visible = False
@@ -67,4 +73,5 @@ class OrderTemplate(OrderTemplateTemplate):
     self.collection_date_label.text = ""
     self.confirm_cancellation_button.visible = False
     self.cancel_order_button.visible = False
+    self.reason_dropdown.visible = False
   pass
