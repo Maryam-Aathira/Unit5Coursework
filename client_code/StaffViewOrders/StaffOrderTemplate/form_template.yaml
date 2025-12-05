@@ -1,10 +1,14 @@
 components:
-- layout_properties: {grid_position: 'KUFIJQ,SMBAFA EVEINL,DRAVXF'}
-  name: price_label
+- layout_properties: {grid_position: 'KUFIJQ,SMBAFA BCVHZT,ZDSXEV'}
+  name: info_label
   properties: {}
   type: Label
-- layout_properties: {grid_position: 'KUFIJQ,SMBAFA TNCUEI,ZZKCSR'}
+- layout_properties: {grid_position: 'KUFIJQ,SMBAFA XOFWJI,EQOGQJ'}
   name: status_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'KUFIJQ,SMBAFA EVEINL,DRAVXF'}
+  name: price_label
   properties: {}
   type: Label
 - layout_properties: {grid_position: 'KUFIJQ,KZHYEJ'}

@@ -15,6 +15,16 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
     order = self.item
     role = get_open_form().role
     #self.price_label.visible = True
+
+    order = self.item
+    cakes = anvil.server.call('display_cake',order)
+
+    # Adding information from tblOrderItems into a list for each cake
+    for cake in cakes:
+      cake_info = f"{cake['sponge_flavour']} {cake['cake_type']}\n{cake['filling']} filling\n{cake['frosting_flavour']} {cake['frosting_type']}"
+    self.info_label.text = cake_info
+    self.price_label.text = "£" + str(order["total_price"]) + "   " + str(order['collection_date']) + "   " 
+    self.status_label.text = str(order['order_status'])
     
     if role == "Manager":
       self.staff_confirm_button.visible = True
@@ -27,23 +37,29 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
 
     #order = self.item
 
-    self.price_label.text = "£" + str(order["total_price"]) + "   " + str(order['collection_date']) + "   " 
-    self.status_label.text = str(order['order_status'])
+
 
 
   def form_refreshing_data_bindings(self, **event_args):
     """This method is called when refresh_data_bindings is called"""
     pass
 
+   # cake_info = ""
+
+    
   def staff_confirm_button_click(self, **event_args):
     anvil.server.call('confirm_order_status', self.item)
     alert("Order confirmed")
     self.status_label.text = "Confirmed"
-    pass
+    
 
   def staff_reject_button_click(self, **event_args):
     anvil.server.call('reject_order_status', self.item)
     alert("Order rejected")
     self.status_label.text = "Rejected"
-    pass
+  
 
+
+ #   self.date_label.text = "Date of Order: " + str(self.item["date_of_order"])
+  #  self.status_label.text = "Order Status: " + str(self.item["order_status"])
+   # self.info_label.text = "Collection Date: " + str(self.item["collection_date"])

@@ -21,3 +21,7 @@ class CustomerLogin(CustomerLoginTemplate):
   def create_account_button_click(self, **event_args):
     app_tables.users.add_row(email = self.email.text)
     pass
+
+  def back_button_click(self, **event_args):
+    open_form("Home")
+    pass
