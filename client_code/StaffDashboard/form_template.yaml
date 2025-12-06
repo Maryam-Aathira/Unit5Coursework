@@ -5,7 +5,8 @@ components:
     name: view_orders_button
     properties: {text: View Orders}
     type: Button
-  - layout_properties: {grid_position: 'LEJUSA,MVADJC'}
+  - event_bindings: {click: calendar_button_click}
+    layout_properties: {grid_position: 'LEJUSA,MVADJC'}
     name: calendar_button
     properties: {text: Calendar}
     type: Button

@@ -34,3 +34,7 @@ class StaffDashboard(StaffDashboardTemplate):
   def statistics_button_click(self, **event_args):
     open_form("Statistics", role = self.role)
     pass
+
+  def calendar_button_click(self, **event_args):
+    open_form('Calendar', role = self.role)
+    pass
