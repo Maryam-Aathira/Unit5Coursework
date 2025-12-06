@@ -12,9 +12,9 @@ components:
   properties: {}
   type: Label
 - layout_properties: {grid_position: 'KUFIJQ,KZHYEJ'}
-  name: spacer_1
-  properties: {height: 32}
-  type: Spacer
+  name: reference_picture
+  properties: {}
+  type: Image
 - event_bindings: {click: staff_confirm_button_click}
   layout_properties: {grid_position: 'KUFIJQ,WFGSHU'}
   name: staff_confirm_button

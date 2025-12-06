@@ -23,6 +23,10 @@ components:
   name: price_label
   properties: {}
   type: Label
+- layout_properties: {grid_position: 'HKSZET,OUTYSP'}
+  name: reference_picture
+  properties: {}
+  type: Image
 - event_bindings: {click: cancel_order_button_click}
   layout_properties: {grid_position: 'FITIBQ,MUBVHS YEFHIG,RPYUDN'}
   name: cancel_order_button

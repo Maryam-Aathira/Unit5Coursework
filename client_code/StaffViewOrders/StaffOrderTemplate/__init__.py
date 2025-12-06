@@ -25,6 +25,7 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
     self.info_label.text = cake_info
     self.price_label.text = "£" + str(order["total_price"]) + "   " + str(order['collection_date']) + "   " 
     self.status_label.text = str(order['order_status'])
+    self.reference_picture.source = cake["reference_image"]
     
     if role == "Manager":
       self.staff_confirm_button.visible = True
