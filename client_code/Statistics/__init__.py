@@ -14,6 +14,7 @@ class Statistics(StatisticsTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.role = role 
+    Plot.templates.default = "material_light"
 
   # Creating income report as a graph
     self.plot_1.data = [

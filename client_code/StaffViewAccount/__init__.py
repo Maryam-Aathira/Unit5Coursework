@@ -14,6 +14,11 @@ class StaffViewAccount(StaffViewAccountTemplate):
     self.role = role
     self.role_label.text = "Role: " + str(role)
 
+    user = anvil.users.get_user()
+    if user:
+      self.firstname_box.text = user["firstname"]
+      self.surname_box.text = user["surname"]
+
     # Any code you write here will run before the form opens.
 
   def home_button_click(self, **event_args):
@@ -23,3 +28,4 @@ class StaffViewAccount(StaffViewAccountTemplate):
   def sign_out_button_click(self, **event_args):
     open_form("Home")
     pass
+
