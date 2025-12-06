@@ -28,7 +28,12 @@ components:
   name: cancel_order_button
   properties: {text: Cancel Order}
   type: Button
-- layout_properties: {grid_position: 'FITIBQ,MUBVHS GEBOPR,KUJIUP'}
+- layout_properties: {grid_position: 'FITIBQ,MUBVHS TEFBQE,DZKJWG'}
+  name: cancel_question_label
+  properties: {text: 'Why did you decide to cancel your order?'}
+  type: Label
+- event_bindings: {change: reason_dropdown_change}
+  layout_properties: {grid_position: 'FITIBQ,MUBVHS GEBOPR,KUJIUP'}
   name: reason_dropdown
   properties: {}
   type: DropDown
