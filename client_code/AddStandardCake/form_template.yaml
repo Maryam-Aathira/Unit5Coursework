@@ -28,6 +28,10 @@ components:
     name: cake_description
     properties: {}
     type: Label
+  - layout_properties: {grid_position: 'CZUASN,KBJYHH SEOCYG,AXZXJB'}
+    name: collection_date
+    properties: {text: 'Collection Date:'}
+    type: Label
   - layout_properties: {grid_position: 'CZUASN,KBJYHH TVVUWR,KXBBNB'}
     name: collection_date_picker
     properties: {}
