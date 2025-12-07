@@ -11,17 +11,17 @@ class CustomerLogin(CustomerLoginTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
-    # Any code you write here will run before the form opens.
-
-#  def sign_in_button_click(self, **event_args):
-   # if 
-    #pass
+    
 
   def create_account_button_click(self, **event_args):
-    app_tables.users.add_row(email = self.email.text)
+    open_form('Signup')
+    #app_tables.users.add_row(email = self.email.text)
     pass
 
   def back_button_click(self, **event_args):
     open_form("Home")
+    pass
+
+  def reset_password_button_click(self, **event_args):
+    open_form('ResetPassword')
     pass

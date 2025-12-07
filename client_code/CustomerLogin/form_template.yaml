@@ -26,7 +26,8 @@ components:
     name: sign_in_button
     properties: {text: 'Sign in '}
     type: Button
-  - layout_properties: {grid_position: 'FFQQRF,NZHWTT'}
+  - event_bindings: {click: reset_password_button_click}
+    layout_properties: {grid_position: 'FFQQRF,NZHWTT'}
     name: reset_password_button
     properties: {text: Reset Password}
     type: Button
