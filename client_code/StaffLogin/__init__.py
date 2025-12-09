@@ -11,6 +11,11 @@ class StaffLogin(StaffLoginTemplate):
   def __init__(self, role = "None", **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+
+    
+
+    
       
    #self.manager_radio_button_selection()
 
@@ -18,6 +23,11 @@ class StaffLogin(StaffLoginTemplate):
  
 
   def sign_in_button_click(self, **event_args):
+   # entered_email = self.email_textbox.text
+   # entered_password = self.password_textbox.text
+   # if entered_email == user["email"]:
+      
+    
     if self.manager_radio_button.selected:
       role = "Manager"
     if self.employee_radio_button.selected:
