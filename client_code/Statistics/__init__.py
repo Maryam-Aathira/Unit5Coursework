@@ -18,13 +18,13 @@ class Statistics(StatisticsTemplate):
 
   # Creating income report as a graph
     self.plot_1.data = [
-      go.Scatter(
-        x = [1, 2, 3],
-        y = [3, 1, 6],
-        marker = dict(
-          color= 'rgb(10, 12, 10)'
-        )
-      ),
+#      go.Scatter(
+ #       x = [1, 2, 3],
+  #      y = [3, 1, 6],
+   #     marker = dict(
+    #      color= 'rgb(10, 12, 10)'
+     #   )
+    #  ),
       go.Bar(
         x = [1, 2, 3],
         y = [3, 1, 6],
