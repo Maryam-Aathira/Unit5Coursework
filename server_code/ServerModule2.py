@@ -110,3 +110,7 @@ def cancel_order(order, reason):
 def display_cake(order):
   cakes = app_tables.tblorderitems.search(order_id = order)
   return cakes
+
+@anvil.server.callable
+def create_account(firstname, surname, email):
+  app_tables.users.add_row(firstname = firstname, surname = surname, email = email)

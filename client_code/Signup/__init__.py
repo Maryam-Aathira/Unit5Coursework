@@ -12,8 +12,16 @@ class Signup(SignupTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+
     # Any code you write here will run before the form opens.
 
   def back_button_click(self, **event_args):
    open_form("CustomerLogin")
   pass
+
+  def confirm_signup_button_click(self, **event_args):
+    firstname = self.firstname_text_box.text
+    surname = self.surname_text_box.text
+    email = self.email_text_box.text
+    anvil.server.call('create_account', firstname, surname, email)
+    pass

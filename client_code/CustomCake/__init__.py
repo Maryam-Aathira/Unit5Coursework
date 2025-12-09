@@ -145,7 +145,6 @@ class CustomCake(CustomCakeTemplate):
       self.other_frosting.visible = True
       price = price + 8.00
 
-
       
 
     frosting_type = self.frosting_type_dropdown.selected_value
@@ -216,11 +215,3 @@ class CustomCake(CustomCakeTemplate):
     pass
 
 
-
-
-
-
-
-  
-
-  

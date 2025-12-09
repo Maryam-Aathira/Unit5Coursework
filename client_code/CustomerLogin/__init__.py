@@ -11,6 +11,9 @@ class CustomerLogin(CustomerLoginTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+
+    #email = self.email_textbox.text  
+    
     
 
   def create_account_button_click(self, **event_args):
