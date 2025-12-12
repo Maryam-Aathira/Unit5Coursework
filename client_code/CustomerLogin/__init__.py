@@ -12,7 +12,8 @@ class CustomerLogin(CustomerLoginTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    #email = self.email_textbox.text  
+
+
     
     
 
@@ -27,4 +28,10 @@ class CustomerLogin(CustomerLoginTemplate):
 
   def reset_password_button_click(self, **event_args):
     open_form('ResetPassword')
+    pass
+
+  def sign_in_button_click(self, **event_args):
+    email = self.email_textbox.text 
+    anvil.server.call("sign_in", email)
+    open_form("Home")
     pass

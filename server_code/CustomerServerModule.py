@@ -104,6 +104,15 @@ def retrieve_orders():
 def cancel_order(order, reason):
   order["order_status"] = "Cancelled"
   order["cancellation_reason"] = reason
+  
+  #Sending an email to the customer about their cancellation
+#  anvil.email.send(
+#    to = "ethanjlewis2008@gmail.com",
+#    from_address = "noreply",
+#    from_name = "M3 App 1",
+#    subject = "Your cancellation", 
+#    html = "<h1> Cancel <h1>"
+#  )
   pass
 
 @anvil.server.callable
@@ -112,5 +121,11 @@ def display_cake(order):
   return cakes
 
 @anvil.server.callable
-def create_account(firstname, surname, email):
+def create_account(firstname, surname, email, password):
   app_tables.users.add_row(firstname = firstname, surname = surname, email = email)
+
+@anvil.server.callable
+def sign_in(email):
+  user = app_tables.users.search(email=email)
+  print("Works")
+  return user

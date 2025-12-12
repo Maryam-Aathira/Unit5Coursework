@@ -19,6 +19,16 @@ class CustomCake(CustomCakeTemplate):
     self.other_frosting.visible = False
     self.other_filling.visible = False
     self.other_occasion.visible = False
+
+#  while True:
+ #   if self.cake_type_dropdown.selected_value == "Cupcakes":
+  #    self.no_of_tiers_dropdown.visible = False
+   #   self.no_of_tiers_label.visible = False
+  #  else:
+   #   self.no_of_tiers_dropdown.visible = True
+    #  self.no_of_tiers_label.visible = True
+      
+      
     
 
     # Sponge flavour dropdown

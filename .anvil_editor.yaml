@@ -28,5 +28,5 @@ unique_ids:
     Cakes: '1763302948609361387766191.5904'
   scripts: {}
   server_modules:
-    ServerModule2: '1763905240675954485867829.4056'
+    CustomerServerModule: '1763905240675954485867829.4056'
     StaffServerModule: '1764580133589287802216348.99164'
