@@ -23,5 +23,25 @@ class Signup(SignupTemplate):
     firstname = self.firstname_text_box.text
     surname = self.surname_text_box.text
     email = self.email_text_box.text
-    anvil.server.call('create_account', firstname, surname, email)
-    pass
+    password = self.password_text_box.text
+    retype_password = self.retype_text_box.text
+
+    if retype_password != password:
+      return False
+
+    try:
+      anvil.users.signup_with_email(email, password)
+      anvil.users.login_with_email(email, password)
+      user = anvil.users.get_user()
+      user["firstname"] = firstname
+      user["surname"] = surname
+
+    except anvil.users.AuthenticationFailed:
+      self.error_label.text = "Login failed"
+    except anvil.users.UserExists:
+      self.error_label.text = "Already an account with this email"
+      
+
+    
+  
+  

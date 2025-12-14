@@ -33,7 +33,6 @@ class CustomerLogin(CustomerLoginTemplate):
     pass
 
   def sign_in_button_click(self, **event_args):
-    email = self.email_textbox.text 
-    anvil.server.call("sign_in", email)
+    anvil.users.login_with_form()
     open_form("Home")
     pass

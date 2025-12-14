@@ -122,10 +122,14 @@ def display_cake(order):
 
 @anvil.server.callable
 def create_account(firstname, surname, email, password):
-  app_tables.users.add_row(firstname = firstname, surname = surname, email = email)
+  if app_tables.users.get(email=email):
+    return False
+  app_tables.users.add_row(firstname = firstname, surname = surname, email = email, 
+                          password_hash = anvil.users.hash_password(password))
 
 @anvil.server.callable
-def sign_in(email):
-  user = app_tables.users.search(email=email)
-  print("Works")
-  return user
+def sign_in(email, password):
+  #anvil.users.login_with_email_and_password(email, password)
+  #user = app_tables.users.search(email=email)
+  #print("Works")
+  pass

@@ -14,11 +14,11 @@ class Login(LoginTemplate):
 
    
   def staff_login_button_click(self, **event_args):
+    anvil.users.login_with_form()
     open_form('StaffLogin')
     pass
 
   def customer_login_button_click(self, **event_args):
-    anvil.users.login_with_form()
     open_form('CustomerLogin')
     pass
 
