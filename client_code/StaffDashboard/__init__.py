@@ -15,10 +15,18 @@ class StaffDashboard(StaffDashboardTemplate):
     # Gets the user's role from the database
     user = anvil.users.get_user()
     if user is None:
-      open_form('Login')
+      # If the dashboard decides to have a mind of its own
+      open_form('StaffLogin')
       return 
       
-    role = user["role"]
+    try:
+      role = user["role"]
+      self.role = role
+    except KeyError:
+      alert("Error, invalid role")
+      open_form("StaffLogin")
+      return
+
     
     self.calendar_button.visible = False
     self.statistics_button.visible = False
@@ -28,8 +36,6 @@ class StaffDashboard(StaffDashboardTemplate):
       self.dashboard_title.text = "Manager Dashboard"
     if role == "Employee":
       self.dashboard_title.text = "Employee Dashboard"
-
-    # Any code you write here will run before the form opens.
 
   def view_orders_button_click(self, **event_args):
     open_form("StaffViewOrders", role = self.role)
