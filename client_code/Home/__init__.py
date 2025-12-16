@@ -25,7 +25,11 @@ class Home(HomeTemplate):
     pass
 
   def create_button_click(self, **event_args):
-    open_form("CustomCake")
+    user = anvil.users.get_user()
+    if user is None:
+      alert("Sign in to create a customer cake")
+    else:
+      open_form("CustomCake")
     pass
 
   def view_account_click(self, **event_args):
