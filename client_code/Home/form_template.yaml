@@ -48,6 +48,10 @@ components:
   name: title
   properties: {text: Cakes Bakes Cardiff}
   type: Label
+- layout_properties: {slot: top-left-btn}
+  name: logo
+  properties: {height: 44.666656494140625, source: _/theme/Logo.jpg}
+  type: Image
 container:
   data_bindings: []
   properties: {html: '@theme:standard-page.html'}
