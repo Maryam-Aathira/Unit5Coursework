@@ -17,6 +17,7 @@ class StaffLogin(StaffLoginTemplate):
  
 
   def sign_in_button_click(self, **event_args):
+    anvil.users.logout()
     user = anvil.users.login_with_form()
     #user = anvil.users.get_user()
     
