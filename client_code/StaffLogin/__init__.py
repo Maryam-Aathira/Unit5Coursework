@@ -17,17 +17,7 @@ class StaffLogin(StaffLoginTemplate):
  
 
   def sign_in_button_click(self, **event_args):
-    anvil.users.logout()
-    user = anvil.users.login_with_form()
-    #user = anvil.users.get_user()
-    
-    # Checks to see if the login was cancelled 
-    # If the login wasn't successful, no user is logged in 
-    if user is None:
-      alert("Login Failed")
-      return 
-      
-    open_form("StaffDashboard")
+   
     pass
 
   def back_button_click(self, **event_args):

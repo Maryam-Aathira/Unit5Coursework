@@ -14,9 +14,17 @@ class Login(LoginTemplate):
 
    
   def staff_login_button_click(self, **event_args):
-    anvil.users.login_with_form()
-    open_form('StaffLogin')
-    pass
+    anvil.users.logout()
+    user = anvil.users.login_with_form()
+
+    # Checks to see if the login was cancelled 
+    # If the login wasn't successful, no user is logged in 
+    if user is None:
+      alert("Login Failed")
+      return 
+
+      open_form("StaffDashboard")
+      pass
 
   def customer_login_button_click(self, **event_args):
     open_form('CustomerLogin')
