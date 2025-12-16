@@ -23,8 +23,8 @@ class Login(LoginTemplate):
       alert("Login Failed")
       return 
 
-      open_form("StaffDashboard")
-      pass
+    open_form("StaffDashboard")
+    pass
 
   def customer_login_button_click(self, **event_args):
     open_form('CustomerLogin')
@@ -32,4 +32,8 @@ class Login(LoginTemplate):
 
   def manager_login_button_click(self, **event_args):
     open_form('ManagerDashboard')
+    pass
+
+  def home_click(self, **event_args):
+    open_form("Home")
     pass
