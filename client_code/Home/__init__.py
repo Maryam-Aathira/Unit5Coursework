@@ -10,6 +10,9 @@ class Home(HomeTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    user = anvil.users.get_user()
+    if user is not None:
+      self.login_button.visible = False
 
     # Any code you write here will run before the form opens.
 

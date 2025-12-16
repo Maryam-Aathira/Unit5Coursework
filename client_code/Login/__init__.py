@@ -13,6 +13,30 @@ class Login(LoginTemplate):
     self.init_components(**properties)
 
    
+ # def Login_button_click(self, **event_args):
+
+
+  def customer_login_button_click(self, **event_args):
+    anvil.users.logout()
+    user = anvil.users.login_with_form()
+
+    # Checks to see if the login was cancelled 
+    # If the login wasn't successful, no user is logged in 
+    if user is None:
+      alert("Login Failed")
+      return 
+      
+    open_form("Home")
+    pass
+
+  def manager_login_button_click(self, **event_args):
+    open_form('ManagerDashboard')
+    pass
+
+  def home_click(self, **event_args):
+    open_form("Home")
+    pass
+
   def staff_login_button_click(self, **event_args):
     anvil.users.logout()
     user = anvil.users.login_with_form()
@@ -24,16 +48,4 @@ class Login(LoginTemplate):
       return 
 
     open_form("StaffDashboard")
-    pass
-
-  def customer_login_button_click(self, **event_args):
-    open_form('CustomerLogin')
-    pass
-
-  def manager_login_button_click(self, **event_args):
-    open_form('ManagerDashboard')
-    pass
-
-  def home_click(self, **event_args):
-    open_form("Home")
     pass
