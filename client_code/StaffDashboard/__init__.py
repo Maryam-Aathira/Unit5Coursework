@@ -8,10 +8,18 @@ from anvil.tables import app_tables
 
 
 class StaffDashboard(StaffDashboardTemplate):
-  def __init__(self, role, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.role = role
+
+    # Gets the user's role from the database
+    user = anvil.users.get_user()
+    if user is None:
+      open_form('Login')
+      return 
+      
+    role = user["role"]
+    
     self.calendar_button.visible = False
     self.statistics_button.visible = False
     if role == "Manager":

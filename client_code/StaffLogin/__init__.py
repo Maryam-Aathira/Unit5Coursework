@@ -11,28 +11,22 @@ class StaffLogin(StaffLoginTemplate):
   def __init__(self, role = "None", **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
-
-    
-
-    
-      
    #self.manager_radio_button_selection()
 
   #def manager_radio_button_clicked(self, **event_args):
  
 
   def sign_in_button_click(self, **event_args):
-   # entered_email = self.email_textbox.text
-   # entered_password = self.password_textbox.text
-   # if entered_email == user["email"]:
-      
+    anvil.users.login_with_form()
+    user = anvil.users.get_user()
     
-    if self.manager_radio_button.selected:
-      role = "Manager"
-    if self.employee_radio_button.selected:
-      role = "Employee"
-    open_form("StaffDashboard", role = role)
+    # Checks to see if the login was cancelled 
+    # If the login wasn't successful, no user is logged in 
+    if user is None:
+      alert("Login Failed")
+      return 
+      
+    open_form("StaffDashboard")
     pass
 
   def back_button_click(self, **event_args):
