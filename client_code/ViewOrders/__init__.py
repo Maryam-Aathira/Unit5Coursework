@@ -16,13 +16,12 @@ class ViewOrders(ViewOrdersTemplate):
     #self.status_label.text = str(self.item["order_status"])
     self.sign_in_info.visible = False
     user = anvil.users.get_user()
+    
     if user is None:
       self.sign_in_info.visible = True
       return
-      
-    if user["role"] == "Manager" or user["role"] == "Employee":
-     self.current_order = []
-     self.get_orders()
+    
+    self.get_orders()
 
    # orders = anvil.server.call('retrieve_orders')
     #self.order_panel = orders
@@ -39,8 +38,8 @@ class ViewOrders(ViewOrdersTemplate):
     
 
   def get_orders(self):
-    user = anvil.users.get_user()
-    all_customer_orders = anvil.server.call("retrieve_orders", user)
+    #user = anvil.users.get_user()
+    all_customer_orders = anvil.server.call("retrieve_orders")
     self.order_panel.items = all_customer_orders
    
     
