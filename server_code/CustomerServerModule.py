@@ -133,3 +133,11 @@ def sign_in(email, password):
   #user = app_tables.users.search(email=email)
   #print("Works")
   pass
+
+@anvil.server.callable
+def update_user_details(firstname, surname):
+  user = anvil.users.get_user()
+  if user is None:
+    raise Exception("Not logged in")
+  user["firstname"] = firstname
+  user ["surname"] = surname

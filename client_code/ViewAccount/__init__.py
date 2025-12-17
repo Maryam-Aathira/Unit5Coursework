@@ -21,3 +21,8 @@ class ViewAccount(ViewAccountTemplate):
   def home_button_click(self, **event_args):
     open_form("Home")
     pass
+
+  def sign_out_button_click(self, **event_args):
+    anvil.users.logout()
+    open_form("Home")
+    pass

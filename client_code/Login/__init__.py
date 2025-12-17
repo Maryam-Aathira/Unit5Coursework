@@ -49,3 +49,7 @@ class Login(LoginTemplate):
 
     open_form("StaffDashboard")
     pass
+
+  def sign_up_button_click(self, **event_args):
+    open_form('Signup')
+    pass

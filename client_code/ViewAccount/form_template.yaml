@@ -1,5 +1,71 @@
 components:
-- layout_properties: {slot: default}
+- components:
+  - layout_properties: {grid_position: 'VIOHDK,VGAWHY IVYYKE,QGMPAY'}
+    name: label_1
+    properties: {text: Firstname}
+    type: Label
+  - layout_properties: {grid_position: 'VIOHDK,VGAWHY FBPOCK,ORWXMD'}
+    name: spacer_1
+    properties: {height: 42}
+    type: Spacer
+  - layout_properties: {grid_position: 'VIOHDK,VGAWHY JOUHPK,LFYKOD'}
+    name: label_2
+    properties: {text: Surname}
+    type: Label
+  - layout_properties: {grid_position: 'VIOHDK,VGAWHY KPFQKV,IYHAIE'}
+    name: spacer_2
+    properties: {height: 42.33331298828125}
+    type: Spacer
+  - layout_properties: {grid_position: 'VIOHDK,VGAWHY AGDFVF,LAZMEG'}
+    name: label_3
+    properties: {text: Email}
+    type: Label
+  - layout_properties: {grid_position: 'VIOHDK,VGAWHY LDHCOV,UTPEOS'}
+    name: spacer_3
+    properties: {height: 34}
+    type: Spacer
+  - layout_properties: {grid_position: 'VIOHDK,VGAWHY WHWWMC,FDIUVZ'}
+    name: label_4
+    properties: {text: Password}
+    type: Label
+  - layout_properties: {grid_position: 'VIOHDK,LMNZJF NJJSFF,SVRBDQ'}
+    name: text_box_1
+    properties: {}
+    type: TextBox
+  - layout_properties: {grid_position: 'VIOHDK,LMNZJF FQOPIM,TXJYVJ'}
+    name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'VIOHDK,LMNZJF ZRSQEK,NJNSOW'}
+    name: text_box_2
+    properties: {}
+    type: TextBox
+  - layout_properties: {grid_position: 'VIOHDK,LMNZJF VZTWLN,MUOXLZ'}
+    name: spacer_5
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'VIOHDK,LMNZJF EUTOEV,XSFWDI'}
+    name: text_box_3
+    properties: {}
+    type: TextBox
+  - layout_properties: {grid_position: 'VIOHDK,LMNZJF GNDZWT,OBQGTJ'}
+    name: spacer_6
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'VIOHDK,LMNZJF CFTQHD,OTGYIF'}
+    name: text_box_4
+    properties: {}
+    type: TextBox
+  - layout_properties: {grid_position: 'VIOHDK,HPZZAS MTDYGN,TATVWO'}
+    name: save_changes_button
+    properties: {text: Save Changes}
+    type: Button
+  - event_bindings: {click: sign_out_button_click}
+    layout_properties: {grid_position: 'VIOHDK,HPZZAS XAOPLT,YRKEXA'}
+    name: sign_out_button
+    properties: {text: Sign Out}
+    type: Button
+  layout_properties: {slot: default}
   name: content_panel
   properties: {}
   type: ColumnPanel

@@ -27,19 +27,22 @@ class Signup(SignupTemplate):
     retype_password = self.retype_text_box.text
 
     if retype_password != password:
+      alert("Passwords do not match")
       return False
 
     try:
       anvil.users.signup_with_email(email, password)
       anvil.users.login_with_email(email, password)
-      user = anvil.users.get_user()
-      user["firstname"] = firstname
-      user["surname"] = surname
+     # user = anvil.users.get_user()
+      anvil.server.call("update_user_details", firstname, surname)
+      open_form('Home')
+      #user["firstname"] = firstname
+     # user["surname"] = surname
 
     except anvil.users.AuthenticationFailed:
-      self.error_label.text = "Login failed"
+      alert("Login failed")
     except anvil.users.UserExists:
-      self.error_label.text = "Already an account with this email"
+      alert("Already an account with this email")
       
 
     
