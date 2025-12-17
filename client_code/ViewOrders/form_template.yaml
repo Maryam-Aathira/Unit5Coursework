@@ -4,6 +4,10 @@ components:
     name: cancel_info
     properties: {text: 'Any cancellations cannot be made within 7 days of the chosen collections date. '}
     type: Label
+  - layout_properties: {grid_position: 'DFPAHH,PEBKOA'}
+    name: sign_in_info
+    properties: {text: 'Orders will display here when you sign in '}
+    type: Label
   - layout_properties: {grid_position: 'QKQORP,LYTELM'}
     name: order_panel
     properties: {item_template: ViewOrders.OrderTemplate}
