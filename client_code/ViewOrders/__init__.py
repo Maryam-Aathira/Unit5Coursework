@@ -39,7 +39,7 @@ class ViewOrders(ViewOrdersTemplate):
     
 
   def get_orders(self):
-    #user = anvil.users.get_user()
+   # user = anvil.users.get_user()
     all_customer_orders = anvil.server.call("retrieve_orders")
     self.order_panel.items = all_customer_orders
    
