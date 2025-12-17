@@ -16,7 +16,7 @@ class Signup(SignupTemplate):
     # Any code you write here will run before the form opens.
 
   def back_button_click(self, **event_args):
-   open_form("CustomerLogin")
+   open_form("Home")
   pass
 
   def confirm_signup_button_click(self, **event_args):

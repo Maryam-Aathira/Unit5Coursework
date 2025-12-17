@@ -18,6 +18,7 @@ class StaffViewAccount(StaffViewAccountTemplate):
     if user:
       self.firstname_box.text = user["firstname"]
       self.surname_box.text = user["surname"]
+      self.email_box.text = user["email"]
 
     # Any code you write here will run before the form opens.
 
