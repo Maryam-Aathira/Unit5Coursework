@@ -11,8 +11,11 @@ class ViewAccount(ViewAccountTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
-    # Any code you write here will run before the form opens.
+   # user = anvil.users.get_user()
+    #if user:
+     # self.firstname_box.text = user["firstname"]
+     # self.surname_box.text = user["surname"]
+    #  self.email_box = user["email"]
 
   def view_order_button_click(self, **event_args):
     open_form("ViewOrders")

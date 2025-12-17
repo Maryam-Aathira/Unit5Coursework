@@ -1,7 +1,7 @@
 components:
 - components:
   - layout_properties: {grid_position: 'VIOHDK,VGAWHY IVYYKE,QGMPAY'}
-    name: label_1
+    name: firstname_label
     properties: {text: Firstname}
     type: Label
   - layout_properties: {grid_position: 'VIOHDK,VGAWHY FBPOCK,ORWXMD'}
@@ -9,7 +9,7 @@ components:
     properties: {height: 42}
     type: Spacer
   - layout_properties: {grid_position: 'VIOHDK,VGAWHY JOUHPK,LFYKOD'}
-    name: label_2
+    name: surname_label
     properties: {text: Surname}
     type: Label
   - layout_properties: {grid_position: 'VIOHDK,VGAWHY KPFQKV,IYHAIE'}
@@ -17,7 +17,7 @@ components:
     properties: {height: 42.33331298828125}
     type: Spacer
   - layout_properties: {grid_position: 'VIOHDK,VGAWHY AGDFVF,LAZMEG'}
-    name: label_3
+    name: email_label
     properties: {text: Email}
     type: Label
   - layout_properties: {grid_position: 'VIOHDK,VGAWHY LDHCOV,UTPEOS'}
@@ -25,11 +25,11 @@ components:
     properties: {height: 34}
     type: Spacer
   - layout_properties: {grid_position: 'VIOHDK,VGAWHY WHWWMC,FDIUVZ'}
-    name: label_4
+    name: password_email
     properties: {text: Password}
     type: Label
   - layout_properties: {grid_position: 'VIOHDK,LMNZJF NJJSFF,SVRBDQ'}
-    name: text_box_1
+    name: firstname_box
     properties: {}
     type: TextBox
   - layout_properties: {grid_position: 'VIOHDK,LMNZJF FQOPIM,TXJYVJ'}
@@ -37,7 +37,7 @@ components:
     properties: {height: 32}
     type: Spacer
   - layout_properties: {grid_position: 'VIOHDK,LMNZJF ZRSQEK,NJNSOW'}
-    name: text_box_2
+    name: surname_box
     properties: {}
     type: TextBox
   - layout_properties: {grid_position: 'VIOHDK,LMNZJF VZTWLN,MUOXLZ'}
@@ -45,7 +45,7 @@ components:
     properties: {height: 32}
     type: Spacer
   - layout_properties: {grid_position: 'VIOHDK,LMNZJF EUTOEV,XSFWDI'}
-    name: text_box_3
+    name: email_box
     properties: {}
     type: TextBox
   - layout_properties: {grid_position: 'VIOHDK,LMNZJF GNDZWT,OBQGTJ'}
@@ -53,7 +53,7 @@ components:
     properties: {height: 32}
     type: Spacer
   - layout_properties: {grid_position: 'VIOHDK,LMNZJF CFTQHD,OTGYIF'}
-    name: text_box_4
+    name: password_box
     properties: {}
     type: TextBox
   - layout_properties: {grid_position: 'VIOHDK,HPZZAS MTDYGN,TATVWO'}

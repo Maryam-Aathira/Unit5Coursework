@@ -12,10 +12,6 @@ class Login(LoginTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-   
- # def Login_button_click(self, **event_args):
-
-
   def customer_login_button_click(self, **event_args):
     anvil.users.logout()
     user = anvil.users.login_with_form()
@@ -46,7 +42,7 @@ class Login(LoginTemplate):
     if user is None:
       alert("Login Failed")
       return 
-
+    # User's are redirectedx to their dashboard immediately after signing in
     open_form("StaffDashboard")
     pass
 
