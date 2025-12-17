@@ -29,6 +29,9 @@ class AddStandardCake(AddStandardCakeTemplate):
     # Any code you write here will run before the form opens.
 
   def confirm_order_button_click(self, **event_args,):
+    user = anvil.users.get_user()
+    if user is None:
+      return
     cake_type = "Sponge cake"
     occasion = "None"
     sponge_flavour = self.sponge_flavour.text
