@@ -96,13 +96,8 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
   order["total_price"] = total_price
   
 @anvil.server.callable
-def retrieve_orders():
-  user = anvil.users.get_user()
-  #if user is not None:
-   # return app_tables.tblorders.search(user = user)
-  # else
-    # return
-
+def retrieve_orders(user):
+ # user = anvil.users.get_user()
   return app_tables.tblorders.search(user = user)
 
 @anvil.server.callable
