@@ -13,6 +13,8 @@ class Home(HomeTemplate):
     user = anvil.users.get_user()
     if user is not None:
       self.login_button.visible = False
+    if user is None:
+      self.view_account.visible = False
 
     # Any code you write here will run before the form opens.
 

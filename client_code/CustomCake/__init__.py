@@ -19,6 +19,8 @@ class CustomCake(CustomCakeTemplate):
     self.other_frosting.visible = False
     self.other_filling.visible = False
     self.other_occasion.visible = False
+    self.enter_allergies.visible = False
+
 
 #  while True:
  #   if self.cake_type_dropdown.selected_value == "Cupcakes":
@@ -222,6 +224,11 @@ class CustomCake(CustomCakeTemplate):
 
   def view_account_click(self, **event_args):
     open_form("ViewAccount")
+    pass
+
+  @handle("other_checkbox", "change")
+  def other_checkbox_change(self, **event_args):
+    self.enter_allergies.visible = True
     pass
 
 

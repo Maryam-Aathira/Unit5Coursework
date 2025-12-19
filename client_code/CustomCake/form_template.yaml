@@ -70,12 +70,12 @@ components:
     name: other_occasion
     properties: {}
     type: TextBox
-  - layout_properties: {grid_position: 'AVCHEA,LJMEVW ZEPZJP,QPPDWF'}
+  - layout_properties: {grid_position: 'AVCHEA,LJMEVW RNXNMU,AFFVLP'}
     name: serving_size_label
     properties: {text: 'Serving size:'}
     type: Label
   - event_bindings: {pressed_enter: enter_serving_size_pressed_enter}
-    layout_properties: {grid_position: 'AVCHEA,LJMEVW SLIGHZ,GEVVVH'}
+    layout_properties: {grid_position: 'AVCHEA,LJMEVW TMVZZD,RYRCYT'}
     name: enter_serving_size
     properties: {}
     type: TextBox
@@ -92,6 +92,23 @@ components:
     name: allergies_label
     properties: {text: 'Allergies:'}
     type: Label
+  - layout_properties: {grid_position: 'AVCHEA,RBYJAM TMPEJW,JHUFLP'}
+    name: gluten_checkbox
+    properties: {text: Gluten}
+    type: CheckBox
+  - layout_properties: {grid_position: 'AVCHEA,RBYJAM HADYJK,CDVXEM'}
+    name: eggs_checkbox
+    properties: {text: Eggs}
+    type: CheckBox
+  - layout_properties: {grid_position: 'AVCHEA,RBYJAM YSGHJT,QBIKUZ'}
+    name: nuts_checkbox
+    properties: {text: Nuts}
+    type: CheckBox
+  - event_bindings: {}
+    layout_properties: {grid_position: 'AVCHEA,RBYJAM LFMWPI,XOIDSL'}
+    name: other_checkbox
+    properties: {text: Other}
+    type: CheckBox
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM UNCZRT,PQCZVU'}
     name: enter_allergies
     properties: {}
@@ -123,27 +140,32 @@ components:
     name: collection_date_picker
     properties: {}
     type: DatePicker
-  - layout_properties: {grid_position: 'AVCHEA,RBYJAM CQJHZA,VAMRRY'}
+  - layout_properties: {grid_position: 'AVCHEA,VSSMEV XVNGOB,LXUKSR'}
     name: upload_image_label
     properties: {text: 'Upload any reference image:'}
     type: Label
-  - layout_properties: {grid_position: 'AVCHEA,RBYJAM CKQLVD,ZVTIPZ'}
+  - layout_properties: {grid_position: 'AVCHEA,VSSMEV FLKYKV,QYWHNH'}
     name: reference_image
-    properties: {display_mode: original_size}
+    properties: {display_mode: original_size, height: 63}
     type: Image
   - event_bindings: {change: upload_image_change}
-    layout_properties: {grid_position: 'AVCHEA,RBYJAM IVSVCQ,MXWULF'}
+    layout_properties: {grid_position: 'AVCHEA,VSSMEV NUPMSX,CAXFJP'}
     name: upload_image
     properties: {}
     type: FileLoader
-  - layout_properties: {grid_position: 'AVCHEA,RBYJAM SITSCS,NSGHRB'}
-    name: price_label
-    properties: {text: 'Price: £0.00'}
-    type: Label
+  - components:
+    - layout_properties: {grid_position: 'RZNKDZ,THTQXX'}
+      name: price_label
+      properties: {text: 'Price: £0.00'}
+      type: Label
+    layout_properties: {grid_position: 'AVCHEA,VSSMEV QHOLQH,DHUITO'}
+    name: price_card
+    properties: {role: outlined-card}
+    type: ColumnPanel
   - event_bindings: {click: add_to_order_button_click}
-    layout_properties: {grid_position: 'AVCHEA,RBYJAM BCBLXH,ZXXLZO'}
+    layout_properties: {grid_position: 'AVCHEA,VSSMEV XVQHKF,CKUTBJ'}
     name: add_to_order_button
-    properties: {role: outlined-button, text: Add to Order}
+    properties: {role: outlined-button, text: Request Order}
     type: Button
   layout_properties: {slot: default}
   name: content_panel
