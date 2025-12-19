@@ -192,10 +192,38 @@ class CustomCake(CustomCakeTemplate):
       alert("Please enter a cake type")
     if self.sponge_flavour_dropdown.selected_value is None:
       alert("Please enter a sponge flavour")
+
+    # Checking that the other option isn't left blank after being selected 
     if self.filling_dropdown.selected_value == "Other":
       if self.other_filling.text.strip() == "":
         alert("Please a filling flavour")
-    
+        return
+
+    # Checking that the other option isn't left blank after being selected 
+    if self.frosting_flavour_dropdown.selected_value == "Other":
+      if self.other_frosting.text.strip() == "":
+        alert("Please a frosting flavour")
+        return
+
+    # Checking that the other option isn't left blank after being selected 
+    if self.occasion_dropdown.selected_value == "Other":
+      if self.other_occasion.text.strip() == "":
+        alert("Please enter a occasion")
+        return
+
+    # Checks a serving size has been entered and not left blank
+    if self.enter_serving_size.text.strip() == "":
+      alert("Please enter a serving size")
+      return
+
+    # Checks a serving size has been entered and not left blank
+    if self.other_checkbox.checked:
+      if self.enter_allergies.text.strip() == "":
+        alert("Please enter any other allergies")
+        return
+
+    # Taking the values the user has entered and storing them in easy variable name
+    # This is later stored in the database through the server module 
     cake_type = self.cake_type_dropdown.selected_value
     occasion = self.occasion_dropdown.selected_value
     if occasion == "Other":
@@ -223,6 +251,7 @@ class CustomCake(CustomCakeTemplate):
                       inscription, reference_image, collection_date)
     pass
 
+  # Allows a reference image to be uploaded
   def upload_image_change(self, file, **event_args):
     self.reference_image.source = file
     pass
@@ -243,7 +272,6 @@ class CustomCake(CustomCakeTemplate):
   @handle("nuts_checkbox", "change")
   def nuts_checkbox_change(self, **event_args):
     alert("Traces of nuts may be found in cakes. If allergy is severe do not continue to place an order")
-
     pass
 
 
