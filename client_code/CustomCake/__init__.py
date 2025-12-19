@@ -5,6 +5,8 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from datetime import date 
+import datetime 
 
 
 class CustomCake(CustomCakeTemplate):
@@ -221,6 +223,10 @@ class CustomCake(CustomCakeTemplate):
       if self.enter_allergies.text.strip() == "":
         alert("Please enter any other allergies")
         return
+
+    # Ensure that the collection date has been selected in the future
+   # self.collection_date_picker.min_date = date.today()
+    #datetime.date.today()
 
     # Taking the values the user has entered and storing them in easy variable name
     # This is later stored in the database through the server module 
