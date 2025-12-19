@@ -100,7 +100,8 @@ components:
     name: eggs_checkbox
     properties: {text: Eggs}
     type: CheckBox
-  - layout_properties: {grid_position: 'AVCHEA,RBYJAM YSGHJT,QBIKUZ'}
+  - event_bindings: {}
+    layout_properties: {grid_position: 'AVCHEA,RBYJAM YSGHJT,QBIKUZ'}
     name: nuts_checkbox
     properties: {text: Nuts}
     type: CheckBox
@@ -109,6 +110,10 @@ components:
     name: other_checkbox
     properties: {text: Other}
     type: CheckBox
+  - layout_properties: {grid_position: 'AVCHEA,RBYJAM SDQQCL,OZWEVV'}
+    name: other_allergies_label
+    properties: {text: 'Enter any other allergies: '}
+    type: Label
   - layout_properties: {grid_position: 'AVCHEA,RBYJAM UNCZRT,PQCZVU'}
     name: enter_allergies
     properties: {}

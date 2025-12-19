@@ -187,6 +187,15 @@ class CustomCake(CustomCakeTemplate):
     pass
 
   def add_to_order_button_click(self, **event_args):
+    # Validating and ensuring all neccesary fields are selected 
+    if self.cake_type_dropdown.selected_value is None:
+      alert("Please enter a cake type")
+    if self.sponge_flavour_dropdown.selected_value is None:
+      alert("Please enter a sponge flavour")
+    if self.filling_dropdown.selected_value == "Other":
+      if self.other_filling.text.strip() == "":
+        alert("Please a filling flavour")
+    
     cake_type = self.cake_type_dropdown.selected_value
     occasion = self.occasion_dropdown.selected_value
     if occasion == "Other":
@@ -229,6 +238,12 @@ class CustomCake(CustomCakeTemplate):
   @handle("other_checkbox", "change")
   def other_checkbox_change(self, **event_args):
     self.enter_allergies.visible = True
+    pass
+
+  @handle("nuts_checkbox", "change")
+  def nuts_checkbox_change(self, **event_args):
+    alert("Traces of nuts may be found in cakes. If allergy is severe do not continue to place an order")
+
     pass
 
 
