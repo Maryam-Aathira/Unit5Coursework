@@ -29,7 +29,9 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     for row in app_tables.tblstaffdropdown.search(category = "filter"):
       item_list.append(row['choice'])
     self.filter_dropdown.items = item_list
-
+    
+ 
+ # self.order_data_grid.role = "wide-scroll"
   # Quicksort to sort orders based on the selected dropdown 
   def quicksort(self, orders, start, end, sort_value):
     if start >= end:
