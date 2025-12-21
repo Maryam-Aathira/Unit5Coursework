@@ -12,6 +12,8 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.role = role
+    self.order_data_grid.role = "wide-scroll"
+
     #self.order = order
     self.all_orders = anvil.server.call('get_all_orders')
     self.orders = anvil.server.call('get_all_orders_from_orderitems')
@@ -31,7 +33,6 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     self.filter_dropdown.items = item_list
     
  
- # self.order_data_grid.role = "wide-scroll"
   # Quicksort to sort orders based on the selected dropdown 
   def quicksort(self, orders, start, end, sort_value):
     if start >= end:

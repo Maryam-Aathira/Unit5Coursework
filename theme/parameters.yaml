@@ -14,7 +14,7 @@ color_scheme:
   - {color: '#370B1E', name: On Tertiary Container}
   - {color: '#990000', name: Error}
   - {color: '#fff1f9ff', name: Background}
-  - {color: '#f1f2f8', name: Surface}
+  - {color: '#fff6fd', name: Surface}
   - {color: '#1C1B1F', name: On Background}
   - {color: '#1C1B1F', name: On Surface}
   - {color: '#E7E0EC', name: Surface Variant}
@@ -331,4 +331,4 @@ roles:
   name: outlined-error
 - components: [TextBox, TextArea, DatePicker, DropDown]
   name: input-error
-- {components: null, name: wide_scroll}
+- {components: null, display_in_toolbox: false, name: wide-scroll}
