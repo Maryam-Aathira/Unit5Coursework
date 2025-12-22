@@ -218,7 +218,7 @@ class CustomCake(CustomCakeTemplate):
       alert("Please enter a serving size")
       return
 
-    # Checks a serving size has been entered and not left blank
+    # Checks allergies have been entered
     if self.other_checkbox.checked:
       if self.enter_allergies.text.strip() == "":
         alert("Please enter any other allergies")

@@ -18,6 +18,7 @@ unique_ids:
     StaffLogin: '1764161983657798093004353.7109'
     StaffViewAccount: '176484579710185821786803.13145'
     StaffViewOrders: '1764165558462185820363816.49347'
+    StaffViewOrders.ItemTemplate1: '1766395618432487120106478.64703'
     StaffViewOrders.StaffOrder: '1764687593924696283104365.9354'
     StaffViewOrders.StaffOrderTemplate: '1764165625514572088371302.6599'
     StaffViewOrders.StaffOrderTemplate.ItemTemplate2: '1764580588030727797436946.0746'

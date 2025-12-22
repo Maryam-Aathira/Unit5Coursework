@@ -13,9 +13,9 @@ class StaffOrder(StaffOrderTemplate):
     self.init_components(**properties)
     order = self.item
 
-    self.order_id_label.text = str(order["order_id"])
-    self.cake_type_label.text = order["cake_type"]
-    self.sponge_flav_label.text = order["sponge_flavour"]
-    self.collection_date_label.text = order["collection_date"]
+  #  self.order_id_label.text = str(order["order_id"])
+   # self.cake_type_label.text = order["cake_type"]
+    #self.sponge_flav_label.text = order["sponge_flavour"]
+    #self.collection_date_label.text = order["collection_date"]
 
     # Any code you write here will run before the form opens.

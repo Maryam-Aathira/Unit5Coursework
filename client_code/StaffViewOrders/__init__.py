@@ -17,7 +17,8 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     #self.order = order
     self.all_orders = anvil.server.call('get_all_orders')
     self.orders = anvil.server.call('get_all_orders_from_orderitems')
-    self.staff_order_panel.items = self.all_orders
+    #self.staff_order_panel.items = self.all_orders
+    self.order_repeating_panel.items = self.all_orders
 
 
 
