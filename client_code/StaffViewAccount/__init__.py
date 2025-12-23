@@ -23,7 +23,7 @@ class StaffViewAccount(StaffViewAccountTemplate):
     # Any code you write here will run before the form opens.
 
   def home_button_click(self, **event_args):
-    open_form('StaffDashboard', self.role)
+    open_form('StaffDashboard')
     pass
 
   def sign_out_button_click(self, **event_args):

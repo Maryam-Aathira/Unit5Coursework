@@ -35,5 +35,5 @@ class Statistics(StatisticsTemplate):
 
   
   def home_button_click(self, **event_args):
-    open_form('StaffDashboard', self.role)
+    open_form('StaffDashboard')
     pass

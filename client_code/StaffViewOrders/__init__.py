@@ -14,12 +14,8 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     self.role = role
     self.order_data_grid.role = "wide-scroll"
 
-    #self.order = order
-    self.all_orders = anvil.server.call('get_all_orders')
-    self.orders = anvil.server.call('get_all_orders_from_orderitems')
-    #self.staff_order_panel.items = self.all_orders
+    self.all_orders = anvil.server.call('get_all_order_info')
     self.order_repeating_panel.items = self.all_orders
-
 
 
     # Getting dropdowns to display

@@ -21,8 +21,8 @@ components:
     name: order_data_grid
     properties:
       columns:
-      - {data_key: column_1, expand: false, id: JKSDUP, title: Order ID, width: 52.6666259765625}
-      - {data_key: column_2, expand: false, id: VJQQOR, title: Customer, width: 73.33331298828125}
+      - {data_key: column_1, expand: false, id: JKSDUP, title: Order ID, width: 39.666656494140625}
+      - {data_key: column_2, expand: false, id: VJQQOR, title: Customer, width: 67.33331298828125}
       - {data_key: column_3, expand: false, id: OJLQEN, title: Cake type, width: 48.666656494140625}
       - {data_key: column_1, expand: false, id: BXGJXG, title: Sponge flavour, width: 60.33331298828125}
       - {data_key: column_4, expand: false, id: YGXQHD, title: Filling, width: 57}
@@ -34,9 +34,10 @@ components:
       - {data_key: column_2, expand: false, id: VRCPSS, title: Collection date, width: 80.33331298828125}
       - {data_key: column_3, expand: false, id: JRHTMS, title: Allergies, width: 61.33331298828125}
       - {data_key: column_1, expand: false, id: CDTTHF, title: Inscription, width: 78.33331298828125}
-      - {data_key: column_1, id: PSJIOF, title: Extra info}
-      - {data_key: column_1, id: KRRYVM, title: Date of order}
-      - {data_key: column_1, expand: false, id: AFMSGC, title: Order Status, width: 49.333251953125}
+      - {data_key: column_1, expand: false, id: PSJIOF, title: Extra info, width: 43}
+      - {data_key: column_1, expand: false, id: KRRYVM, title: Date of order, width: 37}
+      - {data_key: column_1, expand: false, id: AFMSGC, title: Order Status, width: 50.6666259765625}
+      - {data_key: column_1, id: NNSHSB, title: Image}
       spacing_above: large
       spacing_below: large
     type: DataGrid

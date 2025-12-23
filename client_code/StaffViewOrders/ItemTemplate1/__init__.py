@@ -11,13 +11,11 @@ class ItemTemplate1(ItemTemplate1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    
-    self.item['order_id']
-    self.item['customer']
-    self.item['cake_type']
 
 
-    self.order_repeating_panel = self.all_orders
+
+
+    #self.order_repeating_panel = self.all_orders
 
 
     # Any code you write here will run before the form opens.

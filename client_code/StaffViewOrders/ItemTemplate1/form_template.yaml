@@ -1,3 +1,126 @@
-components: []
-container: {type: ColumnPanel}
+components:
+- components:
+  - data_bindings:
+    - {code: 'self.item[''order_id'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_1
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''customer'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_2
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''cake_type'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_3
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''sponge_flavour'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_4
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''filling'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_5
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''frosting_type'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_6
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''frosting_flavour'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_7
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''occasion'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_8
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''serving_size'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_9
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''no_of_tiers'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_10
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''collection_date'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_11
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''allergies'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_12
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''inscription'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_13
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''additional_details'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_14
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''date_of_order'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_15
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''order_status'']', property: text, writeback: false}
+    layout_properties: {}
+    name: label_16
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''reference_image'']', property: source, writeback: false}
+    layout_properties: {width: 223}
+    name: image_1
+    properties: {}
+    type: Image
+  data_bindings:
+  - {code: 'self.item['''']', property: spacing, writeback: false}
+  layout_properties: {grid_position: 'IJLRFJ,NTFXBH'}
+  name: flow_panel_1
+  properties:
+    gap: medium
+    spacing:
+      margin: [null, 0, null, 0]
+      padding: [null, 0, 0, null]
+    spacing_above: large
+    spacing_below: medium
+    vertical_align: middle
+  type: FlowPanel
+container:
+  data_bindings: []
+  properties:
+    col_spacing: large
+    col_widths: '{}'
+    spacing:
+      padding: [null, null, null, 0]
+  type: ColumnPanel
 is_package: true
