@@ -99,7 +99,7 @@ components:
   - data_bindings:
     - {code: 'self.item[''reference_image'']', property: source, writeback: false}
     layout_properties: {width: 223}
-    name: image_1
+    name: reference_picture
     properties: {}
     type: Image
   data_bindings:

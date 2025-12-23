@@ -41,8 +41,8 @@ def get_all_order_info():
       'allergies': item['allergies'],
       'inscription': item['inscription'],
       'additional_details': item['additional_details'],
+      'reference_image': item['reference_image']
     })
-  print(f"Orders:{combined}")
   return combined
 
   
