@@ -97,6 +97,12 @@ components:
     properties: {}
     type: Label
   - data_bindings:
+    - {code: 'self.item[''total_price'']', property: text, writeback: false}
+    layout_properties: {}
+    name: price
+    properties: {}
+    type: Label
+  - data_bindings:
     - {code: 'self.item[''reference_image'']', property: source, writeback: false}
     layout_properties: {width: 223}
     name: reference_picture

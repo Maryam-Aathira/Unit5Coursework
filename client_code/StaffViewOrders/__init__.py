@@ -34,35 +34,36 @@ class StaffViewOrders(StaffViewOrdersTemplate):
   def quicksort(self, orders, start, end, sort_value):
     if start >= end:
       return orders
-    else:
-      pivot = orders[start]
-      low = start + 1
-      high = end
-      finished = False 
 
-    while finished == False:
+    pivot = orders[start]
+    low = start + 1
+    high = end
+
+    while True:
+      # Low pointer
       while low <= high and orders[low][sort_value] <= pivot[sort_value]:
-        low = low + 1
-      while orders[high][sort_value] >= pivot[sort_value] and high >= low:
-        high = high - 1
+        low += 1
+
+      # High pointer
+      while high >= low and orders[high][sort_value] >= pivot[sort_value]:
+        high -= 1
 
       if low < high:
         temp = orders[low]
         orders[low] = orders[high]
         orders[high] = temp
       else:
-        finished = True
+        break
 
+    # Swap pivot into correct position
     temp = orders[start]
     orders[start] = orders[high]
     orders[high] = temp
 
-    self.quicksort(orders, start, high - 1)
-    self.quicksort(orders, high + 1, end)
-    
-    return orders
+    self.quicksort(orders, start, high - 1, sort_value)
+    self.quicksort(orders, high + 1, end, sort_value)
 
-    
+    return orders
       
   def home_button_click(self, **event_args):
     open_form("StaffDashboard", role = self.role)
@@ -72,8 +73,12 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     selected = self.sort_dropdown.selected_value
     print(selected)
 
-    if selected == "Price low to high: ":
+    if selected == "Price Low to High":
       sort_value = "total_price"
-      sorted_orders = self.quicksort(self.all_orders, 0, len(self.all_orders) - 1, sort_value)
-      self.staff_order_panel.items = sorted_orders
+      sorted_orders = self.quicksort(self.all_orders[:], 0, len(self.all_orders) - 1, sort_value)
+      self.order_repeating_panel.items = sorted_orders
     pass
+
+
+
+      
