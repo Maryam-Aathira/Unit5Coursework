@@ -25,6 +25,10 @@ class ItemTemplate1(ItemTemplate1Template):
     self.reject_button.background = "#d2222d"
     self.reject_button.foreground = "#ffffff"
 
+    self.confirm_rejection.background = "#d2222d"
+    self.confirm_rejection.foreground  = "#ffffff"
+    self.confirm_rejection.bold
+
     # Implementing user permissions
     if role == "Manager":
       self.confirm_button.visible = True
