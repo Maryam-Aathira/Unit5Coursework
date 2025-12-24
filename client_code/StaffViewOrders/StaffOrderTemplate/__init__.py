@@ -48,16 +48,15 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
    # cake_info = ""
 
     
-  def staff_confirm_button_click(self, **event_args):
-    anvil.server.call('confirm_order_status', self.item)
-    alert("Order confirmed")
-    self.status_label.text = "Confirmed"
+  #def staff_confirm_button_click(self, **event_args):
+
+    #self.status_label.text = "Confirmed"
     
 
-  def staff_reject_button_click(self, **event_args):
-    anvil.server.call('reject_order_status', self.item)
-    alert("Order rejected")
-    self.status_label.text = "Rejected"
+ ## def staff_reject_button_click(self, **event_args):
+  #  anvil.server.call('reject_order_status', self.item)
+   # alert("Order rejected")
+    #self.status_label.text = "Rejected"
   
 
 

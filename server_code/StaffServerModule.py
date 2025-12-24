@@ -22,6 +22,8 @@ def get_all_order_info():
 
     # Building one combined dictionary 
     combined.append({
+      'order_row': order,
+      
       'customer': f"{user['firstname']} {user['surname']}",
       'order_id': order['order_id'],
       'collection_date': order['collection_date'],
@@ -52,6 +54,7 @@ def confirm_order_status(order):
   #for order in orders:
     if order['order_status'] == "Pending":
       order['order_status'] = "Confirmed"
+      order.update()
     return order
 
 @anvil.server.callable
@@ -60,6 +63,7 @@ def reject_order_status(order):
   #for order in orders:
     if order['order_status'] == "Pending":
       order['order_status'] = "Rejected"
+      order.update()
     return order
     
 @anvil.server.callable
