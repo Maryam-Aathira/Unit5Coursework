@@ -58,11 +58,12 @@ def confirm_order_status(order):
     return order
 
 @anvil.server.callable
-def reject_order_status(order):
+def reject_order_status(order, rejection):
   #orders = app_tables.tblorders.search(order_id = order_id)
   #for order in orders:
     if order['order_status'] == "Pending":
       order['order_status'] = "Rejected"
+      order['rejection_reason'] = rejection
       order.update()
     return order
     
@@ -70,4 +71,3 @@ def reject_order_status(order):
 def display_order(order):
   cakes = app_tables.tblorderitems.search(order_id = order)
   return cakes
-  

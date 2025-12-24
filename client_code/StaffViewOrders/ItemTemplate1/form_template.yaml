@@ -112,6 +112,20 @@ components:
     name: reject_button
     properties: {text: Reject}
     type: Button
+  - event_bindings: {}
+    layout_properties: {width: 184.33331298828125}
+    name: rejection_reason_dropdown
+    properties: {}
+    type: DropDown
+  - layout_properties: {}
+    name: rejection_reason
+    properties: {}
+    type: TextBox
+  - event_bindings: {}
+    layout_properties: {}
+    name: confirm_rejection
+    properties: {role: outlined-button, text: Confirm Rejection}
+    type: Button
   data_bindings:
   - {code: 'self.item['''']', property: spacing, writeback: false}
   layout_properties: {grid_position: 'IJLRFJ,NTFXBH'}
