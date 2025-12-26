@@ -31,14 +31,11 @@ class OrderTemplate(OrderTemplateTemplate):
     for cake in cakes:
       cake_info = f"{cake['sponge_flavour']} {cake['cake_type']}\n{cake['filling']} filling\n{cake['frosting_flavour']} {cake['frosting_type']}"
     self.cake_name_label.text = cake_info
-    date = str(self.item["date_of_order"])
-    dt = datetime.datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f+00:00")
-    self.date_label.text = "Date of Order:" + dt.strftime("%d/%m/%Y")
-    self.collection_date_label.text = "Collection Date: " +  str(self.item["collection_date"].strftime("%d%m%Y")
+    self.date_label.text = "Date of Order: " + str(self.item["date_of_order"].strftime("%d/%m/%Y"))
     self.status_label.text = "Order Status: " + str(self.item["order_status"])
-    #self.collection_date_label.text = "Collection Date: " + str(self.item["collection_date"])
+    self.collection_date_label.text = "Collection Date: " + str(self.item["collection_date"].strftime("%d/%m/%Y"))
     self.reference_picture.source = cake["reference_image"]
-
+    
     # Need to get price from tblOrderItems
     self.price_label.text = "£" + str(self.item["total_price"])
     self.break_label.text = "-----------------------------------------------------------------------------------"
