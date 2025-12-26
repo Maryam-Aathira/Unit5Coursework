@@ -103,9 +103,42 @@ class StaffViewOrders(StaffViewOrdersTemplate):
   @handle("filter_dropdown", "change")
   def filter_dropdown_change(self, **event_args):
     filter = self.filter_dropdown.selected_value
+    # Filter for confirmed orders
     if filter == "Confirmed Orders":
       field = "order_status"
       search_item = "Confirmed"
+      filtered_orders = self.linear_search(self.all_orders, field, search_item)
+      self.order_repeating_panel.items = filtered_orders
+
+    # Filter for rejected orders
+    if filter == "Rejected Orders":
+      field = "order_status"
+      search_item = "Rejected"
+      filtered_orders = self.linear_search(self.all_orders, field, search_item)
+      self.order_repeating_panel.items = filtered_orders
+
+    # Filter for cancelled orders
+    if filter == "Cancelled Orders":
+      field = "order_status"
+      search_item = "Cancelled"
+      filtered_orders = self.linear_search(self.all_orders, field, search_item)
+      self.order_repeating_panel.items = filtered_orders
+
+    # Filter for pending orders
+    if filter == "Pending Orders":
+      field = "order_status"
+      search_item = "Pending"
+      filtered_orders = self.linear_search(self.all_orders, field, search_item)
+      self.order_repeating_panel.items = filtered_orders
+
+    # Displaying all orders
+    if filter == "All Orders":
+      self.order_repeating_panel.items = self.all_orders
+
+    # Filtering for cakes types:
+    if filter == "Cupcakes":
+      field = "cake_type"
+      search_item = "Cupcakes"
       filtered_orders = self.linear_search(self.all_orders, field, search_item)
       self.order_repeating_panel.items = filtered_orders
     pass
