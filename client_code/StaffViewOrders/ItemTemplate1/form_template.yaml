@@ -3,91 +3,91 @@ components:
   - data_bindings:
     - {code: 'self.item[''order_id'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_1
+    name: order_id
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''customer'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_2
+    name: customer
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''cake_type'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_3
+    name: cake_type
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''sponge_flavour'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_4
+    name: sponge_flavour
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''filling'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_5
+    name: filling
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''frosting_type'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_6
+    name: frosting_type
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''frosting_flavour'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_7
+    name: frosting_flavour
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''occasion'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_8
+    name: occasion
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''serving_size'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_9
+    name: serving_size
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''no_of_tiers'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_10
+    name: no_of_tiers
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''collection_date'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_11
+    name: collection_date
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''allergies'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_12
+    name: allergies
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''inscription'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_13
+    name: inscription
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''additional_details'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_14
+    name: extra_info
     properties: {}
     type: Label
   - data_bindings:
     - {code: 'self.item[''date_of_order'']', property: text, writeback: false}
     layout_properties: {}
-    name: label_15
+    name: date_of_order
     properties: {}
     type: Label
   - data_bindings:
