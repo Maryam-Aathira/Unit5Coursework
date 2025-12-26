@@ -12,6 +12,7 @@ class ItemTemplate1(ItemTemplate1Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     role = get_open_form().role
+    #self.item['collection_date_str'] = self.item['collection_date'].strftime("%d/%m/%Y")
     # Ensuring rejection is not visible initally
     self.rejection_reason.visible = False
     self.rejection_reason_dropdown.visible = False
@@ -94,6 +95,10 @@ class ItemTemplate1(ItemTemplate1Template):
     self.confirm_rejection.visible = False
     pass
 
+ #   while self.order_status.text == "Pending":
+  #    self.confirm_button.visible = True
+   #   self.reject_button.visible = True
+      
 
     #self.order_repeating_panel = self.all_orders
 

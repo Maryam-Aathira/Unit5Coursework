@@ -77,6 +77,11 @@ class StaffViewOrders(StaffViewOrdersTemplate):
       sort_value = "total_price"
       sorted_orders = self.quicksort(self.all_orders[:], 0, len(self.all_orders) - 1, sort_value)
       self.order_repeating_panel.items = sorted_orders
+
+    if selected == "Nearest Collection Date":
+      sort_value = "collection_date"
+      sorted_orders = self.quicksort(self.all_orders[:], 0, len(self.all_orders) - 1, sort_value)
+      self.order_repeating_panel.items = sorted_orders
     pass
 
 
