@@ -30,7 +30,7 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     self.filter_dropdown.items = item_list
     
  
-  # Quicksort to sort orders based on the selected dropdown 
+  # QUICKSORT to sort orders based on the selected dropdown 
   def quicksort(self, orders, start, end, sort_value):
     if start >= end:
       return orders
@@ -71,7 +71,6 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     
   def sort_dropdown_change(self, **event_args):
     selected = self.sort_dropdown.selected_value
-    print(selected)
 
     if selected == "Price Low to High":
       sort_value = "total_price"
@@ -85,5 +84,32 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     pass
 
 
+  # LINEAR SEARCH to search for orders based on a certain criteria
+  def linear_search(self, orders, field, search_item):
+    # Empty list of results that will be displayed
+    results = []
+    current = 0
+    # Repeat while the end of the list has not been reached
+    while current < len(orders):
+      # Compare the item at the current index to the search item
+      if orders[current][field] == search_item: 
+        results.append(orders[current])
+      # Moves to the next search item
+      current = current + 1 
+      
+    # Returns the results
+    return results
+
+  @handle("filter_dropdown", "change")
+  def filter_dropdown_change(self, **event_args):
+    filter = self.filter_dropdown.selected_value
+    if filter == "Confirmed Orders":
+      field = "order_status"
+      search_item = "Confirmed"
+      filtered_orders = self.linear_search(self.all_orders, field, search_item)
+      self.order_repeating_panel.items = filtered_orders
+    pass
+
+  
 
       
