@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime 
+from time import strftime
 
 
 class OrderTemplate(OrderTemplateTemplate):
@@ -30,7 +31,9 @@ class OrderTemplate(OrderTemplateTemplate):
     for cake in cakes:
       cake_info = f"{cake['sponge_flavour']} {cake['cake_type']}\n{cake['filling']} filling\n{cake['frosting_flavour']} {cake['frosting_type']}"
     self.cake_name_label.text = cake_info
-    self.date_label.text = "Date of Order: " + str(self.item["date_of_order"])
+    date = str(self.item["date_of_order"])
+    dt = datetime.datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f+00:00")
+    self.date_label.text = dt.strftime("%d/%m/%Y")
     self.status_label.text = "Order Status: " + str(self.item["order_status"])
     self.collection_date_label.text = "Collection Date: " + str(self.item["collection_date"])
     self.reference_picture.source = cake["reference_image"]
