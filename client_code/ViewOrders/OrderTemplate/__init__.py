@@ -33,9 +33,10 @@ class OrderTemplate(OrderTemplateTemplate):
     self.cake_name_label.text = cake_info
     date = str(self.item["date_of_order"])
     dt = datetime.datetime.strptime(date, "%Y-%m-%d %H:%M:%S.%f+00:00")
-    self.date_label.text = dt.strftime("%d/%m/%Y")
+    self.date_label.text = "Date of Order:" + dt.strftime("%d/%m/%Y")
+    self.collection_date_label.text = "Collection Date: " +  str(self.item["collection_date"].strftime("%d%m%Y")
     self.status_label.text = "Order Status: " + str(self.item["order_status"])
-    self.collection_date_label.text = "Collection Date: " + str(self.item["collection_date"])
+    #self.collection_date_label.text = "Collection Date: " + str(self.item["collection_date"])
     self.reference_picture.source = cake["reference_image"]
 
     # Need to get price from tblOrderItems
