@@ -64,6 +64,43 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     self.quicksort(orders, high + 1, end, sort_value)
 
     return orders
+
+
+  # INVERSE QUICKSORT
+  # QUICKSORT to sort orders based on the selected dropdown 
+  def inverse_quicksort(self, orders, start, end, sort_value):
+    if start >= end:
+      return orders
+
+    pivot = orders[start]
+    low = start + 1
+    high = end
+
+    while True:
+      # Low pointer
+      while low <= high and orders[low][sort_value] >= pivot[sort_value]:
+        low += 1
+
+      # High pointer
+      while high >= low and orders[high][sort_value] <= pivot[sort_value]:
+        high -= 1
+
+      if low < high:
+        temp = orders[low]
+        orders[low] = orders[high]
+        orders[high] = temp
+      else:
+        break
+
+    # Swap pivot into correct position
+    temp = orders[start]
+    orders[start] = orders[high]
+    orders[high] = temp
+
+    self.inverse_quicksort(orders, start, high - 1, sort_value)
+    self.inverse_quicksort(orders, high + 1, end, sort_value)
+
+    return orders
       
   def home_button_click(self, **event_args):
     open_form("StaffDashboard", role = self.role)
@@ -71,6 +108,8 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     
   def sort_dropdown_change(self, **event_args):
     selected = self.sort_dropdown.selected_value
+    if selected == "All Orders":
+      self.order_repeating_panel.items = self.all_orders
 
     if selected == "Price Low to High":
       sort_value = "total_price"
@@ -81,7 +120,11 @@ class StaffViewOrders(StaffViewOrdersTemplate):
       sort_value = "collection_date"
       sorted_orders = self.quicksort(self.all_orders[:], 0, len(self.all_orders) - 1, sort_value)
       self.order_repeating_panel.items = sorted_orders
-    pass
+
+    if selected == "Price High to Low":
+      sort_value = "total_price"
+      sorted_orders = self.inverse_quicksort(self.all_orders[:], 0, len(self.all_orders) - 1, sort_value)
+      self.order_repeating_panel.items = sorted_orders
 
 
   # LINEAR SEARCH to search for orders based on a certain criteria
