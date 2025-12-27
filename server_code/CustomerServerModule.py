@@ -69,9 +69,9 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
   order["total_price"] = total_price
 
   # Sending an email to the customer
-  user = anvil.users.get_user()
+  customer = anvil.users.get_user()
   anvil.email.send(
-    to = user["email"], 
+    to = customer["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order request", 
     text = "We have received your request."
@@ -83,7 +83,8 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
     to = user["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order request", 
-    text = "You have recived a new order request"
+    text = (f""" You have received a new order request from {customer["firstname"]}!
+    """)
   )
 
 
@@ -115,9 +116,9 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
   order["total_price"] = total_price
 
   # Sending an email to the customer
-  user = anvil.users.get_user()
+  customer = anvil.users.get_user()
   anvil.email.send(
-    to = user["email"], 
+    to = customer["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order request", 
     text = "We have received your request."
@@ -129,7 +130,8 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
     to = user["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order request", 
-    text = "You have recived a new order request"
+    text = (f""" You have received a new order request from {customer["firstname"]}!
+    """)
   )
   
 @anvil.server.callable
