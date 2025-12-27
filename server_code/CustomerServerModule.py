@@ -153,7 +153,8 @@ def cancel_order(order, reason):
     to = customer["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order request", 
-    text = f""" Hello {user["firstname"]}"""
+    text = f""" Hello {customer["firstname"]},
+    Your order has been cancelled successfully"""
   )
 
   pass
