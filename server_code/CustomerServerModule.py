@@ -175,9 +175,10 @@ def sign_in(email, password):
   pass
 
 @anvil.server.callable
-def update_user_details(firstname, surname):
+def update_user_details(firstname, surname, email):
   user = anvil.users.get_user()
   if user is None:
     raise Exception("Not logged in")
   user["firstname"] = firstname
-  user ["surname"] = surname
+  user["surname"] = surname
+  user["email"] = email

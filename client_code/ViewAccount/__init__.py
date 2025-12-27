@@ -29,3 +29,14 @@ class ViewAccount(ViewAccountTemplate):
     anvil.users.logout()
     open_form("Home")
     pass
+
+  @handle("save_changes_button", "click")
+  def save_changes_button_click(self, **event_args):
+    firstname =  self.firstname_box.text
+    surname = self.surname_box.text
+    email = self.email_box.text
+    if not firstname or not surname or not email:
+      alert("Enter all details")
+      return
+    anvil.server.call("update_user_details", firstname, surname, email)
+    pass
