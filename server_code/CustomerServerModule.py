@@ -1,3 +1,4 @@
+import anvil.email
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -67,6 +68,24 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
     total_price = total_price + cake["price"]
   order["total_price"] = total_price
 
+  # Sending an email to the customer
+  user = anvil.users.get_user()
+  anvil.email.send(
+    to = user["email"], 
+    from_address = "CakesBakesCardiff", 
+    subject = "Order request", 
+    text = "We have received your request."
+  )
+
+  # Sending an email to the manager notifying them of an order
+  user = app_tables.users.get(role="Manager")
+  anvil.email.send(
+    to = user["email"], 
+    from_address = "CakesBakesCardiff", 
+    subject = "Order request", 
+    text = "You have recived a new order request"
+  )
+
 
   
 @anvil.server.callable
@@ -94,6 +113,24 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
   for cake in cakes:
     total_price = total_price + cake["price"]
   order["total_price"] = total_price
+
+  # Sending an email to the customer
+  user = anvil.users.get_user()
+  anvil.email.send(
+    to = user["email"], 
+    from_address = "CakesBakesCardiff", 
+    subject = "Order request", 
+    text = "We have received your request."
+  )
+
+  # Sending an email to the manager notifying them of an order
+  user = app_tables.users.get(role="Manager")
+  anvil.email.send(
+    to = user["email"], 
+    from_address = "CakesBakesCardiff", 
+    subject = "Order request", 
+    text = "You have recived a new order request"
+  )
   
 @anvil.server.callable
 def retrieve_orders():

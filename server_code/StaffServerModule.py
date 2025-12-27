@@ -1,3 +1,4 @@
+import anvil.email
 import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -31,7 +32,7 @@ def get_all_order_info():
       'date_of_order': order['date_of_order'],
       'total_price': order['total_price'],
 
-      # Order Item details
+      # Order item details
       'cake_type': item['cake_type'],
       'sponge_flavour': item['sponge_flavour'],
       'filling': item['filling'],
@@ -55,6 +56,15 @@ def confirm_order_status(order):
     if order['order_status'] == "Pending":
       order['order_status'] = "Confirmed"
       order.update()
+
+    # Sending an email so they know their order is being made
+    user = anvil.users.get_user()
+    anvil.email.send(
+    to = user["email"], 
+    from_address = "CakesBakesCardiff", 
+    subject = "Order Rejection", 
+    text = "Your order has been confirmed and is now in the process of being made."
+    )
     return order
 
 @anvil.server.callable
@@ -65,6 +75,16 @@ def reject_order_status(order, rejection):
       order['order_status'] = "Rejected"
       order['rejection_reason'] = rejection
       order.update()
+      
+    # Sending an email to the customer informing them of the rejection
+    user = anvil.users.get_user()
+    anvil.email.send(
+    to = user["email"], 
+    from_address = "CakesBakesCardiff", 
+    subject = "Order Rejection", 
+    # Using the rejection reason in the email so they are aware of why it was rejected
+    text = f"Unfortunately, your order has been rejected because {rejection}."
+    )
     return order
     
 @anvil.server.callable

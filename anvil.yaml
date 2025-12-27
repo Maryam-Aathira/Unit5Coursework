@@ -220,5 +220,8 @@ services:
           <p>This link will expire in ten minutes.</p>
     user_table: users
   source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/email.yml
 startup: {module: Home, type: form}
 startup_form: null
