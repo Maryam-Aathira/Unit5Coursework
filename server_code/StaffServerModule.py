@@ -58,12 +58,13 @@ def confirm_order_status(order):
       order.update()
 
     # Sending an email so they know their order is being made
-    user = anvil.users.get_user()
+    customer = order["user"]
     anvil.email.send(
-    to = user["email"], 
+    to = customer["email"], 
     from_address = "CakesBakesCardiff", 
-    subject = "Order Rejection", 
-    text = "Your order has been confirmed and is now in the process of being made."
+    subject = "Order Confirmation", 
+    text = f"""Hello {customer["firstname"]}, \n Your order has been confirmed! 
+It is now in the process of being made."""
     )
     return order
 
@@ -77,13 +78,14 @@ def reject_order_status(order, rejection):
       order.update()
       
     # Sending an email to the customer informing them of the rejection
-    user = anvil.users.get_user()
+    customer = order["user"]
     anvil.email.send(
-    to = user["email"], 
+    to = customer["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order Rejection", 
     # Using the rejection reason in the email so they are aware of why it was rejected
-    text = f"Unfortunately, your order has been rejected because {rejection}."
+    text = f""" Unfortunately, your order has been rejected due to the following
+    reason: {rejection}."""
     )
     return order
     
