@@ -63,7 +63,7 @@ def confirm_order_status(order):
     to = customer["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order Confirmation", 
-    text = f"""Hello {customer["firstname"]}, \n Your order has been confirmed! 
+    text = f"""Hello {customer["firstname"]}, \nYour order has been confirmed! 
 It is now in the process of being made."""
     )
     return order
