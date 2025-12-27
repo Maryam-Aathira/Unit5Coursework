@@ -147,14 +147,15 @@ def cancel_order(order, reason):
   order["order_status"] = "Cancelled"
   order["cancellation_reason"] = reason
   
-  #Sending an email to the customer about their cancellation
-#  anvil.email.send(
-#    to = "ethanjlewis2008@gmail.com",
-#    from_address = "noreply",
-#    from_name = "M3 App 1",
-#    subject = "Your cancellation", 
-#    html = "<h1> Cancel <h1>"
-#  )
+  # Sending an email to the customer about their cancellation
+  customer = anvil.users.get_user()
+  anvil.email.send(
+    to = customer["email"], 
+    from_address = "CakesBakesCardiff", 
+    subject = "Order request", 
+    text = f""" Hello {user["firstname"]}"""
+  )
+
   pass
 
 @anvil.server.callable
