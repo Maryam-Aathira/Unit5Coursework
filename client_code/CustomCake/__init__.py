@@ -81,7 +81,7 @@ class CustomCake(CustomCakeTemplate):
     open_form('Home')
     pass
 
-  # Calling calulate price functionn for all dropdowns so the price gets updated
+  # Calling calulate price function for all dropdowns so the price gets updated
   def cake_type_dropdown_change(self, **event_args):
     self.calculate_price()
     pass
@@ -123,14 +123,17 @@ class CustomCake(CustomCakeTemplate):
       self.other_occasion.visible = True
     pass
 
+  @handle("enter_serving_size", "change")
   def enter_serving_size_pressed_enter(self, **event_args):
     self.calculate_price()
     pass
 
+  
   def no_of_tiers_dropdown_change(self, **event_args):
     self.calculate_price()
     pass
 
+  @handle("enter_inscription", "change")
   def enter_inscription_pressed_enter(self, **event_args):
     self.calculate_price()
     pass
@@ -140,7 +143,7 @@ class CustomCake(CustomCakeTemplate):
   # Calculated the cost of each cake
   def calculate_price(self, **event_args):
     # Starting price of a plain one tier cake
-    price = 20.00
+    price = 25.00
 
     # Increases the price if the filling isn't a standard one
     filling = self.filling_dropdown.selected_value
@@ -184,6 +187,14 @@ class CustomCake(CustomCakeTemplate):
     if inscription != "":
       price = price + 2.00
 
+    serving_size = self.enter_serving_size.text
+    if serving_size.isdigit():
+      serving_size = int(serving_size)
+      if serving_size >= 8 and serving_size <= 12:
+        price = price + 5
+      if serving_size >= 13 and serving_size <= 24:
+        price = price + 10
+
     self.price_label.text = "£" + str(price)
     self.calculated_price = price
     pass
@@ -223,6 +234,10 @@ class CustomCake(CustomCakeTemplate):
       if self.enter_allergies.text.strip() == "":
         alert("Please enter any other allergies")
         return
+
+    # Checks a date has been selected
+    if self.collection_date_picker.date is None:
+      alert("Please select a collection date")
 
     # Ensure that the collection date has been selected in the future
    # self.collection_date_picker.min_date = date.today()

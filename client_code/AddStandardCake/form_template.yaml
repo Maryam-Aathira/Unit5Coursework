@@ -32,7 +32,8 @@ components:
     name: collection_date
     properties: {text: 'Collection Date:'}
     type: Label
-  - layout_properties: {grid_position: 'CZUASN,KBJYHH TVVUWR,KXBBNB'}
+  - event_bindings: {}
+    layout_properties: {grid_position: 'CZUASN,KBJYHH TVVUWR,KXBBNB'}
     name: collection_date_picker
     properties: {}
     type: DatePicker

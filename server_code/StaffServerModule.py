@@ -4,6 +4,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import datetime
 
 
 @anvil.server.callable
@@ -27,9 +28,9 @@ def get_all_order_info():
       
       'customer': f"{user['firstname']} {user['surname']}",
       'order_id': order['order_id'],
-      'collection_date': order['collection_date'],
+      'collection_date': order['collection_date'].strftime("%d/%m/%Y"),
       'order_status': order['order_status'],
-      'date_of_order': order['date_of_order'],
+      'date_of_order': order['date_of_order'].strftime("%d/%m/%Y"),
       'total_price': order['total_price'],
 
       # Order item details
@@ -93,3 +94,13 @@ def reject_order_status(order, rejection):
 def display_order(order):
   cakes = app_tables.tblorderitems.search(order_id = order)
   return cakes
+
+@anvil.server.callable
+def check_weekly_orders():
+  today = datetime.datetime.now()
+  days_since_monday = today.weekday()
+  start = today - datetime.timedelta(days = days_since_monday)
+  weekly_orders = app_tables.tblorders.search('date_of_order' >= start)
+  return len(weekly_orders)
+
+  

@@ -26,7 +26,7 @@ class AddStandardCake(AddStandardCakeTemplate):
     self.sponge_flavour.text = FlavourArray[CakeNo]
     self.frosting_flavour.text = FrostingArray[CakeNo]
     self.price.text = PriceArray[CakeNo]
-    # Any code you write here will run before the form opens.
+
 
   def confirm_order_button_click(self, **event_args,):
     user = anvil.users.get_user()
@@ -47,7 +47,14 @@ class AddStandardCake(AddStandardCakeTemplate):
                       serving_size, sponge_flavour, filling, collection_date)
 
   pass
- 
+
+  @handle("collection_date_picker", "change")
+  def collection_date_picker_change(self, **event_args):
+    selected = self.collection_date_picker.date
+    if selected:
+      self.collection_date_picker.text = selected.strftime("%d/%m/%Y")
+      pass
+    
   def view_orders_button_click(self, **event_args):
     open_form("ViewOrders")
     pass
@@ -55,3 +62,4 @@ class AddStandardCake(AddStandardCakeTemplate):
   def home_click(self, **event_args):
     open_form('Home')
     pass
+

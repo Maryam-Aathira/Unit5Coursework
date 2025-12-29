@@ -49,5 +49,10 @@ class Browse(BrowseTemplate):
     open_form("ViewOrders")
     pass
 
+  @handle("button_view_account", "click")
+  def button_view_account_click(self, **event_args):
+    open_form("ViewAccount")
+    pass
+
 
     
