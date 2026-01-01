@@ -110,3 +110,30 @@ def get_week(selected_date):
   # datetime.delta calculated the difference in days
   end_of_week = start_of_week + datetime.timedelta(days=6)
   return start_of_week, end_of_week
+
+@anvil.server.callable
+def get_weekly_stats(start_of_week, end_of_week):
+  orders = app_tables.tblorders.search()
+  total_items = 0
+  cancelled = 0
+  rejected = 0
+  income = 0
+
+  for order in orders:
+    order_date = order["date_of_order"].date()
+    # If order date is in within the start and end date, the order count increases
+    if start_of_week <= order_date <= end_of_week:
+      total_items = total_items + 1
+      if order["order_status"] == "Cancelled":
+        cancelled = cancelled + 1
+      elif order["order_status"] == "Rejected":
+        rejected = rejected + 1
+      income = income + order["total_price"]
+
+  # returns a dictionary of order information
+  return {
+    "total items" : total_items, 
+    "cancelled" : cancelled,
+    "rejected" : rejected, 
+    "income" : income
+  }
