@@ -14,12 +14,27 @@ class Statistics(StatisticsTemplate):
     self.role = role 
     Plot.templates.default = "material_light"
     
-    # Creating a template for the empty graph
+    # Creating a template for the empty graphs
     self.plot_1.data = [
       go.Bar(
-        x = ["Income","Cancelled", "Rejected"],
+        x = ["Cancelled", "Rejected", "Total items"],
         y = [0,0,0],
         name = "Weekly Statistics"
+      )
+    ]
+
+    self.income_plot.data = [
+      go.Bar(
+        x = ["Income"],
+        y = 0,
+        name = "Income"
+      )
+    ]
+
+    self.reasons_plot.data = [
+      go.Pie(
+       labels = "",
+       values = "",
       )
     ]
     
@@ -28,23 +43,45 @@ class Statistics(StatisticsTemplate):
     # Finding the week
     selected_date = self.week_date_picker.date
     start_of_week, end_of_week = anvil.server.call("get_week", selected_date)
+    reason_count = anvil.server.call("get_reasons", start_of_week, end_of_week)
     if selected_date is None:
       alert("Please select a start date")
     start = start_of_week.strftime("%d/%m/%Y")
     end = end_of_week.strftime("%d/%m/%Y")
     self.graph_info_label.text = f"From {start} to {end}"
+
+    
     # Getting the actual statistics
     stats = anvil.server.call("get_weekly_stats", start_of_week, end_of_week)
       
     # Creating the report as a graph
     self.plot_1.data = [
       go.Bar(
-        x = ["Income","Cancelled", "Rejected"],
-        y = [stats["income"], stats["cancelled"], stats["rejected"]],
+        x = ["Cancelled", "Rejected", "Total items"],
+        y = [stats["cancelled"], stats["rejected"], stats['total items']],
         name = 'Weekly Statistics'
       )
     ]
+
+    self.income_plot.data = [
+      go.Bar(
+        x = ["Income"],
+        y = [stats["income"]], 
+        name = "Income"
+      )
+    ]
     pass  
+
+    # Creating a cancellations and rejections reason pie charts
+    labels = list(reason_count.keys())
+    values = list(reason_count.values())
+    self.reasons_plot.data = [
+      go.Pie(
+        labels = labels,
+        values = values
+      )
+    ]
+  
 
   
   def home_button_click(self, **event_args):

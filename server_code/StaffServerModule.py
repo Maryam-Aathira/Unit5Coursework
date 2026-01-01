@@ -139,6 +139,34 @@ def get_weekly_stats(start_of_week, end_of_week):
   }
 
 @anvil.server.callable
-def calculate_income():
-  weekly_total = []
-  
+def get_reasons(start_of_week, end_of_week):
+  orders = app_tables.tblorders.search()
+  reason_count = {
+    "Too complex" : 0,
+    "Too complex for the given time" : 0,
+    "Unable to take more orders" : 0,
+    "not offering the requested flavours" : 0,
+    "Event was postponed or cancelled" : 0,
+    "Collection date was no longer suitable" : 0,
+    "Allergies or dietary requirements changed" : 0,
+    "Changed mind on the cake design and flavour" : 0,
+    "Other" : 0
+  }
+
+  for order in orders:
+    order_date = order["date_of_order"].date()
+    if start_of_week <= order_date <= end_of_week:
+      if order["order_status"] == "Rejected":
+        reason = order["rejection_reason"]
+      elif order['order_status'] == "Cancelled":
+        reason = order["cancellation_reason"]
+      else:
+        reason = None
+
+      if reason is not None:
+        if reason in reason_count:
+          reason_count[reason] = reason_count[reason] + 1
+
+  return reason_count
+
+         
