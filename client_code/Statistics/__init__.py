@@ -46,6 +46,7 @@ class Statistics(StatisticsTemplate):
     reason_count = anvil.server.call("get_reasons", start_of_week, end_of_week)
     if selected_date is None:
       alert("Please select a start date")
+    # Formatting to DD/MM/YYYY
     start = start_of_week.strftime("%d/%m/%Y")
     end = end_of_week.strftime("%d/%m/%Y")
     self.graph_info_label.text = f"From {start} to {end}"
@@ -54,7 +55,7 @@ class Statistics(StatisticsTemplate):
     # Getting the actual statistics
     stats = anvil.server.call("get_weekly_stats", start_of_week, end_of_week)
       
-    # Creating the report as a graph
+    # Creating the report as a bar graph
     self.plot_1.data = [
       go.Bar(
         x = ["Cancelled", "Rejected", "Total items"],
@@ -72,7 +73,7 @@ class Statistics(StatisticsTemplate):
     ]
     pass  
 
-    # Creating a cancellations and rejections reason pie charts
+    # Creating a cancellations and rejections reasons pie charts
     labels = list(reason_count.keys())
     values = list(reason_count.values())
     self.reasons_plot.data = [
