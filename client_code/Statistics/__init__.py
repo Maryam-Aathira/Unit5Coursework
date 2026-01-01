@@ -16,7 +16,16 @@ class Statistics(StatisticsTemplate):
     self.role = role 
     Plot.templates.default = "material_light"
     selected_date = self.week_date_picker 
-    anvil.server.call("get_week", selected_date)
+   
+
+    @handle("view_stats_button", "click")
+    def view_stats_button_click(self, **event_args):
+      if selected_date is None:
+        alert("Please select a start date")
+        pass
+
+
+    
   # Creating income report as a graph
     
     self.plot_1.data = [
@@ -39,3 +48,4 @@ class Statistics(StatisticsTemplate):
   def home_button_click(self, **event_args):
     open_form('StaffDashboard')
     pass
+

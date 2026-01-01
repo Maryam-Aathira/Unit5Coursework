@@ -105,8 +105,8 @@ def check_weekly_orders():
 
 @anvil.server.callable
 def get_week(selected_date):
-  # selected_date.weekday is the number of the week
-  start_of_week = selected_date - datetime.datetime.delta(days = selected_date.weekday())
+  # selected_date.weekday is the number corresponding to the day of the week
+  start_of_week = selected_date - datetime.timedelta(days = selected_date.weekday())
   # datetime.delta calculated the difference in days
-  end_of_week = start_of_week + datetime.datetime.delta(days=6)
+  end_of_week = start_of_week + datetime.timedelta(days=6)
   return start_of_week, end_of_week

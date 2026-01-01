@@ -4,7 +4,8 @@ components:
     name: week_date_picker
     properties: {}
     type: DatePicker
-  - layout_properties: {grid_position: 'FDWWQK,FWBZGL VFKTIU,ZCTTUP'}
+  - event_bindings: {}
+    layout_properties: {grid_position: 'FDWWQK,FWBZGL VFKTIU,ZCTTUP'}
     name: view_stats_button
     properties: {text: View Statistics}
     type: Button
