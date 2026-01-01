@@ -137,3 +137,8 @@ def get_weekly_stats(start_of_week, end_of_week):
     "rejected" : rejected, 
     "income" : income
   }
+
+@anvil.server.callable
+def calculate_income():
+  weekly_total = []
+  
