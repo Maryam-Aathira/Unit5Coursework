@@ -37,15 +37,27 @@ class Statistics(StatisticsTemplate):
        values = "",
       )
     ]
+    # Creating the plot layout designs
+    self.plot_1.layout = {
+      "title": {"text": "Types of Orders"},
+      "xaxis": {"title": {"text": "Order statuses"}},
+      "yaxis": {"title": {"text": "Number of orders"}}
+    }
+
+    self.reasons_plot.layout = {
+      "title": {"text": "Reasons for cancellations and rejections"}
+    }
+
     
   @handle("view_stats_button", "click")
   def view_stats_button_click(self, **event_args):
     # Finding the week
     selected_date = self.week_date_picker.date
-    start_of_week, end_of_week = anvil.server.call("get_week", selected_date)
-    reason_count = anvil.server.call("get_reasons", start_of_week, end_of_week)
     if selected_date is None:
       alert("Please select a start date")
+      return
+    start_of_week, end_of_week = anvil.server.call("get_week", selected_date)
+    reason_count = anvil.server.call("get_reasons", start_of_week, end_of_week)
     # Formatting to DD/MM/YYYY
     start = start_of_week.strftime("%d/%m/%Y")
     end = end_of_week.strftime("%d/%m/%Y")
@@ -71,6 +83,7 @@ class Statistics(StatisticsTemplate):
         name = "Income"
       )
     ]
+
     pass  
 
     # Creating a cancellations and rejections reasons pie charts
@@ -82,7 +95,6 @@ class Statistics(StatisticsTemplate):
         values = values
       )
     ]
-  
 
   
   def home_button_click(self, **event_args):
