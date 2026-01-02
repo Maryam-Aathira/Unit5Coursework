@@ -56,6 +56,12 @@ class ItemTemplate1(ItemTemplate1Template):
     self.order_status.role = None
     self.confirm_button.visible = False
     self.reject_button.visible = False
+    self.mark_complete_button = False
+
+    # Keeping the buttons displayed or not displayed depending on status
+    
+
+      
 
     
   @handle("reject_button", "click")
@@ -98,17 +104,8 @@ class ItemTemplate1(ItemTemplate1Template):
     self.rejection_reason.visible = False
     self.rejection_reason_dropdown.visible = False
     self.confirm_rejection.visible = False
+    self.mark_complete_button = False
     pass
-
- #   while self.order_status.text == "Pending":
-  #    self.confirm_button.visible = True
-   #   self.reject_button.visible = True
-      
-
-    #self.order_repeating_panel = self.all_orders
-
-
-    # Any code you write here will run before the form opens.
 
   @handle("mark_complete_button", "click")
   def mark_complete_button_click(self, **event_args):

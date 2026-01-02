@@ -239,6 +239,13 @@ class CustomCake(CustomCakeTemplate):
     if self.collection_date_picker.date is None:
       alert("Please select a collection date")
 
+    # Checking that the date isn't marked as unavailable
+    selected = self.collection_date_picker.date
+    unavailable = anvil.server.call("marked_date_check", selected)
+    if unavailable:
+      alert("Unfortunately, we are unavailable for collection that day.")
+      return
+
     # Ensure that the collection date has been selected in the future
    # self.collection_date_picker.min_date = date.today()
     #datetime.date.today()

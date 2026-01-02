@@ -5,6 +5,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 import datetime
+import anvil.pdf
 
 
 @anvil.server.callable
@@ -95,6 +96,7 @@ def mark_order_as_complete(order):
   if order['order_status'] == "Pending":
     order['order_status'] = "Completed"
     order.update()  
+
     
 @anvil.server.callable
 def display_order(order):
@@ -187,5 +189,11 @@ def add_unavailable_date(selected_date, reason):
                                        unavailability_date = selected_date, 
                                        reason = reason)
 
+# Sending an invoice as a PDF
+#@anvil.server.callable
+#def send_invoice(order_id):
+#  order = app_tables.tblorders.get(order_id = order_id)
+#  pdf = anvil.pdf.render_form("Invoice")
+#  pass
 
          
