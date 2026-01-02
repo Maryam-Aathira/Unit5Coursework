@@ -89,6 +89,12 @@ def reject_order_status(order, rejection):
     reason: {rejection}."""
     )
     return order
+
+@anvil.server.callable
+def mark_order_as_complete(order):
+  if order['order_status'] == "Pending":
+    order['order_status'] = "Completed"
+    order.update()  
     
 @anvil.server.callable
 def display_order(order):

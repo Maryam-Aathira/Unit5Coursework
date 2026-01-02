@@ -58,11 +58,11 @@ class Statistics(StatisticsTemplate):
       return
     start_of_week, end_of_week = anvil.server.call("get_week", selected_date)
     reason_count = anvil.server.call("get_reasons", start_of_week, end_of_week)
+    
     # Formatting to DD/MM/YYYY
     start = start_of_week.strftime("%d/%m/%Y")
     end = end_of_week.strftime("%d/%m/%Y")
     self.graph_info_label.text = f"From {start} to {end}"
-
     
     # Getting the actual statistics
     stats = anvil.server.call("get_weekly_stats", start_of_week, end_of_week)

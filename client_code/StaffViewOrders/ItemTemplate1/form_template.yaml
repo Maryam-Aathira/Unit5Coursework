@@ -119,6 +119,11 @@ components:
     properties: {text: Reject}
     type: Button
   - event_bindings: {}
+    layout_properties: {}
+    name: mark_complete_button
+    properties: {text: Mark Complete}
+    type: Button
+  - event_bindings: {}
     layout_properties: {width: 184.33331298828125}
     name: rejection_reason_dropdown
     properties: {}

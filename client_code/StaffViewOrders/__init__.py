@@ -178,10 +178,10 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     if filter == "All Orders":
       self.order_repeating_panel.items = self.all_orders
 
-    # Filtering for cakes types:
-    if filter == "Cupcakes":
-      field = "cake_type"
-      search_item = "Cupcakes"
+    # Filtering for completed orders
+    if filter == "Completed Orders":
+      field = "order_status"
+      search_item = "Confirmed"
       filtered_orders = self.linear_search(self.all_orders, field, search_item)
       self.order_repeating_panel.items = filtered_orders
     pass

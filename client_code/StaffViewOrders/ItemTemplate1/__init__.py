@@ -110,4 +110,12 @@ class ItemTemplate1(ItemTemplate1Template):
 
     # Any code you write here will run before the form opens.
 
+  @handle("mark_complete_button", "click")
+  def mark_complete_button_click(self, **event_args):
+    final_order = self.item["order_row"]
+    anvil.server.call("mark_order_as_complete", final_order)
+    alert("Order marked as complete")
+    self.order_status.text = "Completed"
+    pass
+
 
