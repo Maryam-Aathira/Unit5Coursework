@@ -8,6 +8,14 @@ components:
     name: spacer_2
     properties: {height: 32}
     type: Spacer
+  - layout_properties: {grid_position: 'HCVONV,ZWPKPC YTEGRK,JIJQRN'}
+    name: reason_for_unavailability
+    properties: {text: 'Reason for unavailability:'}
+    type: Label
+  - layout_properties: {grid_position: 'HCVONV,ZWPKPC KYYUPY,BOOIBP'}
+    name: reason
+    properties: {}
+    type: TextBox
   - event_bindings: {}
     layout_properties: {grid_position: 'HCVONV,ZWPKPC YAMSHA,MKUQKH'}
     name: confirm_date

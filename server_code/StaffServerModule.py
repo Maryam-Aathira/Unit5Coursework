@@ -172,11 +172,14 @@ def get_reasons(start_of_week, end_of_week):
 @anvil.server.callable
 def marked_date_check(selected_date):
   row = app_tables.tblunavailability.get(unavailability_date = selected_date)
-  return row is not None
+  return row 
 
 @anvil.server.callable
-def add_unavailable_date(selected_date):
-  app_tables.tblunavailability.add_row(unavailability_date = selected_date)
+def add_unavailable_date(selected_date, reason):
+  user = anvil.users.get_user()
+  app_tables.tblunavailability.add_row(staff_id = user, 
+                                       unavailability_date = selected_date, 
+                                       reason = reason)
 
 
          

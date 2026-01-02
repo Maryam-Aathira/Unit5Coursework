@@ -20,20 +20,22 @@ class Calendar(CalendarTemplate):
 
   @handle("confirm_date", "click")
   def confirm_date_click(self, **event_args):
+    # Getting the date and reaosn entered by the user
     selected_date = self.unavailability_picker.date
+    reason = self.reason.text
+    
     if selected_date is None:
       alert("Please select a date")
       return
 
+    # Checks to see is this date has already been marked as unavailable
     unavailable = anvil.server.call("marked_date_check", selected_date)
     if unavailable:
       alert("This date has already been marked as unavailable")
       return
 
-    anvil.server.call("add_unavailable_date", selected_date)
+    # Marks the date as unavailable
+    anvil.server.call("add_unavailable_date", selected_date, reason)
     selected_date = selected_date.strftime("%d/%m/%Y")
-    alert(f"{selected_date} has been marked as unavailable")
-
-    # Checks to see is this date has already been marked as unavailable
-    
+    alert(f"{selected_date} has been marked as unavailable")    
     pass
