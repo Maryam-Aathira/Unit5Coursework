@@ -6,7 +6,7 @@ components:
     type: Label
   - layout_properties: {grid_position: 'CZUASN,UZFYYH'}
     name: standard_cake_image
-    properties: {height: 314.33331298828125}
+    properties: {height: 314.33331298828125, source: _/theme/Cake.jpg}
     type: Image
   - layout_properties: {grid_position: 'CZUASN,KBJYHH HHLOGX,FMNICZ'}
     name: sponge_flavour

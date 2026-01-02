@@ -302,4 +302,9 @@ class CustomCake(CustomCakeTemplate):
     alert("Traces of nuts may be found in cakes. If allergy is severe do not continue to place an order")
     pass
 
+  @handle("collection_date_picker", "change")
+  def collection_date_picker_change(self, **event_args):
+    """This method is called when the selected date changes"""
+    pass
+
 
