@@ -27,8 +27,23 @@ class AddStandardCake(AddStandardCakeTemplate):
     self.frosting_flavour.text = FrostingArray[CakeNo]
     self.price.text = PriceArray[CakeNo]
 
+  @handle("collection_date_picker", "change")
+  def collection_date_picker_change(self, **event_args):
+    selected = self.collection_date_picker.date
+    if selected is None:
+      alert("Please enter a collection date")
+      return
+    if selected:
+      self.collection_date_picker.text = selected.strftime("%d/%m/%Y")
+      pass
 
   def confirm_order_button_click(self, **event_args,):
+    # Checking for availablity
+    selected = self.collection_date_picker.date
+    unavailable = anvil.server.call("marked_date_check", selected)
+    if unavailable:
+      alert("Unfortunately, we are unavailable for collection that day.")
+      return
     user = anvil.users.get_user()
     if user is None:
       alert("Sign in to continue")
@@ -48,12 +63,6 @@ class AddStandardCake(AddStandardCakeTemplate):
 
   pass
 
-  @handle("collection_date_picker", "change")
-  def collection_date_picker_change(self, **event_args):
-    selected = self.collection_date_picker.date
-    if selected:
-      self.collection_date_picker.text = selected.strftime("%d/%m/%Y")
-      pass
     
   def view_orders_button_click(self, **event_args):
     open_form("ViewOrders")

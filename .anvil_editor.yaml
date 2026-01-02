@@ -27,8 +27,7 @@ unique_ids:
     ViewAccount: '1763982703753781132502385.7795'
     ViewOrders: '1763288001892898734297910.3292'
     ViewOrders.OrderTemplate: '1764267812889406017736197.5104'
-  modules:
-    Cakes: '1763302948609361387766191.5904'
+  modules: {}
   scripts: {}
   server_modules:
     CustomerServerModule: '1763905240675954485867829.4056'
