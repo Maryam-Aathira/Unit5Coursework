@@ -195,7 +195,7 @@ class CustomCake(CustomCakeTemplate):
       if serving_size >= 13 and serving_size <= 24:
         price = price + 10
 
-    self.price_label.text = "£" + str(price)
+    self.price_label.text = f"£{price:.2f}"
     self.calculated_price = price
     pass
 
