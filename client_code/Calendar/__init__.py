@@ -31,7 +31,7 @@ class Calendar(CalendarTemplate):
       return
 
     anvil.server.call("add_unavailable_date", selected_date)
-    selected_date = selected_date.strftime("%d/%m/&Y")
+    selected_date = selected_date.strftime("%d/%m/%Y")
     alert(f"{selected_date} has been marked as unavailable")
 
     # Checks to see is this date has already been marked as unavailable
