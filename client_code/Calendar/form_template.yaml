@@ -1,5 +1,23 @@
 components:
-- layout_properties: {slot: default}
+- components:
+  - layout_properties: {grid_position: 'HCVONV,ZWPKPC IIOYRB,SYYDJP'}
+    name: unavailability_picker
+    properties: {}
+    type: DatePicker
+  - layout_properties: {grid_position: 'HCVONV,ZWPKPC BFTQIE,AHZKAJ'}
+    name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+  - event_bindings: {}
+    layout_properties: {grid_position: 'HCVONV,ZWPKPC YAMSHA,MKUQKH'}
+    name: confirm_date
+    properties: {role: outlined-button, text: Confirm Unavailability}
+    type: Button
+  - layout_properties: {grid_position: 'HCVONV,HMTNCN'}
+    name: spacer_1
+    properties: {height: 315}
+    type: Spacer
+  layout_properties: {slot: default}
   name: content_panel
   properties: {}
   type: ColumnPanel

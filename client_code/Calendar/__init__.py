@@ -13,8 +13,27 @@ class Calendar(CalendarTemplate):
     self.init_components(**properties)
     self.role = role
 
-    # Any code you write here will run before the form opens.
 
   def home_button_click(self, **event_args):
     open_form('StaffDashboard')
+    pass
+
+  @handle("confirm_date", "click")
+  def confirm_date_click(self, **event_args):
+    selected_date = self.unavailability_picker.date
+    if selected_date is None:
+      alert("Please select a date")
+      return
+
+    unavailable = anvil.server.call("marked_date_check", selected_date)
+    if unavailable:
+      alert("This date has already been marked as unavailable")
+      return
+
+    anvil.server.call("add_unavailable_date", selected_date)
+    selected_date = selected_date.strftime("%d/%m/&Y")
+    alert(f"{selected_date} has been marked as unavailable")
+
+    # Checks to see is this date has already been marked as unavailable
+    
     pass
