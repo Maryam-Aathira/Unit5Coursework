@@ -57,8 +57,6 @@ class ItemTemplate1(ItemTemplate1Template):
     self.confirm_button.visible = False
     self.reject_button.visible = False
     self.mark_complete_button = False
-
-    # Keeping the buttons displayed or not displayed depending on status
     
 
       
