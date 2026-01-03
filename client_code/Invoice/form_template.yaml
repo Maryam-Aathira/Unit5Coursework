@@ -89,7 +89,8 @@ components:
     name: amount_label
     properties: {text: Total Price}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,WUWRMK YLLUEO,WTBPBI'}
+  - data_bindings: []
+    layout_properties: {grid_position: 'UOJLIL,WUWRMK YLLUEO,WTBPBI'}
     name: total_price_label
     properties: {text: ''}
     type: Label
