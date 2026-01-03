@@ -109,6 +109,8 @@ class ItemTemplate1(ItemTemplate1Template):
   def mark_complete_button_click(self, **event_args):
     final_order = self.item["order_row"]
     anvil.server.call("mark_order_as_complete", final_order)
+    pdf = anvil.server.call("send_invoice", final_order)
+    anvil.media.download(pdf)
     alert("Order marked as complete")
     self.order_status.text = "Completed"
     pass

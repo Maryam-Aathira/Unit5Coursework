@@ -1,0 +1,111 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'BJZWCL,DBGWAL CLFOVO,WFQMQU'}
+    name: customer_heading_label
+    properties: {text: 'Customer:'}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''user'']["firstname"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'BJZWCL,DBGWAL RPLMYE,CGTEAW'}
+    name: name_label
+    properties: {}
+    type: Label
+  - data_bindings:
+    - {code: 'self.item[''user'']["surname"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'BJZWCL,DBGWAL WALSAT,YZDZLY'}
+    name: surname_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'BJZWCL,JVXYVX XHCFQB,FWJXMO'}
+    name: date_heading_label
+    properties: {text: 'Date:'}
+    type: Label
+  - layout_properties: {grid_position: 'BJZWCL,JVXYVX XHCFQB,RZNVGH'}
+    name: date_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'BJZWCL,JVXYVX NMGKDR,AMBYDC'}
+    name: spacer_4
+    properties: {height: 82}
+    type: Spacer
+  - layout_properties: {grid_position: 'IJYBOI,LTHFPA'}
+    name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'UOJLIL,GYSKDD UNTOXL,TIWPNW'}
+    name: description_label
+    properties: {text: Description}
+    type: Label
+  - data_bindings: []
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD FCIBQN,CJEQII'}
+    name: cake_type_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,GYSKDD TMUVTN,UISDJQ'}
+    name: cake_flavour_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,GYSKDD WWRRXQ,KMZFEV'}
+    name: serving_size_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,GYSKDD COBVPN,BBLXGC'}
+    name: filling_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,GYSKDD MTXIUU,DCSRUY'}
+    name: frosting_type_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,GYSKDD NQDLKC,PPRIPN'}
+    name: frosting_flavour_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,GYSKDD WCTRIJ,JCJECK'}
+    name: no_of_tiers_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,GYSKDD JIZONK,YQWENO'}
+    name: inscription_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,JKGVRB'}
+    name: spacer_1
+    properties: {height: 393.6666259765625}
+    type: Spacer
+  - layout_properties: {grid_position: 'UOJLIL,RYTWNO BPQOIP,KOGIBD'}
+    name: price_heading_label
+    properties: {text: Price}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,RYTWNO HBHXVQ,EFKSQI'}
+    name: price_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,FPVDLD'}
+    name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+  - layout_properties: {grid_position: 'UOJLIL,WUWRMK KJUKPT,ITJCEW'}
+    name: amount_label
+    properties: {text: Total Price}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,WUWRMK YLLUEO,WTBPBI'}
+    name: total_price_label
+    properties: {text: ''}
+    type: Label
+  layout_properties: {slot: default}
+  name: content_panel
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
+  name: invoice_title
+  properties: {text: Your Invoice}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

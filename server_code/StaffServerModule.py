@@ -190,10 +190,22 @@ def add_unavailable_date(selected_date, reason):
                                        reason = reason)
 
 # Sending an invoice as a PDF
-#@anvil.server.callable
-#def send_invoice(order_id):
-#  order = app_tables.tblorders.get(order_id = order_id)
-#  pdf = anvil.pdf.render_form("Invoice")
-#  pass
+@anvil.server.callable
+def create_invoice(order):
+  pdf = anvil.pdf.render_form("Invoice", order = order)
+  return pdf
 
-         
+@anvil.server.callable
+def send_invoice(order):
+  user = order["user"]
+  email = user["email"]
+  pdf = create_invoice(order)
+  anvil.email.send(
+    from_address = "CakesBakesCardiff",
+    from_name = "Invoice",
+    to = email,
+    subject = "Your order",
+    text = "Thank you for your order. Here is your invoice: ",
+    attachments = pdf
+  )
+  return pdf
