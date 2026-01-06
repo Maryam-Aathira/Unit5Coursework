@@ -20,8 +20,7 @@ class StaffViewAccount(StaffViewAccountTemplate):
       self.surname_box.text = user["surname"]
       self.email_box.text = user["email"]
 
-    # Any code you write here will run before the form opens.
-
+  
   def home_button_click(self, **event_args):
     open_form('StaffDashboard')
     pass

@@ -13,4 +13,3 @@ class Invoice(InvoiceTemplate):
     self.init_components(**properties)
     self.item = order
 
-    # Any code you write here will run before the form opens.

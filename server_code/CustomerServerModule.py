@@ -66,7 +66,7 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
   )
 
   # Sending an email to the manager notifying them of an order
-  user = app_tables.users.get(role="Manager")
+  user = app_tables.users.get(role = "Manager")
   anvil.email.send(
     to = user["email"], 
     from_address = "CakesBakesCardiff", 
@@ -113,7 +113,7 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
   )
 
   # Sending an email to the manager notifying them of an order
-  user = app_tables.users.get(role="Manager")
+  user = app_tables.users.get(role = "Manager")
   anvil.email.send(
     to = user["email"], 
     from_address = "CakesBakesCardiff", 
@@ -154,7 +154,7 @@ def display_cake(order):
 
 @anvil.server.callable
 def create_account(firstname, surname, email, password):
-  if app_tables.users.get(email=email):
+  if app_tables.users.get(email = email):
     return False
   app_tables.users.add_row(firstname = firstname, surname = surname, email = email, 
                           password_hash = anvil.users.hash_password(password))

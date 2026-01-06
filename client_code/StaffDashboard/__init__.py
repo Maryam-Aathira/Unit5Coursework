@@ -15,7 +15,7 @@ class StaffDashboard(StaffDashboardTemplate):
     # Gets the user's role from the database
     user = anvil.users.get_user()
     if user is None:
-      # If the dashboard decides to have a mind of its own
+      # If the dashboard decides to have a mind of its own and the user isn't found
       open_form('StaffLogin')
       return 
       

@@ -16,8 +16,7 @@ class Home(HomeTemplate):
     if user is None:
       self.view_account.visible = False
 
-    # Any code you write here will run before the form opens.
-
+  
   def view_orders_click(self, **event_args):
     open_form('ViewOrders')
     pass
