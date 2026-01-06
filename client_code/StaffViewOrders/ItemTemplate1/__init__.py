@@ -56,7 +56,7 @@ class ItemTemplate1(ItemTemplate1Template):
     self.order_status.role = None
     self.confirm_button.visible = False
     self.reject_button.visible = False
-    self.mark_complete_button = False
+    #self.mark_complete_button = False
     
 
       

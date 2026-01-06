@@ -47,7 +47,7 @@ class AddStandardCake(AddStandardCakeTemplate):
       alert("Please enter a collection date")
       return
     # Checks the user has fully entered their account information
-    if user["firstname"] or user["surname"] is None:
+    if not user["firstname"] or not user["surname"]:
       alert("Please complete your account information before placing an continuing")
       open_form("ViewAccount")
       return

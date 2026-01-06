@@ -30,7 +30,12 @@ class Home(HomeTemplate):
     if user is None:
       alert("Sign in to create a customer cake")
     else:
-      open_form("CustomCake")
+    # Checks the user has fully entered their account information
+      if not user["firstname"] or not user["surname"]:
+        alert("Please complete your account information before placing an continuing")
+        open_form("ViewAccount")
+      else:
+        open_form("CustomCake")
     pass
 
   def view_account_click(self, **event_args):
