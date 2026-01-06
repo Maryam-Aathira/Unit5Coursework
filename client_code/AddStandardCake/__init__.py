@@ -46,6 +46,11 @@ class AddStandardCake(AddStandardCakeTemplate):
     if not selected:
       alert("Please enter a collection date")
       return
+    # Checks the user has fully entered their account information
+    if user["firstname"] or user["surname"] is None:
+      alert("Please complete your account information before placing an continuing")
+      open_form("ViewAccount")
+      return
     self.collection_date_picker.date = selected.strftime("%d/%m/%Y")
     cake_type = "Sponge cake"
     occasion = "None"
