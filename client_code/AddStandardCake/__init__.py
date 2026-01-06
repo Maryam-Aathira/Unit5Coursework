@@ -29,13 +29,7 @@ class AddStandardCake(AddStandardCakeTemplate):
 
   @handle("collection_date_picker", "change")
   def collection_date_picker_change(self, **event_args):
-    selected = self.collection_date_picker.date
-    if selected is None:
-      alert("Please enter a collection date")
-      return
-    if selected:
-      self.collection_date_picker.text = selected.strftime("%d/%m/%Y")
-      pass
+    pass
 
   def confirm_order_button_click(self, **event_args,):
     # Checking for availablity
@@ -47,6 +41,12 @@ class AddStandardCake(AddStandardCakeTemplate):
     user = anvil.users.get_user()
     if user is None:
       alert("Sign in to continue")
+      return
+    # Checks the user has entered a collection date
+    if not selected:
+      alert("Please enter a collection date")
+      return
+    self.collection_date_picker.date = selected.strftime("%d/%m/%Y")
     cake_type = "Sponge cake"
     occasion = "None"
     sponge_flavour = self.sponge_flavour.text
