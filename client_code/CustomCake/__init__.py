@@ -204,7 +204,7 @@ class CustomCake(CustomCakeTemplate):
       alert("Please enter a cake type")
     if self.sponge_flavour_dropdown.selected_value is None:
       alert("Please enter a sponge flavour")
-
+      
     # Checking that the other option isn't left blank after being selected 
     if self.filling_dropdown.selected_value == "Other":
       if self.other_filling.text.strip() == "":
@@ -237,6 +237,7 @@ class CustomCake(CustomCakeTemplate):
     # Checks a date has been selected
     if self.collection_date_picker.date is None:
       alert("Please select a collection date")
+      return
 
     # Checking that the date isn't marked as unavailable
     selected = self.collection_date_picker.date
