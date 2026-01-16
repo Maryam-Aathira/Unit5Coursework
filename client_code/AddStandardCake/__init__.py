@@ -31,6 +31,7 @@ class AddStandardCake(AddStandardCakeTemplate):
   def collection_date_picker_change(self, **event_args):
     pass
 
+
   def confirm_order_button_click(self, **event_args,):
     # Checking for availablity
     selected = self.collection_date_picker.date
@@ -38,6 +39,10 @@ class AddStandardCake(AddStandardCakeTemplate):
     if unavailable:
       alert("Unfortunately, we are unavailable for collection that day.")
       return
+      
+    self.valid_future_date(selected)
+
+    
     user = anvil.users.get_user()
     if user is None:
       alert("Sign in to continue")
@@ -68,6 +73,8 @@ class AddStandardCake(AddStandardCakeTemplate):
 
   pass
 
+  def valid_future_date(self, selected):
+    pass
     
   def view_orders_button_click(self, **event_args):
     open_form("ViewOrders")
