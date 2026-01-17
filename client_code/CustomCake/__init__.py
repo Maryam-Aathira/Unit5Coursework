@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import date 
 import datetime 
+from datetime import timedelta
 
 
 class CustomCake(CustomCakeTemplate):
@@ -127,7 +128,6 @@ class CustomCake(CustomCakeTemplate):
   def enter_serving_size_pressed_enter(self, **event_args):
     self.calculate_price()
     pass
-
   
   def no_of_tiers_dropdown_change(self, **event_args):
     self.calculate_price()
@@ -137,7 +137,6 @@ class CustomCake(CustomCakeTemplate):
   def enter_inscription_pressed_enter(self, **event_args):
     self.calculate_price()
     pass
-
 
 
   # Calculated the cost of each cake
@@ -234,11 +233,6 @@ class CustomCake(CustomCakeTemplate):
         alert("Please enter any other allergies")
         return
 
-    # Checks a date has been selected
-    if self.collection_date_picker.date is None:
-      alert("Please select a collection date")
-      return
-
     # Checking that the date isn't marked as unavailable
     selected = self.collection_date_picker.date
     unavailable = anvil.server.call("marked_date_check", selected)
@@ -246,9 +240,10 @@ class CustomCake(CustomCakeTemplate):
       alert("Unfortunately, we are unavailable for collection that day.")
       return
 
-    # Ensure that the collection date has been selected in the future
-   # self.collection_date_picker.min_date = date.today()
-    #datetime.date.today()
+
+    # Calls the function to check the date
+    if not self.valid_future_date(selected):
+      return
 
     # Taking the values the user has entered and storing them in easy variable name
     # This is later stored in the database through the server module 
@@ -278,6 +273,24 @@ class CustomCake(CustomCakeTemplate):
                       sponge_flavour, filling, allergies, additional_details, 
                       inscription, reference_image, collection_date)
     pass
+
+
+  # Checks the date is valid
+  def valid_future_date(self, selected):
+    min_date = date.today() + timedelta(days = 3)
+    if selected is None:
+      alert("Please select a collection date")
+      return False
+    # Prevents users from selecting a previous date
+    if selected <= date.today():
+      alert("Please pick a date in the future")
+      return False
+    # Prevents users from expecting cakes to be ready too quickly
+    if selected <= min_date:
+      alert("Please pick a collection date that is at least three days in advance")
+      return False
+    return True
+
 
   # Allows a reference image to be uploaded
   def upload_image_change(self, file, **event_args):

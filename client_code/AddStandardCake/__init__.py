@@ -5,6 +5,8 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from datetime import date
+from datetime import timedelta
 
 NameArray = ["Vanilla Cake","Chocolate Cake", "Salted Caramel Cake", "Lemon Cake", 
              "Orange Cake", "Almond Cake", "Chocolate Orange Cake"]
@@ -40,8 +42,9 @@ class AddStandardCake(AddStandardCakeTemplate):
       alert("Unfortunately, we are unavailable for collection that day.")
       return
       
-    self.valid_future_date(selected)
-
+    if not self.valid_future_date(selected):
+      return
+   
     
     user = anvil.users.get_user()
     if user is None:
@@ -56,7 +59,7 @@ class AddStandardCake(AddStandardCakeTemplate):
       alert("Please complete your account information before placing an continuing")
       open_form("ViewAccount")
       return
-    self.collection_date_picker.date = selected.strftime("%d/%m/%Y")
+    self.collection_date_picker.text = selected.strftime("%d/%m/%Y")
     cake_type = "Sponge cake"
     occasion = "None"
     sponge_flavour = self.sponge_flavour.text
@@ -70,11 +73,23 @@ class AddStandardCake(AddStandardCakeTemplate):
     anvil.server.call('confirm_standard_order', cake_type, occasion, no_of_tiers, 
                       frosting_type, frosting_flavour, price, 
                       serving_size, sponge_flavour, filling, collection_date)
-
+    alert("Your order has been requested!")
   pass
 
   def valid_future_date(self, selected):
-    pass
+    min_date = date.today() + timedelta(days = 3)
+    if selected is None:
+      alert("Please select a collection date")
+      return False
+    # Prevents users from selecting a previous date
+    if selected <= date.today():
+      alert("Please pick a date in the future")
+      return False
+    # Prevents users from expecting cakes to be ready too quickly
+    if selected <= min_date:
+      alert("Please pick a collection date that is at least three days in advance")
+      return False
+    return True
     
   def view_orders_button_click(self, **event_args):
     open_form("ViewOrders")
