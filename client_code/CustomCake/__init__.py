@@ -42,7 +42,6 @@ class CustomCake(CustomCakeTemplate):
       item_list.append(row["choice"])
     self.sponge_flavour_dropdown.items = item_list
 
-
     # Frosting Flavour dropdown 
     item_list = []
     for row in app_tables.tbldropdownoptions.search(category="frosting_flavour"):
@@ -190,8 +189,12 @@ class CustomCake(CustomCakeTemplate):
       serving_size = int(serving_size)
       if serving_size >= 8 and serving_size <= 12:
         price = price + 5
-      if serving_size >= 13 and serving_size <= 24:
+      elif serving_size >= 13 and serving_size <= 24:
         price = price + 10
+      elif serving_size >= 25 and serving_size <= 30:
+        price = price + 15
+      elif serving_size >= 31 and serving_size <= 40:
+        price = price + 25
 
     self.price_label.text = f"£{price:.2f}"
     self.calculated_price = price
