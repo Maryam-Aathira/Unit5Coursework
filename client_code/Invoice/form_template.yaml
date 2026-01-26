@@ -39,6 +39,12 @@ components:
     properties: {bold: true, text: Description}
     type: Label
   - data_bindings:
+    - {code: 'self.item["order_id"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD TIUAAG,XKKHHK'}
+    name: order_id_label
+    properties: {}
+    type: Label
+  - data_bindings:
     - {code: 'self.item["cake_type"]', property: text, writeback: false}
     layout_properties: {grid_position: 'UOJLIL,GYSKDD FCIBQN,CJEQII'}
     name: cake_type_label
@@ -86,7 +92,7 @@ components:
     name: inscription_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,JKGVRB'}
+  - layout_properties: {grid_position: 'UOJLIL,JEICAS'}
     name: spacer_1
     properties: {height: 393.6666259765625}
     type: Spacer
