@@ -2,7 +2,7 @@ components:
 - components:
   - layout_properties: {grid_position: 'BJZWCL,DBGWAL CLFOVO,WFQMQU'}
     name: customer_heading_label
-    properties: {text: 'Customer:'}
+    properties: {bold: true, text: 'Customer:'}
     type: Label
   - data_bindings:
     - {code: 'self.item["order_row"]["user"]["firstname"]', property: text, writeback: false}
@@ -18,7 +18,7 @@ components:
     type: Label
   - layout_properties: {grid_position: 'BJZWCL,JVXYVX XHCFQB,FWJXMO'}
     name: date_heading_label
-    properties: {text: 'Date:'}
+    properties: {bold: true, text: 'Date:'}
     type: Label
   - data_bindings:
     - {code: 'self.item["date_of_order"]', property: text, writeback: false}
@@ -36,7 +36,7 @@ components:
     type: Spacer
   - layout_properties: {grid_position: 'UOJLIL,GYSKDD UNTOXL,TIWPNW'}
     name: description_label
-    properties: {text: Description}
+    properties: {bold: true, text: Description}
     type: Label
   - data_bindings:
     - {code: 'self.item["cake_type"]', property: text, writeback: false}
@@ -92,13 +92,17 @@ components:
     type: Spacer
   - layout_properties: {grid_position: 'UOJLIL,RYTWNO BPQOIP,KOGIBD'}
     name: price_heading_label
-    properties: {text: Price}
+    properties: {bold: true, text: Price}
+    type: Label
+  - layout_properties: {grid_position: 'UOJLIL,RYTWNO HBHXVQ,LDOKGH'}
+    name: pound_sign_label
+    properties: {text: £}
     type: Label
   - data_bindings:
     - {code: 'self.item["total_price"]', property: text, writeback: false}
     layout_properties: {grid_position: 'UOJLIL,RYTWNO HBHXVQ,EFKSQI'}
     name: price_label
-    properties: {}
+    properties: {text: ''}
     type: Label
   layout_properties: {slot: default}
   name: content_panel
