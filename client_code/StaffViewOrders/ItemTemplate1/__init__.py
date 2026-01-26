@@ -58,10 +58,6 @@ class ItemTemplate1(ItemTemplate1Template):
     self.reject_button.visible = False
     #self.mark_complete_button = False
     
-
-      
-
-    
   @handle("reject_button", "click")
   def reject_button_click(self, **event_args):
     # Rejection reason dropdown
@@ -109,7 +105,7 @@ class ItemTemplate1(ItemTemplate1Template):
   def mark_complete_button_click(self, **event_args):
     final_order = self.item["order_row"]
     anvil.server.call("mark_order_as_complete", final_order)
-    pdf = anvil.server.call("send_invoice", final_order)
+    pdf = anvil.server.call("send_invoice", self.item)
     anvil.media.download(pdf)
     alert("Order marked as complete")
     self.order_status.text = "Completed"

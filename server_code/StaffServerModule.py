@@ -197,7 +197,8 @@ def create_invoice(order):
 
 @anvil.server.callable
 def send_invoice(order):
-  user = order["user"]
+  #user = order["user"]
+  user = order["order_row"]["user"]
   email = user["email"]
   pdf = create_invoice(order)
   anvil.email.send(

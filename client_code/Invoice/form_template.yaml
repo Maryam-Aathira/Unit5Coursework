@@ -5,13 +5,13 @@ components:
     properties: {text: 'Customer:'}
     type: Label
   - data_bindings:
-    - {code: 'self.item[''user'']["firstname"]', property: text, writeback: false}
+    - {code: 'self.item["order_row"]["user"]["firstname"]', property: text, writeback: false}
     layout_properties: {grid_position: 'BJZWCL,DBGWAL RPLMYE,CGTEAW'}
     name: name_label
     properties: {}
     type: Label
   - data_bindings:
-    - {code: 'self.item[''user'']["surname"]', property: text, writeback: false}
+    - {code: 'self.item["order_row"]["user"]["surname"]', property: text, writeback: false}
     layout_properties: {grid_position: 'BJZWCL,DBGWAL WALSAT,YZDZLY'}
     name: surname_label
     properties: {}
@@ -20,7 +20,9 @@ components:
     name: date_heading_label
     properties: {text: 'Date:'}
     type: Label
-  - layout_properties: {grid_position: 'BJZWCL,JVXYVX XHCFQB,RZNVGH'}
+  - data_bindings:
+    - {code: 'self.item["date_of_order"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'BJZWCL,JVXYVX XHCFQB,RZNVGH'}
     name: date_label
     properties: {}
     type: Label
@@ -36,36 +38,51 @@ components:
     name: description_label
     properties: {text: Description}
     type: Label
-  - data_bindings: []
+  - data_bindings:
+    - {code: 'self.item["cake_type"]', property: text, writeback: false}
     layout_properties: {grid_position: 'UOJLIL,GYSKDD FCIBQN,CJEQII'}
     name: cake_type_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,GYSKDD TMUVTN,UISDJQ'}
+  - data_bindings:
+    - {code: 'self.item["sponge_flavour"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD TMUVTN,UISDJQ'}
     name: cake_flavour_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,GYSKDD WWRRXQ,KMZFEV'}
+  - data_bindings:
+    - {code: 'self.item["serving_size"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD WWRRXQ,KMZFEV'}
     name: serving_size_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,GYSKDD COBVPN,BBLXGC'}
+  - data_bindings:
+    - {code: 'self.item["filling"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD COBVPN,BBLXGC'}
     name: filling_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,GYSKDD MTXIUU,DCSRUY'}
+  - data_bindings:
+    - {code: 'self.item["frosting_type"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD MTXIUU,DCSRUY'}
     name: frosting_type_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,GYSKDD NQDLKC,PPRIPN'}
+  - data_bindings:
+    - {code: 'self.item["frosting_flavour"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD NQDLKC,PPRIPN'}
     name: frosting_flavour_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,GYSKDD WCTRIJ,JCJECK'}
+  - data_bindings:
+    - {code: 'self.item["no_of_tiers"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD WCTRIJ,JCJECK'}
     name: no_of_tiers_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,GYSKDD JIZONK,YQWENO'}
+  - data_bindings:
+    - {code: 'self.item["inscription"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,GYSKDD JIZONK,YQWENO'}
     name: inscription_label
     properties: {}
     type: Label
@@ -77,22 +94,11 @@ components:
     name: price_heading_label
     properties: {text: Price}
     type: Label
-  - layout_properties: {grid_position: 'UOJLIL,RYTWNO HBHXVQ,EFKSQI'}
+  - data_bindings:
+    - {code: 'self.item["total_price"]', property: text, writeback: false}
+    layout_properties: {grid_position: 'UOJLIL,RYTWNO HBHXVQ,EFKSQI'}
     name: price_label
     properties: {}
-    type: Label
-  - layout_properties: {grid_position: 'UOJLIL,FPVDLD'}
-    name: spacer_2
-    properties: {height: 32}
-    type: Spacer
-  - layout_properties: {grid_position: 'UOJLIL,WUWRMK KJUKPT,ITJCEW'}
-    name: amount_label
-    properties: {text: Total Price}
-    type: Label
-  - data_bindings: []
-    layout_properties: {grid_position: 'UOJLIL,WUWRMK YLLUEO,WTBPBI'}
-    name: total_price_label
-    properties: {text: ''}
     type: Label
   layout_properties: {slot: default}
   name: content_panel
