@@ -142,9 +142,22 @@ def cancel_order(order, reason):
     from_address = "CakesBakesCardiff", 
     subject = "Order request", 
     text = f""" Hello {customer["firstname"]},
-    Your order has been cancelled successfully"""
+    Your order has been cancelled successfully
+    Reason: 
+    {reason}
+    """
   )
 
+  manager = app_tables.users.get(role = "Manager")
+  if manager:
+    anvil.email.send(
+      to = manager["email"],
+      from_address = "CakesBakesCardiff",
+      subject = "Order cancellation",
+      text = f""" An order has been cancelled.
+      {customer["firstname"]} {customer["surname"]} has cancelled because: 
+      {reason}"""
+    )
   pass
 
 @anvil.server.callable
