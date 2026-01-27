@@ -200,41 +200,88 @@ class CustomCake(CustomCakeTemplate):
     self.calculated_price = price
     pass
 
+  # Ensuring fields have been selected 
+  def validating_dropdown(self, selected_value, message):
+    if selected_value is None:
+      alert(message)
+      return False
+    return True
+
+  # Ensuring the other option have been selected
+  def validate_other_option(self, selected_value, other_textbox, message):
+    if selected_value == "Other" and other_textbox.text.strip() == "":
+      alert(message)
+      return False
+    return True
+
+  # Ensuring the text boxes have information entered
+  def validate_text_entry(self, text, message):
+    if text.strip() == "":
+      alert(message)
+      return False 
+    return True
+
+  def validate_checkbox(self, checkbox, text, message):
+    if checkbox.checked and text.strip() == "":
+      alert(message)
+      return False  
+    return True
+    
+
   def add_to_order_button_click(self, **event_args):
-    # Validating and ensuring all neccesary fields are selected 
-    if self.cake_type_dropdown.selected_value is None:
-      alert("Please enter a cake type")
-    if self.sponge_flavour_dropdown.selected_value is None:
-      alert("Please enter a sponge flavour")
-      
-    # Checking that the other option isn't left blank after being selected 
-    if self.filling_dropdown.selected_value == "Other":
-      if self.other_filling.text.strip() == "":
-        alert("Please a filling flavour")
-        return
-
-    # Checking that the other option isn't left blank after being selected 
-    if self.frosting_flavour_dropdown.selected_value == "Other":
-      if self.other_frosting.text.strip() == "":
-        alert("Please a frosting flavour")
-        return
-
-    # Checking that the other option isn't left blank after being selected 
-    if self.occasion_dropdown.selected_value == "Other":
-      if self.other_occasion.text.strip() == "":
-        alert("Please enter a occasion")
-        return
-
-    # Checks a serving size has been entered and not left blank
-    if self.enter_serving_size.text.strip() == "":
-      alert("Please enter a serving size")
+    # Calling the function to check all fields have been entered
+    # Checks cake type
+    if not self.validating_dropdown(
+      self.cake_type_dropdown.selected_value,
+      "Please enter a cake type"
+    ):
       return
-
-    # Checks allergies have been entered
-    if self.other_checkbox.checked:
-      if self.enter_allergies.text.strip() == "":
-        alert("Please enter any other allergies")
-        return
+    # Checks sponge flavour
+    if not self.validating_dropdown(
+      self.sponge_flavour_dropdown.selected_value,
+      "Please enter a sponge flavour"
+    ):
+      return
+    # Checks filling
+    if not self.validating_dropdown(
+      self.filling_dropdown.selected_value,
+      "Please enter a filling"
+    ):
+      return
+    # Checks the 'other' dropdown option for filling
+    if not self.validate_other_option(
+      self.filling_dropdown.selected_value,
+      self.other_filling,
+      "Please enter a filling"
+    ):
+      return
+    # Checks the 'other' dropdown option for frosting flavour
+    if not self.validate_other_option(
+      self.frosting_flavour_dropdown.selected_value,
+      self.other_frosting,
+      "Please enter a frosting flavour"
+    ):
+      return
+    # Checks the 'other' dropdown option for frosting flavour
+    if not self.validate_other_option(
+      self.occasion_dropdown.selected_value,
+      self.other_occasion,
+      "Please enter an occasion"
+    ):
+      return
+    # Checks the serving size has been entered
+    if not self.validate_text_entry(
+      self.enter_serving_size.text,
+      "Please enter a serving size"
+    ):
+      return
+    # Checks the checkbox has been checked and necessary allergy details are entered
+    if not self.validate_checkbox(
+      self.other_checkbox,
+      self.enter_allergies.text,
+      "Please enter any other allergies"
+    ):
+      return
 
     # Checking that the date isn't marked as unavailable
     selected = self.collection_date_picker.date
