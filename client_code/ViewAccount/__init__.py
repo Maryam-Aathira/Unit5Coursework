@@ -11,6 +11,10 @@ class ViewAccount(ViewAccountTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    # Setting colours
+    self.sign_out_button.background = "#d2222d"
+    self.sign_out_button.foreground = "#ffffff"
+    
     user = anvil.users.get_user()
     if user:
       self.firstname_box.text = user["firstname"]
@@ -39,4 +43,5 @@ class ViewAccount(ViewAccountTemplate):
       alert("Enter all details")
       return
     anvil.server.call("update_user_details", firstname, surname, email)
+    alert("Changes saved")
     pass
