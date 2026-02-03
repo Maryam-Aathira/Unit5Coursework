@@ -322,6 +322,7 @@ class CustomCake(CustomCakeTemplate):
                       price, serving_size, 
                       sponge_flavour, filling, allergies, additional_details, 
                       inscription, reference_image, collection_date)
+    alert("Your order has been requested!")
     pass
 
 
