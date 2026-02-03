@@ -25,13 +25,7 @@ class CustomCake(CustomCakeTemplate):
     self.enter_allergies.visible = False
 
 
-#  while True:
- #   if self.cake_type_dropdown.selected_value == "Cupcakes":
-  #    self.no_of_tiers_dropdown.visible = False
-   #   self.no_of_tiers_label.visible = False
-  #  else:
-   #   self.no_of_tiers_dropdown.visible = True
-    #  self.no_of_tiers_label.visible = True
+
       
       
     
@@ -81,8 +75,14 @@ class CustomCake(CustomCakeTemplate):
     open_form('Home')
     pass
 
-  # Calling calulate price function for all dropdowns so the price gets updated
   def cake_type_dropdown_change(self, **event_args):
+    if self.cake_type_dropdown.selected_value == "Cupcakes":
+      self.no_of_tiers_dropdown.visible = False
+      self.no_of_tiers_label.visible = False
+    else:
+      self.no_of_tiers_dropdown.visible = True
+      self.no_of_tiers_label.visible = True
+    # Calling calulate price function for all dropdowns so the price gets updated
     self.calculate_price()
     pass
 
@@ -136,7 +136,6 @@ class CustomCake(CustomCakeTemplate):
   def enter_inscription_pressed_enter(self, **event_args):
     self.calculate_price()
     pass
-
 
   # Calculated the cost of each cake
   def calculate_price(self, **event_args):
