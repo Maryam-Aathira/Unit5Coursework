@@ -14,10 +14,16 @@ class ViewAccount(ViewAccountTemplate):
     # Setting colours
     self.sign_out_button.background = "#d2222d"
     self.sign_out_button.foreground = "#ffffff"
+
+    user = anvil.users.get_user()
+    if user:
+      self.firstname_box.text = user["firstname"]
+      self.surname_box.text = user["surname"]
+      self.email_box.text = user["email"]
     
     # Validation
   def validate_names(self, text, message):
-     # Checks it isn't empty
+    # Checks it isn't empty
     if not text.strip():
       alert(f"Please enter a {message}")
       return False
@@ -36,11 +42,7 @@ class ViewAccount(ViewAccountTemplate):
       return False
     return True
 
-    user = anvil.users.get_user()
-    if user:
-      self.firstname_box.text = user["firstname"]
-      self.surname_box.text = user["surname"]
-      self.email_box.text = user["email"]#
+
 
 
 
