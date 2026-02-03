@@ -16,7 +16,6 @@ class CustomCake(CustomCakeTemplate):
     self.init_components(**properties)
     self.calculated_price = 0.00
     self.calculate_price()
-    # self.reference_image.source
 
     # Makes the additional boxes unseen initially.  
     self.other_frosting.visible = False
@@ -24,11 +23,6 @@ class CustomCake(CustomCakeTemplate):
     self.other_occasion.visible = False
     self.enter_allergies.visible = False
 
-
-
-      
-      
-    
 
     # Sponge flavour dropdown
     item_list = []
@@ -324,7 +318,6 @@ class CustomCake(CustomCakeTemplate):
     alert("Your order has been requested!")
     pass
 
-
   # Checks the date is valid
   def valid_future_date(self, selected):
     min_date = date.today() + timedelta(days = 3)
@@ -340,7 +333,6 @@ class CustomCake(CustomCakeTemplate):
       alert("Please pick a collection date that is at least three days in advance")
       return False
     return True
-
 
   # Allows a reference image to be uploaded
   def upload_image_change(self, file, **event_args):
@@ -369,5 +361,3 @@ class CustomCake(CustomCakeTemplate):
   def collection_date_picker_change(self, **event_args):
     """This method is called when the selected date changes"""
     pass
-
-

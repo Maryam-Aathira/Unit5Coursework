@@ -187,3 +187,7 @@ def update_user_details(firstname, surname, email):
   user["firstname"] = firstname
   user["surname"] = surname
   user["email"] = email
+
+#@anvil.server.callable
+#def check_orders():
+  #cutoff = datetime
