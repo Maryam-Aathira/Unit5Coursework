@@ -11,7 +11,7 @@ import anvil.pdf
 @anvil.server.callable
 def get_all_orders():
   return app_tables.tblorders.search()
-  
+
 @anvil.server.callable
 def get_all_orders_from_orderitems():
   return app_tables.tblorderitems.search()
@@ -25,8 +25,8 @@ def get_all_order_info():
 
     # Building one combined dictionary 
     combined.append({
-      'order_row': order["order_id"],
-      
+      'order_row': order,
+
       'customer': f"{user['firstname']} {user['surname']}",
       'order_id': order['order_id'],
       'collection_date': order['collection_date'].strftime("%d/%m/%Y"),
@@ -50,58 +50,54 @@ def get_all_order_info():
     })
   return combined
 
-  
+
 @anvil.server.callable
 def confirm_order_status(order):
- # orders = app_tables.tblorders.search(order_id = order_id)
+  # orders = app_tables.tblorders.search(order_id = order_id)
   #for order in orders:
-    if order['order_status'] == "Pending":
-      order['order_status'] = "Confirmed"
-      order.update()
+  if order['order_status'] == "Pending":
+    order['order_status'] = "Confirmed"
+    order.update()
 
     # Sending an email so they know their order is being made
-    customer = order["user"]
-    anvil.email.send(
+  customer = order["user"]
+  anvil.email.send(
     to = customer["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order Confirmation", 
     text = f"""Hello {customer["firstname"]}, \nYour order has been confirmed! 
 It is now in the process of being made."""
-    )
-    return order
+  )
+  return order
 
 @anvil.server.callable
 def reject_order_status(order, rejection):
   #orders = app_tables.tblorders.search(order_id = order_id)
   #for order in orders:
-    if order['order_status'] == "Pending":
-      order['order_status'] = "Rejected"
-      order['rejection_reason'] = rejection
-      order.update()
-      
+  if order['order_status'] == "Pending":
+    order['order_status'] = "Rejected"
+    order['rejection_reason'] = rejection
+    order.update()
+
     # Sending an email to the customer informing them of the rejection
-    customer = order["user"]
-    anvil.email.send(
+  customer = order["user"]
+  anvil.email.send(
     to = customer["email"], 
     from_address = "CakesBakesCardiff", 
     subject = "Order Rejection", 
     # Using the rejection reason in the email so they are aware of why it was rejected
     text = f""" Unfortunately, your order has been rejected due to the following
     reason: {rejection}."""
-    )
-    return order
+  )
+  return order
 
 @anvil.server.callable
-def mark_order_as_complete(order_id):
-  order = app_tables.tblorders.get(order_id = order_id)
-  if not order:
-    return
-    
+def mark_order_as_complete(order):
   if order['order_status'] == "Pending":
     order['order_status'] = "Completed"
     order.update()  
 
-    
+
 @anvil.server.callable
 def display_order(order):
   cakes = app_tables.tblorderitems.search(order_id = order)
