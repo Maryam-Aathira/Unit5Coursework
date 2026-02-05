@@ -114,6 +114,8 @@ def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type,
 
   # Sending an email to the manager notifying them of an order
   user = app_tables.users.get(role = "Manager")
+  if not user or not user["email"]:
+    return
   anvil.email.send(
     to = user["email"], 
     from_address = "CakesBakesCardiff", 

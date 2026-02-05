@@ -21,7 +21,11 @@ def get_all_order_info():
   combined = []
   for item in app_tables.tblorderitems.search():
     order = item['order_id']      
-    user = order['user']      
+    if not order:
+      continue
+    user = order['user']  
+    if not user:
+      continue 
 
     # Building one combined dictionary 
     combined.append({

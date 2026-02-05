@@ -16,7 +16,7 @@ class ItemTemplate1(ItemTemplate1Template):
     self.rejection_reason.visible = False
     self.rejection_reason_dropdown.visible = False
     self.confirm_rejection.visible = False
-    
+
     # Making the confirm button green
     self.confirm_button.background = "#238823"
     self.confirm_button.foreground = "#ffffff"
@@ -41,14 +41,14 @@ class ItemTemplate1(ItemTemplate1Template):
   # Confirming the order
   @handle("confirm_button", "click")
   def confirm_button_click(self, **event_args):
-  #  weekly_orders = anvil.server.call("check_weekly_orders")
-   # max_weekly_orders = 3
-   # if weekly_orders >= max_weekly_orders:
-   #   confirm("Are you sure you want to accept any more orders?")
-      
+    #  weekly_orders = anvil.server.call("check_weekly_orders")
+    # max_weekly_orders = 3
+    # if weekly_orders >= max_weekly_orders:
+    #   confirm("Are you sure you want to accept any more orders?")
+
     # Updating order status in the database
-    order_id = self.item["order_row"]
-    anvil.server.call('confirm_order_status', order_id)
+    final_order = self.item["order_row"]
+    anvil.server.call('confirm_order_status', final_order)
     alert("Order confirmed")
     # Updating the table
     self.order_status.text = "Confirmed"
@@ -56,7 +56,7 @@ class ItemTemplate1(ItemTemplate1Template):
     self.confirm_button.visible = False
     self.reject_button.visible = False
     #self.mark_complete_button = False
-    
+
   @handle("reject_button", "click")
   def reject_button_click(self, **event_args):
     # Rejection reason dropdown
