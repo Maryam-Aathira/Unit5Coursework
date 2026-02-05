@@ -23,36 +23,43 @@ def get_all_order_info():
     order = item['order_id']      
     if not order:
       continue
-    user = order['user']  
-    if not user:
-      continue 
+    try:
+      user = order['user']  
+      if not user:
+        continue 
 
     # Building one combined dictionary 
-    combined.append({
-      'order_row': order,
+      combined.append({
+        'order_row': order,
 
-      'customer': f"{user['firstname']} {user['surname']}",
-      'order_id': order['order_id'],
-      'collection_date': order['collection_date'].strftime("%d/%m/%Y"),
-      'order_status': order['order_status'],
-      'date_of_order': order['date_of_order'].strftime("%d/%m/%Y"),
-      'total_price': order['total_price'],
+        'customer': f"{user['firstname']} {user['surname']}",
+        'order_id': order['order_id'],
+        'collection_date': order['collection_date'].strftime("%d/%m/%Y"),
+        'order_status': order['order_status'],
+        'date_of_order': order['date_of_order'].strftime("%d/%m/%Y"),
+        'total_price': order['total_price'],
 
-      # Order item details
-      'cake_type': item['cake_type'],
-      'sponge_flavour': item['sponge_flavour'],
-      'filling': item['filling'],
-      'frosting_type': item['frosting_type'],
-      'frosting_flavour': item['frosting_flavour'],
-      'occasion': item['occasion'],
-      'serving_size': item['serving_size'],
-      'no_of_tiers': item['no_of_tiers'],
-      'allergies': item['allergies'],
-      'inscription': item['inscription'],
-      'additional_details': item['additional_details'],
-      'reference_image': item['reference_image']
-    })
-  return combined
+        # Order item details
+        'cake_type': item['cake_type'],
+        'sponge_flavour': item['sponge_flavour'],
+        'filling': item['filling'],
+        'frosting_type': item['frosting_type'],
+        'frosting_flavour': item['frosting_flavour'],
+        'occasion': item['occasion'],
+        'serving_size': item['serving_size'],
+        'no_of_tiers': item['no_of_tiers'],
+        'allergies': item['allergies'],
+        'inscription': item['inscription'],
+        'additional_details': item['additional_details'],
+        'reference_image': item['reference_image']
+      })
+    # Stops a row being deleted from causing problems
+    except tables.TableError:
+      continue
+    return combined
+
+
+
 
 
 @anvil.server.callable
