@@ -47,8 +47,8 @@ class ItemTemplate1(ItemTemplate1Template):
    #   confirm("Are you sure you want to accept any more orders?")
       
     # Updating order status in the database
-    final_order = self.item["order_row"]
-    anvil.server.call('confirm_order_status', final_order)
+    order_id = self.item["order_row"]
+    anvil.server.call('confirm_order_status', order_id)
     alert("Order confirmed")
     # Updating the table
     self.order_status.text = "Confirmed"

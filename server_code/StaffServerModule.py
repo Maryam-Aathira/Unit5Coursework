@@ -25,7 +25,7 @@ def get_all_order_info():
 
     # Building one combined dictionary 
     combined.append({
-      'order_row': order,
+      'order_row': order["order_id"],
       
       'customer': f"{user['firstname']} {user['surname']}",
       'order_id': order['order_id'],
@@ -92,7 +92,11 @@ def reject_order_status(order, rejection):
     return order
 
 @anvil.server.callable
-def mark_order_as_complete(order):
+def mark_order_as_complete(order_id):
+  order = app_tables.tblorders.get(order_id = order_id)
+  if not order:
+    return
+    
   if order['order_status'] == "Pending":
     order['order_status'] = "Completed"
     order.update()  
