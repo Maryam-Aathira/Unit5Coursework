@@ -50,6 +50,11 @@ components:
     name: sign_out_button
     properties: {text: Sign Out}
     type: Button
+  - event_bindings: {}
+    layout_properties: {grid_position: 'VIOHDK,HPZZAS JNDTJV,EPPXPQ'}
+    name: delete_account
+    properties: {text: Delete Account}
+    type: Button
   layout_properties: {slot: default}
   name: content_panel
   properties: {}

@@ -77,3 +77,11 @@ class ViewAccount(ViewAccountTemplate):
     anvil.server.call("update_user_details", firstname, surname, email)
     alert("Changes saved")
     pass
+
+  @handle("delete_account", "click")
+  def delete_account_click(self, **event_args):
+    confirm(
+      "Are you sure you want to delete your account",
+      buttons = [("Yes", True), ("No", False)]
+    )
+    pass

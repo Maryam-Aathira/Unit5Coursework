@@ -34,9 +34,9 @@ def get_all_order_info():
 
         'customer': f"{user['firstname']} {user['surname']}",
         'order_id': order['order_id'],
-        'collection_date': order['collection_date'].strftime("%d/%m/%Y"),
+        'collection_date': order['collection_date'],
         'order_status': order['order_status'],
-        'date_of_order': order['date_of_order'].strftime("%d/%m/%Y"),
+        'date_of_order': order['date_of_order'],
         'total_price': order['total_price'],
 
         # Order item details
@@ -56,7 +56,7 @@ def get_all_order_info():
     # Stops a row being deleted from causing problems
     except tables.TableError:
       continue
-    return combined
+  return combined
 
 
 
@@ -90,17 +90,18 @@ def reject_order_status(order, rejection):
     order['rejection_reason'] = rejection
     order.update()
 
-    # Sending an email to the customer informing them of the rejection
+  # Sending an email to the customer informing them of the rejection
   customer = order["user"]
-  anvil.email.send(
-    to = customer["email"], 
-    from_address = "CakesBakesCardiff", 
-    subject = "Order Rejection", 
-    # Using the rejection reason in the email so they are aware of why it was rejected
-    text = f""" Unfortunately, your order has been rejected due to the following
-    reason: {rejection}."""
-  )
-  return order
+  if customer:
+    anvil.email.send(
+      to = customer["email"], 
+      from_address = "CakesBakesCardiff", 
+      subject = "Order Rejection", 
+      # Using the rejection reason in the email so they are aware of why it was rejected
+      text = f""" Unfortunately, your order has been rejected due to the following
+      reason: {rejection}."""
+    )
+    return order
 
 @anvil.server.callable
 def mark_order_as_complete(order):
