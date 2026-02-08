@@ -12,8 +12,8 @@ class ViewAccount(ViewAccountTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Setting colours
-    self.sign_out_button.background = "#d2222d"
-    self.sign_out_button.foreground = "#ffffff"
+    self.delete_account_button.background = "#d2222d"
+    self.delete_account_button.foreground = "#ffffff"
 
     user = anvil.users.get_user()
     if user:
@@ -78,10 +78,15 @@ class ViewAccount(ViewAccountTemplate):
     alert("Changes saved")
     pass
 
-  @handle("delete_account", "click")
-  def delete_account_click(self, **event_args):
-    confirm(
+  @handle("delete_account_button", "click")
+  def delete_account_button_click(self, **event_args):
+    result = confirm(
       "Are you sure you want to delete your account",
       buttons = [("Yes", True), ("No", False)]
     )
+    if not result:
+      return
+    anvil.server.call()
+    alert("Your account has been successfully deleted")
+    open_form("Home")
     pass

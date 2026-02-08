@@ -190,6 +190,19 @@ def update_user_details(firstname, surname, email):
   user["surname"] = surname
   user["email"] = email
 
+@anvil.server.callable
+def delete_account():
+  user = anvil.users.get_user()
+  if user is None:
+    raise Exception("Not logged in")
+
+  user["firstname"] = "DELETED"
+  user["surname"] = "DELETED"
+  user["email"] = "DELETED"
+  user.update()
+
+  anvil.users.logout()
+  
 #@anvil.server.callable
 #def check_orders():
   #cutoff = datetime
