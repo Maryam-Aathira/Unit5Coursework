@@ -201,11 +201,7 @@ def delete_account():
   if user is None:
     raise Exception("Not logged in")
 
-  user["firstname"] = "DELETED"
-  user["surname"] = "DELETED"
-  user["email"] = "DELETED"
-  user["active"] = False
-  user.update()
+  user.delete()
 
   anvil.users.logout()
 
