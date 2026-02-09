@@ -86,7 +86,7 @@ class ViewAccount(ViewAccountTemplate):
     )
     if not result:
       return
-    anvil.server.call()
+    anvil.server.call("delete_account")
     alert("Your account has been successfully deleted")
     open_form("Home")
     pass

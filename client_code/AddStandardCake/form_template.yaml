@@ -57,7 +57,8 @@ components:
     name: view_orders_button
     properties: {text: View Orders}
     type: Button
-  - layout_properties: {}
+  - event_bindings: {}
+    layout_properties: {}
     name: view_account_button
     properties: {text: View Account}
     type: Button

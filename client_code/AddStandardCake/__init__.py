@@ -96,6 +96,11 @@ class AddStandardCake(AddStandardCakeTemplate):
     pass
 
   def home_click(self, **event_args):
-    open_form('Home')
+    open_form("Home")
+    pass
+
+  @handle("view_account_button", "click")
+  def view_account_button_click(self, **event_args):
+    open_form("ViewAccount")
     pass
 
