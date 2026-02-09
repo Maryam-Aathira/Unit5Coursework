@@ -86,8 +86,4 @@ class OrderTemplate(OrderTemplateTemplate):
     self.cancel_order_button.visible = False
     self.reason_dropdown.visible = False
   pass
-
-  @handle("edit_order_button", "click")
-  def edit_order_button_click(self, **event_args):
   
-    pass

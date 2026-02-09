@@ -54,6 +54,7 @@ class ViewOrders(ViewOrdersTemplate):
     open_form('Home')
     pass
 
+
   #def confirm_order_click(self, **event_args):
    # for cake in self.current_order:
     #  anvil.server.call('add_custom_cake', 

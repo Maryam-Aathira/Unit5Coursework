@@ -133,7 +133,9 @@ def retrieve_orders():
   # Returns empty list if user isn't logged in
   if user is None:
     return []
-  return app_tables.tblorders.search(user = user)
+  current_orders = ["Pending", "Confirmed", "Rejected"]
+  return app_tables.tblorders.search(order_status = q.any_of(*current_orders))
+
 
 @anvil.server.callable
 def cancel_order(order, reason):
@@ -202,7 +204,6 @@ def delete_account():
     raise Exception("Not logged in")
 
   user.delete()
-
   anvil.users.logout()
 
 

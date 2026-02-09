@@ -3,7 +3,7 @@ components:
   name: order_id_label
   properties: {}
   type: Label
-- layout_properties: {grid_position: ''}
+- layout_properties: {grid_position: ',undefined'}
   name: cake_name_label
   properties: {}
   type: Label
@@ -50,15 +50,10 @@ components:
   name: confirm_cancellation_button
   properties: {text: Confirm Cancellation}
   type: Button
-- layout_properties: {grid_position: 'FITIBQ,JLOTUH LPHFXJ,YINIES'}
+- layout_properties: {grid_position: 'FITIBQ,JLOTUH'}
   name: order_spacer
   properties: {height: 32}
   type: Spacer
-- event_bindings: {}
-  layout_properties: {grid_position: 'FITIBQ,JLOTUH NTLESB,YNUZTL'}
-  name: edit_order_button
-  properties: {text: Edit your order}
-  type: Button
 - layout_properties: {grid_position: 'FEZKGJ,TGTUIU'}
   name: break_label
   properties: {}
