@@ -134,7 +134,22 @@ def retrieve_orders():
   if user is None:
     return []
   current_orders = ["Pending", "Confirmed", "Rejected"]
-  return app_tables.tblorders.search(order_status = q.any_of(*current_orders))
+  all_orders = app_tables.tblorders.search(order_status = q.any_of(*current_orders))
+
+  recent_order = []
+  now = datetime.datetime.now(datetime.timezone.utc)
+  for order in all_orders:
+    order_date = order["date_of_order"]
+    if order["order_status"] == "Rejected":
+      difference = (now - order_date).days
+      if difference > 30:
+        continue
+
+    recent_order.append(order)
+  return recent_order
+      
+
+  
 
 
 @anvil.server.callable
