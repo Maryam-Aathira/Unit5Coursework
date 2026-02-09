@@ -29,7 +29,7 @@ class Login(LoginTemplate):
     if user is None:
       alert("Login Failed")
       return 
-    # User's are redirectedx to their dashboard immediately after signing in
+    # User's are redirected to their dashboard immediately after signing in
     if user["role"] == "Employee" or user["role"] == "Manager":
       open_form("StaffDashboard")
     else:

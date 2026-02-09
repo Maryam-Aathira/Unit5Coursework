@@ -202,7 +202,15 @@ def delete_account():
   user.update()
 
   anvil.users.logout()
-  
+
+@anvil.server.callable
+def make_user_active():
+  user = anvil.users.get_user()
+  if user is None:
+    raise Exception("Not logged in")
+
+  user["active"] = True
+  user.update()
 #@anvil.server.callable
 #def check_orders():
   #cutoff = datetime
