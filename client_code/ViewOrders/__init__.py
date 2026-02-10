@@ -38,22 +38,21 @@ class ViewOrders(ViewOrdersTemplate):
     
 
   def get_orders(self):
-    #user = anvil.users.get_user()
     all_customer_orders = anvil.server.call("retrieve_orders")
     self.order_panel.items = all_customer_orders
    
     
   def view_account_click(self, **event_args):
-    open_form('ViewAccount')
+    open_form("ViewAccount")
     pass
 
   def home_click(self, **event_args):
-    open_form('Home')
+    open_form("Home")
     pass
 
   
 
   @handle("order_history_button", "click")
   def order_history_button_click(self, **event_args):
-    """This method is called when the button is clicked"""
+    open_form("OrderHistory")
     pass

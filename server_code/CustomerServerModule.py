@@ -214,7 +214,7 @@ def delete_account():
   anvil.users.logout()
 
 @anvil.server.callable
-def get_all_orders():
+def get_all_customer_orders():
   user = anvil.users.get_user()
   if user is None:
     raise Exception("Not logged in")
