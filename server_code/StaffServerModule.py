@@ -176,7 +176,7 @@ def get_reasons(start_of_week, end_of_week):
     if start_of_week <= order_date <= end_of_week:
       if order["order_status"] == "Rejected":
         reason = order["rejection_reason"]
-      elif order['order_status'] == "Cancelled":
+      elif order["order_status"] == "Cancelled":
         reason = order["cancellation_reason"]
       else:
         reason = None

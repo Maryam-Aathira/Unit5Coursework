@@ -182,16 +182,6 @@ def display_cake(order):
   return cakes
 
 
-#@anvil.server.callable
-#def create_account(firstname, surname, email, password):
- # if app_tables.users.get(email = email):
-  #  return False
-  #app_tables.users.add_row(firstname = firstname, surname = surname, email = email, 
-   #                       password_hash = anvil.users.hash_password(password))
-
-
-
-
 @anvil.server.callable
 def update_user_details(firstname, surname, email):
   user = anvil.users.get_user()
