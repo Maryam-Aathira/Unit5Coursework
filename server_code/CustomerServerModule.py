@@ -190,12 +190,6 @@ def display_cake(order):
    #                       password_hash = anvil.users.hash_password(password))
 
 
-#@anvil.server.callable
-#def sign_in(email, password):
-  #anvil.users.login_with_email_and_password(email, password)
-  #user = app_tables.users.search(email=email)
-  #print("Works")
- # pass
 
 
 @anvil.server.callable
@@ -219,6 +213,10 @@ def delete_account():
   user.delete()
   anvil.users.logout()
 
-#@anvil.server.callable
-#def check_orders():
-  #cutoff = datetime
+@anvil.server.callable
+def get_all_orders():
+  user = anvil.users.get_user()
+  if user is None:
+    raise Exception("Not logged in")
+  all_orders = app_tables.tblorders.search(user = user)
+  return all_orders

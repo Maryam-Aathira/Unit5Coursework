@@ -51,10 +51,9 @@ class ViewOrders(ViewOrdersTemplate):
     open_form('Home')
     pass
 
+  
 
-  #def confirm_order_click(self, **event_args):
-   # for cake in self.current_order:
-    #  anvil.server.call('add_custom_cake', 
-     #                   cake["cake_type"],
-      #                  cake["sponge_flavour"])
-    #pass
+  @handle("order_history_button", "click")
+  def order_history_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass

@@ -76,7 +76,7 @@ class CustomCake(CustomCakeTemplate):
     else:
       self.no_of_tiers_dropdown.visible = True
       self.no_of_tiers_label.visible = True
-    # Calling calulate price function for all dropdowns so the price gets updated
+    # Calling calculate price function for all dropdowns so the price gets updated
     self.calculate_price()
     pass
 
