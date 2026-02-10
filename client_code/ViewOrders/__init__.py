@@ -12,7 +12,7 @@ class ViewOrders(ViewOrdersTemplate):
     self.init_components(**properties)
     
     #self.order_id_label.text = self.item["order"]
-   # self.date_label.text = str(self.item["date_of_order"])
+    #self.date_label.text = str(self.item["date_of_order"])
     #self.status_label.text = str(self.item["order_status"])
     self.sign_in_info.visible = False
     user = anvil.users.get_user()
@@ -43,9 +43,6 @@ class ViewOrders(ViewOrdersTemplate):
     self.order_panel.items = all_customer_orders
    
     
-
-    # Any code you write here will run before the form opens.
-
   def view_account_click(self, **event_args):
     open_form('ViewAccount')
     pass

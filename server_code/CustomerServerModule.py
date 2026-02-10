@@ -129,14 +129,14 @@ def retrieve_orders():
   # Returns empty list if user isn't logged in
   if user is None:
     return []
-  current_orders = ["Pending", "Confirmed", "Rejected"]
+  current_orders = ["Pending", "Confirmed", "Rejected", "Cancelled"]
   all_orders = app_tables.tblorders.search(user = user, order_status = q.any_of(*current_orders))
 
   recent_orders = []
   today = datetime.date.today()
   for order in all_orders:
     order_date = order["date_of_order"].date()
-    if order["order_status"] == "Rejected":
+    if order["order_status"] == "Rejected" or order["order_status"] == "Cancelled":
       difference = (today - order_date).days
       if difference > 30:
         continue
@@ -182,20 +182,20 @@ def display_cake(order):
   return cakes
 
 
-@anvil.server.callable
-def create_account(firstname, surname, email, password):
-  if app_tables.users.get(email = email):
-    return False
-  app_tables.users.add_row(firstname = firstname, surname = surname, email = email, 
-                          password_hash = anvil.users.hash_password(password))
+#@anvil.server.callable
+#def create_account(firstname, surname, email, password):
+ # if app_tables.users.get(email = email):
+  #  return False
+  #app_tables.users.add_row(firstname = firstname, surname = surname, email = email, 
+   #                       password_hash = anvil.users.hash_password(password))
 
 
-@anvil.server.callable
-def sign_in(email, password):
+#@anvil.server.callable
+#def sign_in(email, password):
   #anvil.users.login_with_email_and_password(email, password)
   #user = app_tables.users.search(email=email)
   #print("Works")
-  pass
+ # pass
 
 
 @anvil.server.callable
