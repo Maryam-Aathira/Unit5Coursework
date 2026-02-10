@@ -7,9 +7,6 @@ import anvil.users
 import datetime
 import random
 
-#def after_user_login(user):
-
-
 @anvil.server.callable
 def generate_order_id():
   while True:
@@ -78,7 +75,6 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
     """)
   )
 
-
   
 @anvil.server.callable
 def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type, 
@@ -134,24 +130,21 @@ def retrieve_orders():
   if user is None:
     return []
   current_orders = ["Pending", "Confirmed", "Rejected"]
-  all_orders = app_tables.tblorders.search(order_status = q.any_of(*current_orders))
+  all_orders = app_tables.tblorders.search(user = user, order_status = q.any_of(*current_orders))
 
-  recent_order = []
-  now = datetime.datetime.now(datetime.timezone.utc)
+  recent_orders = []
+  today = datetime.date.today()
   for order in all_orders:
-    order_date = order["date_of_order"]
+    order_date = order["date_of_order"].date()
     if order["order_status"] == "Rejected":
-      difference = (now - order_date).days
+      difference = (today - order_date).days
       if difference > 30:
         continue
 
-    recent_order.append(order)
-  return recent_order
-      
+    recent_orders.append(order)
+  return recent_orders
 
   
-
-
 @anvil.server.callable
 def cancel_order(order, reason):
   order["order_status"] = "Cancelled"
@@ -182,10 +175,12 @@ def cancel_order(order, reason):
     )
   pass
 
+
 @anvil.server.callable
 def display_cake(order):
   cakes = app_tables.tblorderitems.search(order_id = order)
   return cakes
+
 
 @anvil.server.callable
 def create_account(firstname, surname, email, password):
@@ -194,12 +189,14 @@ def create_account(firstname, surname, email, password):
   app_tables.users.add_row(firstname = firstname, surname = surname, email = email, 
                           password_hash = anvil.users.hash_password(password))
 
+
 @anvil.server.callable
 def sign_in(email, password):
   #anvil.users.login_with_email_and_password(email, password)
   #user = app_tables.users.search(email=email)
   #print("Works")
   pass
+
 
 @anvil.server.callable
 def update_user_details(firstname, surname, email):
@@ -212,6 +209,7 @@ def update_user_details(firstname, surname, email):
   user["active"] = True
   user.update()
 
+
 @anvil.server.callable
 def delete_account():
   user = anvil.users.get_user()
@@ -220,7 +218,6 @@ def delete_account():
 
   user.delete()
   anvil.users.logout()
-
 
 #@anvil.server.callable
 #def check_orders():
