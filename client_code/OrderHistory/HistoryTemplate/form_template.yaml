@@ -1,3 +1,27 @@
-components: []
+components:
+- layout_properties: {grid_position: 'QWMRES,OOMOTC'}
+  name: order_id_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'DULTEJ,SVVTPZ'}
+  name: cake_name_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'ABVUBU,RGYEZJ'}
+  name: date_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'YRIPQL,VXZRIY'}
+  name: collection_date_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'BIUHOE,FPNXYV'}
+  name: status_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'NGFMRE,GMFXKH'}
+  name: price_label
+  properties: {}
+  type: Label
 container: {type: ColumnPanel}
 is_package: true
