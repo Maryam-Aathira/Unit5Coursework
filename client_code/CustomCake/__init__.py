@@ -161,7 +161,6 @@ class CustomCake(CustomCakeTemplate):
       price = price + 7.00
 
     tiers = int(self.no_of_tiers_dropdown.selected_value or 1)
-    #int(tiers)
     if tiers == 1:
       price = price + 0.00
     if tiers == 2:
