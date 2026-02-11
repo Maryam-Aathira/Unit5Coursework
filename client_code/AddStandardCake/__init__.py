@@ -45,7 +45,6 @@ class AddStandardCake(AddStandardCakeTemplate):
     if not self.valid_future_date(selected):
       return
    
-    
     user = anvil.users.get_user()
     if user is None:
       alert("Sign in to continue")

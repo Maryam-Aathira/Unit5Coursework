@@ -28,7 +28,7 @@ class Home(HomeTemplate):
   def create_button_click(self, **event_args):
     user = anvil.users.get_user()
     if user is None:
-      alert("Sign in to create a customer cake")
+      alert("Sign in to create a custom cake")
     else:
     # Checks the user has fully entered their account information
       if not user["firstname"] or not user["surname"]:
