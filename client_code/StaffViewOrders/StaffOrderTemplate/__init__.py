@@ -11,10 +11,9 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    # self.role = role
     order = self.item
     role = get_open_form().role
-    #self.price_label.visible = True
+
 
     order = self.item
     cakes = anvil.server.call('display_cake', order)
@@ -33,8 +32,6 @@ class StaffOrderTemplate(StaffOrderTemplateTemplate):
     else:
       self.staff_confirm_button.visible = False
       self.staff_reject_button.visible = False
-
-
 
 
   def form_refreshing_data_bindings(self, **event_args):
