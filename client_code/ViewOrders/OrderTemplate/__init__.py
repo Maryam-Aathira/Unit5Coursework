@@ -41,7 +41,6 @@ class OrderTemplate(OrderTemplateTemplate):
     self.break_label.text = "-----------------------------------------------------------------------------------"
     self.confirm_cancellation_button.visible = False
 
-    # Any code you write here will run before the form opens.
 
   def cancel_order_button_click(self, **event_args):
     if self.days_until_collection <= 7:

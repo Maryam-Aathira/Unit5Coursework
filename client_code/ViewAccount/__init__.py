@@ -43,9 +43,6 @@ class ViewAccount(ViewAccountTemplate):
     return True
 
 
-
-
-
   def view_order_button_click(self, **event_args):
     open_form("ViewOrders")
     pass
@@ -71,9 +68,7 @@ class ViewAccount(ViewAccountTemplate):
     if not self.validate_email(email):
       return
 
- #   if not firstname or not surname or not email:
-  #    alert("Enter all details")
-   #   return
+    
     anvil.server.call("update_user_details", firstname, surname, email)
     alert("Changes saved")
     pass
