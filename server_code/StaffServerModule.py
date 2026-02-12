@@ -98,8 +98,8 @@ def reject_order_status(order, rejection):
 
 @anvil.server.callable
 def mark_order_as_complete(order):
-  if order['order_status'] == "Pending":
-    order['order_status'] = "Completed"
+  if order["order_status"] == "Pending":
+    order["order_status"] = "Completed"
     order.update()  
 
 
@@ -114,7 +114,7 @@ def check_weekly_orders():
   today = datetime.datetime.now()
   days_since_monday = today.weekday()
   start = today - datetime.timedelta(days = days_since_monday)
-  weekly_orders = app_tables.tblorders.search('date_of_order' >= start)
+  weekly_orders = app_tables.tblorders.search("date_of_order" >= start)
   return len(weekly_orders)
 
 @anvil.server.callable

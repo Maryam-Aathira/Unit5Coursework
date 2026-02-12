@@ -44,14 +44,13 @@ class ItemTemplate1(ItemTemplate1Template):
 
     # Updating order status in the database
     final_order = self.item["order_row"]
-    anvil.server.call('confirm_order_status', final_order)
+    anvil.server.call("confirm_order_status", final_order)
     alert("Order confirmed")
     # Updating the table
     self.order_status.text = "Confirmed"
     self.order_status.role = None
     self.confirm_button.visible = False
     self.reject_button.visible = False
-    #self.mark_complete_button = False
 
   @handle("reject_button", "click")
   def reject_button_click(self, **event_args):
@@ -83,7 +82,7 @@ class ItemTemplate1(ItemTemplate1Template):
       rejection = self.rejection_reason.text
     # Updating order status in the database
     final_order = self.item["order_row"]
-    anvil.server.call('reject_order_status', final_order, rejection)
+    anvil.server.call("reject_order_status", final_order, rejection)
     # Updating the table
     alert("Order rejected")
     self.order_status.text = "Rejected"

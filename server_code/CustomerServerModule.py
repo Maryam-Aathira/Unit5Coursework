@@ -202,11 +202,3 @@ def delete_account():
 
   user.delete()
   anvil.users.logout()
-
-@anvil.server.callable
-def get_all_customer_orders():
-  user = anvil.users.get_user()
-  if user is None:
-    raise Exception("Not logged in")
-  all_orders = app_tables.tblorders.search(user = user)
-  return all_orders
