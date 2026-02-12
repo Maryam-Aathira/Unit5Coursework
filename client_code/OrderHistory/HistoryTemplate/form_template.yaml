@@ -23,5 +23,13 @@ components:
   name: price_label
   properties: {}
   type: Label
+- layout_properties: {grid_position: 'KIMEWB,ESISZC'}
+  name: reference_picture
+  properties: {}
+  type: Image
+- layout_properties: {grid_position: 'NFEXCS,FLWEUW'}
+  name: break_label
+  properties: {}
+  type: Label
 container: {type: ColumnPanel}
 is_package: true

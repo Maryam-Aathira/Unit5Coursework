@@ -15,13 +15,14 @@ class StaffDashboard(StaffDashboardTemplate):
     # Gets the user's role from the database
     user = anvil.users.get_user()
     if user is None:
-      # If the dashboard fails and the user isn't found
-      open_form('StaffLogin')
+      # If the user isn't found users are redirected to login. 
+      open_form("StaffLogin")
       return 
       
     try:
       role = user["role"]
       self.role = role
+    # If the role is not in the database it will catch the error and redirect to login
     except KeyError:
       alert("Error, invalid role")
       open_form("StaffLogin")
@@ -42,7 +43,7 @@ class StaffDashboard(StaffDashboardTemplate):
     pass
 
   def view_account_button_click(self, **event_args):
-    open_form('StaffViewAccount', role = self.role)
+    open_form("StaffViewAccount", role = self.role)
     pass
 
   def statistics_button_click(self, **event_args):
@@ -50,5 +51,5 @@ class StaffDashboard(StaffDashboardTemplate):
     pass
 
   def calendar_button_click(self, **event_args):
-    open_form('Calendar', role = self.role)
+    open_form("Calendar", role = self.role)
     pass

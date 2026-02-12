@@ -72,7 +72,7 @@ class Statistics(StatisticsTemplate):
       go.Bar(
         x = ["Cancelled", "Rejected", "Total items"],
         y = [stats["cancelled"], stats["rejected"], stats['total items']],
-        name = 'Weekly Statistics'
+        name = "Weekly Statistics"
       )
     ]
 
@@ -98,7 +98,7 @@ class Statistics(StatisticsTemplate):
 
   
   def home_button_click(self, **event_args):
-    open_form('StaffDashboard')
+    open_form("StaffDashboard")
     pass
 
 

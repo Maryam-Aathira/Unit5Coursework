@@ -53,7 +53,7 @@ def get_all_order_info():
         "additional_details": item["additional_details"],
         "reference_image": item["reference_image"]
       })
-    # Stops a row being deleted from causing problems
+    # Stops a row being deleted from causing problems or if data doesn't match up
     except tables.TableError:
       continue
   return combined
@@ -61,13 +61,11 @@ def get_all_order_info():
 
 @anvil.server.callable
 def confirm_order_status(order):
-  # orders = app_tables.tblorders.search(order_id = order_id)
-  #for order in orders:
   if order["order_status"] == "Pending":
     order["order_status"] = "Confirmed"
     order.update()
 
-    # Sending an email so they know their order is being made
+  # Sending an email so they know their order is being made
   customer = order["user"]
   anvil.email.send(
     to = customer["email"], 
@@ -80,8 +78,6 @@ It is now in the process of being made."""
 
 @anvil.server.callable
 def reject_order_status(order, rejection):
-  #orders = app_tables.tblorders.search(order_id = order_id)
-  #for order in orders:
   if order["order_status"] == "Pending":
     order["order_status"] = "Rejected"
     order["rejection_reason"] = rejection
@@ -171,6 +167,7 @@ def get_reasons(start_of_week, end_of_week):
     "Other" : 0
   }
 
+  # Loops through orders to increment the cancellation or rejection reasons
   for order in orders:
     order_date = order["date_of_order"].date()
     if start_of_week <= order_date <= end_of_week:

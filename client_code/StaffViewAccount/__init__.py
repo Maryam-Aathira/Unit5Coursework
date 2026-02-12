@@ -20,9 +20,31 @@ class StaffViewAccount(StaffViewAccountTemplate):
       self.surname_box.text = user["surname"]
       self.email_box.text = user["email"]
 
+
+    # Validation
+  def validate_names(self, text, message):
+    # Checks it isn't empty
+    if not text.strip():
+      alert(f"Please enter a {message}")
+      return False
+    # Checks only letters are entered
+    if not text.isalpha():
+      alert(f"Please enter letters only for a {message}")
+      return False
+    return True
+
+  def validate_email(self, email):
+    if not email.strip():
+      alert("Please enter an email")
+      return False
+    if "@" not in email or "." not in email:
+      alert("Please enter a valid email")
+      return False
+    return True
+
   
   def home_button_click(self, **event_args):
-    open_form('StaffDashboard')
+    open_form("StaffDashboard")
     pass
 
   def sign_out_button_click(self, **event_args):
@@ -35,9 +57,13 @@ class StaffViewAccount(StaffViewAccountTemplate):
     firstname =  self.firstname_box.text
     surname = self.surname_box.text
     email = self.email_box.text
-    if not firstname or not surname or not email:
-      alert("Enter all details")
+    if not self.validate_names(firstname, "firstname"):
+      return 
+    if not self.validate_names(surname, "surname"):
       return
-    anvil.server.call("update_user_details", firstname, surname, email)
-    pass
+    if not self.validate_email(email):
+      return
 
+    anvil.server.call("update_user_details", firstname, surname, email)
+    alert("Changes saved")
+    pass

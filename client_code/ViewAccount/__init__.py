@@ -37,7 +37,7 @@ class ViewAccount(ViewAccountTemplate):
     if not email.strip():
       alert("Please enter an email")
       return False
-    if "@" not in email and "." not in email:
+    if "@" not in email or "." not in email:
       alert("Please enter a valid email")
       return False
     return True

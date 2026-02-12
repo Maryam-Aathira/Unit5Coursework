@@ -28,7 +28,7 @@ class Calendar(CalendarTemplate):
       alert("Please select a date")
       return
 
-    # Checks to see is this date has already been marked as unavailable
+    # Checks to see if this date has already been marked as unavailable
     unavailable = anvil.server.call("marked_date_check", selected_date)
     if unavailable:
       alert("This date has already been marked as unavailable")

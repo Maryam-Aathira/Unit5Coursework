@@ -12,10 +12,18 @@ class OrderHistory(OrderHistoryTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    user = anvil.users.get_user()
+    if user is None:
+      self.sign_in_info.visible = True
+      return
+
+    self.get_orders()
+
 
   def get_orders(self):
-    all_customer_orders = anvil.server.call("get_all_customer_orders")
+    all_customer_orders = anvil.server.call("retrieve_orders")
     self.order_panel.items = all_customer_orders
+
 
   
   @handle("home_button", "click")

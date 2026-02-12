@@ -13,7 +13,7 @@ class Login(LoginTemplate):
     self.init_components(**properties)
 
   def manager_login_button_click(self, **event_args):
-    open_form('ManagerDashboard')
+    open_form("ManagerDashboard")
     pass
 
   def home_click(self, **event_args):
@@ -33,9 +33,6 @@ class Login(LoginTemplate):
     if user["role"] == "Employee" or user["role"] == "Manager":
       open_form("StaffDashboard")
     else:
-      open_form('Home')
+      open_form("Home")
     pass
 
-  def sign_up_button_click(self, **event_args):
-    open_form('Signup')
-    pass

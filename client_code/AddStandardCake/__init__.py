@@ -8,6 +8,7 @@ from anvil.tables import app_tables
 from datetime import date
 from datetime import timedelta
 
+# Creates arrays for each category of the different cakes
 NameArray = ["Vanilla Cake","Chocolate Cake", "Salted Caramel Cake", "Lemon Cake", 
              "Orange Cake", "Almond Cake", "Chocolate Orange Cake"]
 
@@ -76,6 +77,7 @@ class AddStandardCake(AddStandardCakeTemplate):
   pass
 
   def valid_future_date(self, selected):
+    # Calculates the earliest a user can select as their collection date
     min_date = date.today() + timedelta(days = 3)
     if selected is None:
       alert("Please select a collection date")

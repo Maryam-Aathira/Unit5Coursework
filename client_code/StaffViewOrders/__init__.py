@@ -12,9 +12,8 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.role = role
-    self.order_data_grid.role = "wide-scroll"
 
-    self.all_orders = anvil.server.call('get_all_order_info')
+    self.all_orders = anvil.server.call("get_all_order_info")
     self.order_repeating_panel.items = self.all_orders
 
 
@@ -26,7 +25,7 @@ class StaffViewOrders(StaffViewOrdersTemplate):
 
     item_list = []
     for row in app_tables.tblstaffdropdown.search(category = "filter"):
-      item_list.append(row['choice'])
+      item_list.append(row["choice"])
     self.filter_dropdown.items = item_list
     
  

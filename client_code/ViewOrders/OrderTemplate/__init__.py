@@ -24,7 +24,7 @@ class OrderTemplate(OrderTemplateTemplate):
     if selected_date is not None:
       self.days_until_collection = (selected_date - current_date).days
     order = self.item
-    cakes = anvil.server.call('display_cake',order)
+    cakes = anvil.server.call("display_cake",order)
 
     cake_info = ""
     # Adding information from tblOrderItems into a list for each cake
@@ -44,7 +44,6 @@ class OrderTemplate(OrderTemplateTemplate):
 
   def cancel_order_button_click(self, **event_args):
     if self.days_until_collection <= 7:
-      #print("can't cancel")
       alert("An order cannot be cancelled within 7 days of the collection date")
     else:
       self.cancel_question_label.visible = True
@@ -73,9 +72,9 @@ class OrderTemplate(OrderTemplateTemplate):
     self.status_label.text = ""
     reason = self.reason_dropdown.selected_value
 
-    anvil.server.call('cancel_order', self.item, reason)
+    anvil.server.call("cancel_order", self.item, reason)
     self.status_label.text = "Order Status: " + str(self.item["order_status"])
-# Need to get price from tblOrderItems
+    # Need to get price from tblOrderItems
     self.price_label.text = ""
     self.break_label.text = ""
     self.cake_name_label.text = ""

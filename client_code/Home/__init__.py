@@ -18,7 +18,7 @@ class Home(HomeTemplate):
 
   
   def view_orders_click(self, **event_args):
-    open_form('ViewOrders')
+    open_form("ViewOrders")
     pass
 
   def browse_button_click(self, **event_args):
@@ -39,9 +39,9 @@ class Home(HomeTemplate):
     pass
 
   def view_account_click(self, **event_args):
-    open_form('ViewAccount')
+    open_form("ViewAccount")
     pass
 
   def login_button_click(self, **event_args):
-    open_form('Login')
+    open_form("Login")
     pass
