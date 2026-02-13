@@ -15,7 +15,7 @@ class Calendar(CalendarTemplate):
 
 
   def home_button_click(self, **event_args):
-    open_form('StaffDashboard')
+    open_form("StaffDashboard")
     pass
 
   @handle("confirm_date", "click")
