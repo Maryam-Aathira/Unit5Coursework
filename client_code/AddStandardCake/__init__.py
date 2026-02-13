@@ -70,7 +70,7 @@ class AddStandardCake(AddStandardCakeTemplate):
     serving_size = 10
     filling = "None"
     collection_date = self.collection_date_picker.date
-    anvil.server.call('confirm_standard_order', cake_type, occasion, no_of_tiers, 
+    anvil.server.call("confirm_standard_order", cake_type, occasion, no_of_tiers, 
                       frosting_type, frosting_flavour, price, 
                       serving_size, sponge_flavour, filling, collection_date)
     alert("Your order has been requested!")
