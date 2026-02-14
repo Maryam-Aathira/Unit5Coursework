@@ -7,11 +7,12 @@ import anvil.server
 import datetime
 import anvil.pdf
 
-
+# Retrieves all orders from tblOrders
 @anvil.server.callable
 def get_all_orders():
   return app_tables.tblorders.search()
 
+# Retrieves all data from tblorderitems
 @anvil.server.callable
 def get_all_orders_from_orderitems():
   return app_tables.tblorderitems.search()
@@ -59,6 +60,7 @@ def get_all_order_info():
   return combined
 
 
+# Changes order status to confirmed in the database
 @anvil.server.callable
 def confirm_order_status(order):
   if order["order_status"] == "Pending":
@@ -75,7 +77,7 @@ def confirm_order_status(order):
 It is now in the process of being made."""
   )
   return order
-
+# Changes order status to rejected in the database
 @anvil.server.callable
 def reject_order_status(order, rejection):
   if order["order_status"] == "Pending":
@@ -122,7 +124,7 @@ def get_week(selected_date):
   # selected_date.weekday is the number corresponding to the day of the week
   start_of_week = selected_date - datetime.timedelta(days = selected_date.weekday())
   # datetime.delta calculated the difference in days
-  end_of_week = start_of_week + datetime.timedelta(days=6)
+  end_of_week = start_of_week + datetime.timedelta(days = 6)
   return start_of_week, end_of_week
 
 @anvil.server.callable
