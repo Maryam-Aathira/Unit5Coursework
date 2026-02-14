@@ -7,6 +7,8 @@ import anvil.users
 import datetime
 import random
 
+# Generating an order id to be visible and later referenced in invoices etc
+# This is done using the random library
 @anvil.server.callable
 def generate_order_id():
   while True:
@@ -26,6 +28,7 @@ def add_standard_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_
                                    serving_size = serving_size, 
                                    sponge_flavour = sponge_flavour, filling = filling)
 
+# Adding a custom cake to the customer's order
 @anvil.server.callable
 def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, 
                     serving_size, sponge_flavour, filling, allergies, additional_details, inscription, 
@@ -75,7 +78,6 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
     """)
   )
 
-  
 @anvil.server.callable
 def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type, 
                            frosting_flavour, price,
@@ -144,7 +146,7 @@ def retrieve_orders():
     recent_orders.append(order)
   return recent_orders
 
-  
+# Changes order status to cancelled in the database
 @anvil.server.callable
 def cancel_order(order, reason):
   order["order_status"] = "Cancelled"
@@ -181,7 +183,7 @@ def display_cake(order):
   cakes = app_tables.tblorderitems.search(order_id = order)
   return cakes
 
-
+# Takes the details the user entered and updates that to the database
 @anvil.server.callable
 def update_user_details(firstname, surname, email):
   user = anvil.users.get_user()
@@ -193,7 +195,7 @@ def update_user_details(firstname, surname, email):
   user["active"] = True
   user.update()
 
-
+# Deletes all account info for that user
 @anvil.server.callable
 def delete_account():
   user = anvil.users.get_user()

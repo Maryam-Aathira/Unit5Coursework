@@ -60,7 +60,7 @@ def get_all_order_info():
   return combined
 
 
-# Changes order status to confirmed in the database
+# Changes order status from pending to confirmed in the database
 @anvil.server.callable
 def confirm_order_status(order):
   if order["order_status"] == "Pending":
@@ -77,7 +77,7 @@ def confirm_order_status(order):
 It is now in the process of being made."""
   )
   return order
-# Changes order status to rejected in the database
+# Changes order status from pending to rejected in the database
 @anvil.server.callable
 def reject_order_status(order, rejection):
   if order["order_status"] == "Pending":
@@ -98,6 +98,7 @@ def reject_order_status(order, rejection):
     )
     return order
 
+# Changes order status to from pending to completed in the database
 @anvil.server.callable
 def mark_order_as_complete(order):
   if order["order_status"] == "Pending":
@@ -123,7 +124,7 @@ def check_weekly_orders():
 def get_week(selected_date):
   # selected_date.weekday is the number corresponding to the day of the week
   start_of_week = selected_date - datetime.timedelta(days = selected_date.weekday())
-  # datetime.delta calculated the difference in days
+  # datetime.delta(days) calculates the difference in days
   end_of_week = start_of_week + datetime.timedelta(days = 6)
   return start_of_week, end_of_week
 
@@ -154,6 +155,8 @@ def get_weekly_stats(start_of_week, end_of_week):
     "income" : income
   }
 
+# Creates a dictionary for reasons an order cannot be made
+# This includes cancellation reasons and rejection reasons
 @anvil.server.callable
 def get_reasons(start_of_week, end_of_week):
   orders = app_tables.tblorders.search()
@@ -171,7 +174,9 @@ def get_reasons(start_of_week, end_of_week):
 
   # Loops through orders to increment the cancellation or rejection reasons
   for order in orders:
+    # Gets the date of the order
     order_date = order["date_of_order"].date()
+    # Checks if order date is in the range
     if start_of_week <= order_date <= end_of_week:
       if order["order_status"] == "Rejected":
         reason = order["rejection_reason"]
@@ -191,6 +196,7 @@ def marked_date_check(selected_date):
   row = app_tables.tblunavailability.get(unavailability_date = selected_date)
   return row 
 
+# Adds an unavailble date to tblunavailability with a reason
 @anvil.server.callable
 def add_unavailable_date(selected_date, reason):
   user = anvil.users.get_user()
@@ -198,12 +204,13 @@ def add_unavailable_date(selected_date, reason):
                                        unavailability_date = selected_date, 
                                        reason = reason)
 
-# Sending an invoice as a PDF
+# Creating an invoice as a PDF
 @anvil.server.callable
 def create_invoice(order):
   pdf = anvil.pdf.render_form("Invoice", order = order)
   return pdf
 
+# This sends the invoice to the customer through email
 @anvil.server.callable
 def send_invoice(order):
   user = order["order_row"]["user"]
