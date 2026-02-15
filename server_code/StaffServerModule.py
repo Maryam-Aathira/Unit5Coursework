@@ -31,29 +31,29 @@ def get_all_order_info():
 
     # Building one combined dictionary 
       combined_order_info.append({
-        "order_row": order,
+        "order_row" : order,
 
         # General order details from tblOrders
-        "customer": f"{user['firstname']} {user['surname']}",
-        "order_id": order["order_id"],
-        "collection_date": order["collection_date"],
-        "order_status": order["order_status"],
-        "date_of_order": order["date_of_order"],
-        "total_price": order["total_price"],
+        "customer" : f"{user['firstname']} {user['surname']}",
+        "order_id" : order["order_id"],
+        "collection_date" : order["collection_date"],
+        "order_status" : order["order_status"],
+        "date_of_order" : order["date_of_order"],
+        "total_price" : order["total_price"],
 
         # Order item details from tblOrderItems
-        "cake_type": item["cake_type"],
-        "sponge_flavour": item["sponge_flavour"],
-        "filling": item["filling"],
-        "frosting_type": item["frosting_type"],
-        "frosting_flavour": item["frosting_flavour"],
-        "occasion": item["occasion"],
-        "serving_size": item["serving_size"],
-        "no_of_tiers": item["no_of_tiers"],
-        "allergies": item["allergies"],
-        "inscription": item["inscription"],
-        "additional_details": item["additional_details"],
-        "reference_image": item["reference_image"]
+        "cake_type" : item["cake_type"],
+        "sponge_flavour" : item["sponge_flavour"],
+        "filling" : item["filling"],
+        "frosting_type" : item["frosting_type"],
+        "frosting_flavour" : item["frosting_flavour"],
+        "occasion" : item["occasion"],
+        "serving_size" : item["serving_size"],
+        "no_of_tiers" : item["no_of_tiers"],
+        "allergies" : item["allergies"],
+        "inscription" : item["inscription"],
+        "additional_details" : item["additional_details"],
+        "reference_image" : item["reference_image"]
       })
     # Stops a row being deleted from causing problems or if data doesn't match up
     except tables.TableError:
