@@ -19,10 +19,12 @@ def generate_order_id():
 
 # Adding Standard cakes to the customer's order
 @anvil.server.callable
-def add_standard_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, 
+def add_standard_cake(order, cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, 
                       serving_size, sponge_flavour, filling):
-  anvil.users.get_user()
-  app_tables.tblorderitems.add_row(cake_type = cake_type, occasion = occasion, 
+  user = anvil.users.get_user()
+  if not user:
+    return
+  app_tables.tblorderitems.add_row(order_id = order, cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 
                                    frosting_flavour = frosting_flavour, price = price, 
                                    serving_size = serving_size, 
@@ -34,6 +36,8 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
                     serving_size, sponge_flavour, filling, allergies, additional_details, inscription, 
                     reference_image, collection_date):
   user = anvil.users.get_user()
+  if not user:
+    return
   order_id_number = generate_order_id()
   order = app_tables.tblorders.add_row(order_id = order_id_number, 
                                       user = user, 
