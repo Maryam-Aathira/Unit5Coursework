@@ -33,7 +33,7 @@ def get_all_order_info():
       combined.append({
         "order_row": order,
 
-        "customer": f"{user['firstname']} {user['surname']}",
+        "customer": f"{user['firstname']['surname']}",
         "order_id": order["order_id"],
         "collection_date": order["collection_date"],
         "order_status": order["order_status"],
@@ -114,7 +114,7 @@ def display_order(order):
 
 @anvil.server.callable
 def check_weekly_orders():
-  today = datetime.datetime.now()
+  today = datetime.datetime.today()
   days_since_monday = today.weekday()
   start = today - datetime.timedelta(days = days_since_monday)
   weekly_orders = app_tables.tblorders.search("date_of_order" >= start)
