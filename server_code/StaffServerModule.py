@@ -19,7 +19,7 @@ def get_all_orders_from_orderitems():
 
 @anvil.server.callable
 def get_all_order_info(): 
-  combined = []
+  combined_order_info = []
   for item in app_tables.tblorderitems.search():
     order = item["order_id"]      
     if not order:
@@ -30,17 +30,18 @@ def get_all_order_info():
         continue 
 
     # Building one combined dictionary 
-      combined.append({
+      combined_order_info.append({
         "order_row": order,
 
-        "customer": f"{user['firstname']['surname']}",
+        # General order details from tblOrders
+        "customer": f"{user['firstname']} {user['surname']}",
         "order_id": order["order_id"],
         "collection_date": order["collection_date"],
         "order_status": order["order_status"],
         "date_of_order": order["date_of_order"],
         "total_price": order["total_price"],
 
-        # Order item details
+        # Order item details from tblOrderItems
         "cake_type": item["cake_type"],
         "sponge_flavour": item["sponge_flavour"],
         "filling": item["filling"],
@@ -57,7 +58,7 @@ def get_all_order_info():
     # Stops a row being deleted from causing problems or if data doesn't match up
     except tables.TableError:
       continue
-  return combined
+  return combined_order_info
 
 
 # Changes order status from pending to confirmed in the database
@@ -131,29 +132,28 @@ def get_week(selected_date):
 @anvil.server.callable
 def get_weekly_stats(start_of_week, end_of_week):
   orders = app_tables.tblorders.search()
-  total_items = 0
-  cancelled = 0
-  rejected = 0
-  income = 0
+  order_stats = {
+    "total items" : 0,
+    "cancelled" : 0,
+    "rejected" : 0,
+    "income" : 0,
+  }
 
+  # Loops through orders to get its statistics
   for order in orders:
     order_date = order["date_of_order"].date()
     # If order date is in within the start and end date, the order count increases
     if start_of_week <= order_date <= end_of_week:
-      total_items = total_items + 1
+      # Every order in this range increases the total items count
+      order_stats["total items"] = order_stats["total items"] + 1
       if order["order_status"] == "Cancelled":
-        cancelled = cancelled + 1
+        order_stats["cancelled"] = order_stats["cancelled"] + 1
       elif order["order_status"] == "Rejected":
-        rejected = rejected + 1
-      income = income + order["total_price"]
+        order_stats["rejected"] = order_stats["rejected"] + 1
+      order_stats["income"] = order_stats["income"] + order["total_price"]
 
   # returns a dictionary of order information
-  return {
-    "total items" : total_items, 
-    "cancelled" : cancelled,
-    "rejected" : rejected, 
-    "income" : income
-  }
+  return order_stats
 
 # Creates a dictionary for reasons an order cannot be made
 # This includes cancellation reasons and rejection reasons

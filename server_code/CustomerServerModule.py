@@ -13,8 +13,8 @@ import random
 def generate_order_id():
   while True:
    order_id = random.randint(100000, 999999)
-   existing = app_tables.tblorders.get(order_id = order_id)
-   if existing is None:
+   existing_id = app_tables.tblorders.get(order_id = order_id)
+   if existing_id is None:
     return order_id
 
 # Adding Standard cakes to the customer's order
