@@ -16,7 +16,6 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     self.all_orders = anvil.server.call("get_all_order_info")
     self.order_repeating_panel.items = self.all_orders
 
-
     # Getting dropdowns to display
     item_list = []
     for row in app_tables.tblstaffdropdown.search(category="sort"):
