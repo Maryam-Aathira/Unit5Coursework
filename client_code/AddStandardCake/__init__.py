@@ -22,13 +22,13 @@ frosting_array = ["Vanilla", "Chocolate Ganache", "Salted Caramel", "Lemon",
 
 
 class AddStandardCake(AddStandardCakeTemplate):
-  def __init__(self, CakeNo, **properties):
+  def __init__(self, cake_no, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.CakeTitle.text = name_array[CakeNo]
-    self.sponge_flavour.text = flavour_array[CakeNo]
-    self.frosting_flavour.text = frosting_array[CakeNo]
-    self.price.text = price_array[CakeNo]
+    self.cake_title.text = name_array[cake_no]
+    self.sponge_flavour.text = flavour_array[cake_no]
+    self.frosting_flavour.text = frosting_array[cake_no]
+    self.price.text = price_array[cake_no]
 
   @handle("collection_date_picker", "change")
   def collection_date_picker_change(self, **event_args):
