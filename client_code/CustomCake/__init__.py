@@ -36,6 +36,7 @@ class CustomCake(CustomCakeTemplate):
       item_list.append(row["choice"])
     self.frosting_flavour_dropdown.items = item_list
 
+    # Cake type dropdown
     item_list = []
     for row in app_tables.tbldropdownoptions.search(category="cake_type"):
       item_list.append(row["choice"])
