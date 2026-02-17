@@ -18,7 +18,7 @@ class StaffViewOrders(StaffViewOrdersTemplate):
 
     # Getting dropdowns to display
     item_list = []
-    for row in app_tables.tblstaffdropdown.search(category="sort"):
+    for row in app_tables.tblstaffdropdown.search(category = "sort"):
       item_list.append(row["choice"])
     self.sort_dropdown.items = item_list
 
@@ -27,7 +27,6 @@ class StaffViewOrders(StaffViewOrdersTemplate):
       item_list.append(row["choice"])
     self.filter_dropdown.items = item_list
     
- 
   # QUICKSORT to sort orders based on the selected dropdown 
   def quicksort(self, orders, start, end, sort_value):
     if start >= end:

@@ -17,6 +17,7 @@ def get_all_orders():
 def get_all_orders_from_orderitems():
   return app_tables.tblorderitems.search()
 
+# Gets all the data about one order from multiple tables
 @anvil.server.callable
 def get_all_order_info(): 
   combined_order_info = []
@@ -106,19 +107,21 @@ def mark_order_as_complete(order):
     order["order_status"] = "Completed"
     order.update()  
 
-
+# Displays all cakes from tblorderitems
 @anvil.server.callable
 def display_order(order):
   cakes = app_tables.tblorderitems.search(order_id = order)
   return cakes
 
-
+# Finds how many order have been placed since the start of the week (Monday)
 @anvil.server.callable
 def check_weekly_orders():
   today = datetime.datetime.today()
   days_since_monday = today.weekday()
-  start = today - datetime.timedelta(days = days_since_monday)
-  weekly_orders = app_tables.tblorders.search("date_of_order" >= start)
+  # Finds the nearest Monday
+  start_of_week = today - datetime.timedelta(days = days_since_monday)
+  # Searches for all orders placed on that Monday or after
+  weekly_orders = app_tables.tblorders.search("date_of_order" >= start_of_week)
   return len(weekly_orders)
 
 @anvil.server.callable

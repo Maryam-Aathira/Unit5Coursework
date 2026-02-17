@@ -32,6 +32,7 @@ def add_standard_cake(order, cake_type, occasion, no_of_tiers, frosting_type, fr
 
 # Adding a custom cake to the customer's order
 @anvil.server.callable
+# Takes all user inputs
 def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_flavour, price, 
                     serving_size, sponge_flavour, filling, allergies, additional_details, inscription, 
                     reference_image, collection_date):
@@ -39,13 +40,15 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
   if not user:
     return
   order_id_number = generate_order_id()
+  # Adds a new order to the database
   order = app_tables.tblorders.add_row(order_id = order_id_number, 
                                       user = user, 
                                       date_of_order = datetime.datetime.now(),
                                       collection_date = collection_date,
                                       order_status = "Pending",
                                       total_price = 0)
-  
+
+  # Adds a new order in tblorderitems
   app_tables.tblorderitems.add_row(
                                    order_id = order, 
                                    cake_type = cake_type, occasion = occasion, 
@@ -83,19 +86,24 @@ def add_custom_cake(cake_type, occasion, no_of_tiers, frosting_type, frosting_fl
   )
 
 @anvil.server.callable
+# Takes all user inputs
 def confirm_standard_order(cake_type, occasion, no_of_tiers, frosting_type, 
                            frosting_flavour, price,
                            serving_size, sponge_flavour, filling, collection_date):
   user = anvil.users.get_user()
+  if not user:
+    return
   order_id_number = generate_order_id()
-  
+
+  # Adds a new order in the database
   order = app_tables.tblorders.add_row(order_id = order_id_number,
                                        user = user, 
                                        date_of_order = datetime.datetime.now(),
                                        collection_date = collection_date,
                                        order_status = "Pending",
                                        total_price = 0)
-  
+
+  # Adds a new order to tblorderitems
   app_tables.tblorderitems.add_row(order_id = order, cake_type = cake_type, occasion = occasion, 
                                    no_of_tiers = no_of_tiers, frosting_type = frosting_type, 
                                    frosting_flavour = frosting_flavour, 
@@ -135,16 +143,20 @@ def retrieve_orders():
   # Returns empty list if user isn't logged in
   if user is None:
     return []
+  # List of all the current order statuses
   current_orders = ["Pending", "Confirmed", "Rejected", "Cancelled"]
+  # Searches for orders that have the order status in current_orders list
   all_orders = app_tables.tblorders.search(user = user, order_status = q.any_of(*current_orders))
 
+  # If the order was cancelled or rejected at it is too old (more than 30 days old),
+  # it is skipped and not classed as a recent ordr to display. 
   recent_orders = []
   today = datetime.date.today()
   for order in all_orders:
     order_date = order["date_of_order"].date()
     if order["order_status"] == "Rejected" or order["order_status"] == "Cancelled":
-      difference = (today - order_date).days
-      if difference > 30:
+      days_since_order = (today - order_date).days
+      if days_since_order > 30:
         continue
 
     recent_orders.append(order)
@@ -169,6 +181,7 @@ def cancel_order(order, reason):
     """
   )
 
+  # Sending an email to the manager to confirm thir cancellation
   manager = app_tables.users.get(role = "Manager")
   if manager:
     anvil.email.send(

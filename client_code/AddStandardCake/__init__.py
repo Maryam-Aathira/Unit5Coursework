@@ -9,15 +9,15 @@ from datetime import date
 from datetime import timedelta
 
 # Creates arrays for each category of the different cakes
-NameArray = ["Vanilla Cake","Chocolate Cake", "Salted Caramel Cake", "Lemon Cake", 
+name_array = ["Vanilla Cake","Chocolate Cake", "Salted Caramel Cake", "Lemon Cake", 
              "Orange Cake", "Almond Cake", "Chocolate Orange Cake"]
 
-FlavourArray = ["Vanilla Sponge" , "Chocolate Sponge", "Vanilla Sponge", 
+flavour_array = ["Vanilla Sponge" , "Chocolate Sponge", "Vanilla Sponge", 
               "Vanilla Sponge", "Plain Sponge", "Plain Sponge", "Chocolate Sponge"]
 
-PriceArray = ["£25","£25","£30","£25","£30","£20","£20"]
+price_array = ["£25","£25","£30","£25","£30","£20","£20"]
 
-FrostingArray = ["Vanilla", "Chocolate Ganache", "Salted Caramel", "Lemon", 
+frosting_array = ["Vanilla", "Chocolate Ganache", "Salted Caramel", "Lemon", 
                 "Orange Flavoured", "Almond Flavoured", "Chocolate orange"]
 
 
@@ -25,10 +25,10 @@ class AddStandardCake(AddStandardCakeTemplate):
   def __init__(self, CakeNo, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.CakeTitle.text = NameArray[CakeNo]
-    self.sponge_flavour.text = FlavourArray[CakeNo]
-    self.frosting_flavour.text = FrostingArray[CakeNo]
-    self.price.text = PriceArray[CakeNo]
+    self.CakeTitle.text = name_array[CakeNo]
+    self.sponge_flavour.text = flavour_array[CakeNo]
+    self.frosting_flavour.text = price_array[CakeNo]
+    self.price.text = frosting_array[CakeNo]
 
   @handle("collection_date_picker", "change")
   def collection_date_picker_change(self, **event_args):
