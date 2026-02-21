@@ -52,15 +52,15 @@ class StaffViewOrders(StaffViewOrdersTemplate):
       else:
         break
 
-      # Swap pivot into the correct position
-      temp = orders[start]
-      orders[start] = orders[high]
-      orders[high] = temp
+    # Swap pivot into the correct position
+    temp = orders[start]
+    orders[start] = orders[high]
+    orders[high] = temp
 
-      self.quicksort(orders, start, high - 1, sort_value)
-      self.quicksort(orders, high + 1, end, sort_value)
+    self.quicksort(orders, start, high - 1, sort_value)
+    self.quicksort(orders, high + 1, end, sort_value)
 
-      return orders
+    return orders
 
   # INVERSE QUICKSORT
   def inverse_quicksort(self, orders, start, end, sort_value):
@@ -87,15 +87,15 @@ class StaffViewOrders(StaffViewOrdersTemplate):
       else:
         break
 
-      # Swap pivot into the correct position
-      temp = orders[start]
-      orders[start] = orders[high]
-      orders[high] = temp
+    # Swap pivot into the correct position
+    temp = orders[start]
+    orders[start] = orders[high]
+    orders[high] = temp
 
-      self.inverse_quicksort(orders, start, high - 1, sort_value)
-      self.inverse_quicksort(orders, high + 1, end, sort_value)
+    self.inverse_quicksort(orders, start, high - 1, sort_value)
+    self.inverse_quicksort(orders, high + 1, end, sort_value)
 
-      return orders
+    return orders
       
   def home_button_click(self, **event_args):
     open_form("StaffDashboard", role = self.role)
@@ -136,8 +136,8 @@ class StaffViewOrders(StaffViewOrdersTemplate):
       # Moves to next search item
       current = current + 1
 
-      # Return results
-      return results
+    # Return results
+    return results
  
   @handle("filter_dropdown", "change")
   def filter_dropdown_change(self, **event_args):
@@ -179,7 +179,7 @@ class StaffViewOrders(StaffViewOrdersTemplate):
       self.order_repeating_panel.items = filtered_orders
 
     # Displaying all orders
-    if filter == "All orders":
+    if filter == "All Orders":
       self.order_repeating_panel.items = self.all_orders
 
 
