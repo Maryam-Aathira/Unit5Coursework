@@ -149,7 +149,7 @@ def retrieve_orders():
   all_orders = app_tables.tblorders.search(user = user, order_status = q.any_of(*current_orders))
 
   # If the order was cancelled or rejected at it is too old (more than 30 days old),
-  # it is skipped and not classed as a recent ordr to display. 
+  # it is skipped and not classed as a recent order to display. 
   recent_orders = []
   today = datetime.date.today()
   for order in all_orders:
