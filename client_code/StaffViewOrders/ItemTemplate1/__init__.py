@@ -92,7 +92,7 @@ class ItemTemplate1(ItemTemplate1Template):
     self.rejection_reason.visible = False
     self.rejection_reason_dropdown.visible = False
     self.confirm_rejection.visible = False
-    self.mark_complete_button = False
+    self.mark_complete_button.visible = False
     pass
 
   @handle("mark_complete_button", "click")
