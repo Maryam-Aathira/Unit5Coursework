@@ -23,7 +23,7 @@ components:
     properties: {}
     type: Plot
   - layout_properties: {grid_position: 'FDWWQK,NLILEZ'}
-    name: plot_1
+    name: order_statuses
     properties: {height: 587}
     type: Plot
   layout_properties: {slot: default}

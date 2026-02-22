@@ -15,7 +15,7 @@ class Statistics(StatisticsTemplate):
     Plot.templates.default = "material_light"
     
     # Creating a template for the empty graphs
-    self.plot_1.data = [
+    self.order_statuses.data = [
       go.Bar(
         x = ["Cancelled", "Rejected", "Total items"],
         y = [0,0,0],
@@ -38,7 +38,7 @@ class Statistics(StatisticsTemplate):
       )
     ]
     # Creating the plot layout designs
-    self.plot_1.layout = {
+    self.order_statuses.layout = {
       "title": {"text": "Types of Orders"},
       "xaxis": {"title": {"text": "Order statuses"}},
       "yaxis": {"title": {"text": "Number of orders"}}
@@ -68,10 +68,10 @@ class Statistics(StatisticsTemplate):
     stats = anvil.server.call("get_weekly_stats", start_of_week, end_of_week)
       
     # Creating the report as a bar graph
-    self.plot_1.data = [
+    self.order_statuses.data = [
       go.Bar(
         x = ["Cancelled", "Rejected", "Total items"],
-        y = [stats["cancelled"], stats["rejected"], stats['total items']],
+        y = [stats["cancelled"], stats["rejected"], stats["total items"]],
         name = "Weekly Statistics"
       )
     ]
