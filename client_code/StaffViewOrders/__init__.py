@@ -17,15 +17,15 @@ class StaffViewOrders(StaffViewOrdersTemplate):
     self.order_repeating_panel.items = self.all_orders
 
     # Getting dropdowns to display
-    item_list = []
+    order_list = []
     for row in app_tables.tblstaffdropdown.search(category = "sort"):
-      item_list.append(row["choice"])
-    self.sort_dropdown.items = item_list
+      order_list.append(row["choice"])
+    self.sort_dropdown.items = order_list
 
-    item_list = []
+    order_list = []
     for row in app_tables.tblstaffdropdown.search(category = "filter"):
-      item_list.append(row["choice"])
-    self.filter_dropdown.items = item_list
+      order_list.append(row["choice"])
+    self.filter_dropdown.items = order_list
     
   # QUICKSORT to sort order based on the selected dropdown
   def quicksort(self, orders, start, end, sort_value):
