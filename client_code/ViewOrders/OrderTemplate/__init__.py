@@ -24,7 +24,7 @@ class OrderTemplate(OrderTemplateTemplate):
     if selected_date is not None:
       self.days_until_collection = (selected_date - current_date).days
     order = self.item
-    cakes = anvil.server.call("display_cake",order)
+    cakes = anvil.server.call("display_cake", order)
 
     cake_info = ""
     # Adding information from tblOrderItems into a list for each cake
@@ -50,7 +50,7 @@ class OrderTemplate(OrderTemplateTemplate):
       self.reason_dropdown.visible = True
       # Getting dropdowns to display
       item_list = []
-      for row in app_tables.tbldropdownoptions.search(category="cancellation"):
+      for row in app_tables.tbldropdownoptions.search(category = "cancellation"):
         item_list.append(row["choice"])
       self.reason_dropdown.items = item_list
 

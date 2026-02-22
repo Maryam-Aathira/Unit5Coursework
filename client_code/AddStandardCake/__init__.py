@@ -15,7 +15,7 @@ name_array = ["Vanilla Cake","Chocolate Cake", "Salted Caramel Cake", "Lemon Cak
 flavour_array = ["Vanilla Sponge" , "Chocolate Sponge", "Vanilla Sponge", 
               "Vanilla Sponge", "Plain Sponge", "Plain Sponge", "Chocolate Sponge"]
 
-price_array = ["£25","£25","£30","£25","£30","£20","£20"]
+price_array = ["£25", "£25", "£30", "£25", "£30", "£20", "£20"]
 
 frosting_array = ["Vanilla", "Chocolate Ganache", "Salted Caramel", "Lemon", 
                 "Orange Flavoured", "Almond Flavoured", "Chocolate orange"]

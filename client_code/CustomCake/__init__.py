@@ -26,48 +26,48 @@ class CustomCake(CustomCakeTemplate):
 
     # Sponge flavour dropdown
     item_list = []
-    for row in app_tables.tbldropdownoptions.search(category="sponge_flavour"):
+    for row in app_tables.tbldropdownoptions.search(category = "sponge_flavour"):
       item_list.append(row["choice"])
     self.sponge_flavour_dropdown.items = item_list
 
     # Frosting Flavour dropdown 
     item_list = []
-    for row in app_tables.tbldropdownoptions.search(category="frosting_flavour"):
+    for row in app_tables.tbldropdownoptions.search(category = "frosting_flavour"):
       item_list.append(row["choice"])
     self.frosting_flavour_dropdown.items = item_list
 
     # Cake type dropdown
     item_list = []
-    for row in app_tables.tbldropdownoptions.search(category="cake_type"):
+    for row in app_tables.tbldropdownoptions.search(category = "cake_type"):
       item_list.append(row["choice"])
     self.cake_type_dropdown.items = item_list
 
     # Frosting type dropdown 
     item_list = []
-    for row in app_tables.tbldropdownoptions.search(category="frosting_type"):
+    for row in app_tables.tbldropdownoptions.search(category = "frosting_type"):
       item_list.append(row["choice"])
     self.frosting_type_dropdown.items = item_list
 
     # Occassion dropdown
     item_list = []
-    for row in app_tables.tbldropdownoptions.search(category="occasion"):
+    for row in app_tables.tbldropdownoptions.search(category = "occasion"):
       item_list.append(row["choice"])
     self.occasion_dropdown.items = item_list
 
     # Number of tiers dropdown
     item_list = []
-    for row in app_tables.tbldropdownoptions.search(category="no_of_tiers"):
+    for row in app_tables.tbldropdownoptions.search(category = "no_of_tiers"):
       item_list.append(row["choice"])
     self.no_of_tiers_dropdown.items = item_list
 
     # Filling dropdown
     item_list = []
-    for row in app_tables.tbldropdownoptions.search(category="filling"):
+    for row in app_tables.tbldropdownoptions.search(category = "filling"):
       item_list.append(row["choice"])
     self.filling_dropdown.items = item_list
 
   def home_click(self, **event_args):
-    open_form('Home')
+    open_form("Home")
     pass
 
   def cake_type_dropdown_change(self, **event_args):

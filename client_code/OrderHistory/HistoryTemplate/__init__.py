@@ -13,7 +13,7 @@ class HistoryTemplate(HistoryTemplateTemplate):
     self.init_components(**properties)
 
     order = self.item
-    cakes = anvil.server.call("display_cake",order)
+    cakes = anvil.server.call("display_cake", order)
 
     cake_info = ""
     # Adding information from tblOrderItems into a list for each cake
