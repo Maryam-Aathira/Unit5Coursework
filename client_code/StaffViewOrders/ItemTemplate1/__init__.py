@@ -56,7 +56,7 @@ class ItemTemplate1(ItemTemplate1Template):
   def reject_button_click(self, **event_args):
     # Rejection reason dropdown
     item_list = []
-    for row in app_tables.tblstaffdropdown.search(category="rejection"):
+    for row in app_tables.tblstaffdropdown.search(category = "rejection"):
       item_list.append(row["choice"])
       self.rejection_reason_dropdown.items = item_list
 
