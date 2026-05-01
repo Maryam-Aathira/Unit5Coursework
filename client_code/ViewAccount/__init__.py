@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 
 class ViewAccount(ViewAccountTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Setting colours
     self.delete_account_button.background = "#d2222d"

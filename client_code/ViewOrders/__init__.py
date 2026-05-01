@@ -8,7 +8,6 @@ from anvil.tables import app_tables
 
 class ViewOrders(ViewOrdersTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
   
     self.sign_in_info.visible = False

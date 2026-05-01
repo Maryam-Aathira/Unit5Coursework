@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 
 class Invoice(InvoiceTemplate):
   def __init__(self, order, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.item = order
 

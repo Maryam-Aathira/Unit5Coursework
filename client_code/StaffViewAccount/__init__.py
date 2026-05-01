@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 
 class StaffViewAccount(StaffViewAccountTemplate):
   def __init__(self, role, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.role = role
     self.role_label.text = "Role: " + str(role)

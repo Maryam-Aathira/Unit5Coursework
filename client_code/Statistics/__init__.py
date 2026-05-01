@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 
 class Statistics(StatisticsTemplate):
   def __init__(self,role, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.role = role 
     Plot.templates.default = "material_light"

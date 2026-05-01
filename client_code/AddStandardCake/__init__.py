@@ -23,7 +23,6 @@ frosting_array = ["Vanilla", "Chocolate Ganache", "Salted Caramel", "Lemon",
 
 class AddStandardCake(AddStandardCakeTemplate):
   def __init__(self, cake_no, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.cake_title.text = name_array[cake_no]
     self.sponge_flavour.text = flavour_array[cake_no]

@@ -12,7 +12,6 @@ from datetime import timedelta
 
 class CustomCake(CustomCakeTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.calculated_price = 0.00
     self.calculate_price()

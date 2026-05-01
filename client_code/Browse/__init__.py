@@ -11,7 +11,6 @@ from datetime import date
 
 class Browse(BrowseTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
   # Calls the number from the arrays 

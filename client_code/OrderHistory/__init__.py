@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 
 class OrderHistory(OrderHistoryTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
     user = anvil.users.get_user()

@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 
 class StaffDashboard(StaffDashboardTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
     # Gets the user's role from the database

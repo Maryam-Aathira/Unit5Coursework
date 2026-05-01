@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 
 class Login(LoginTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
   def manager_login_button_click(self, **event_args):

@@ -11,7 +11,6 @@ from time import strftime
 
 class OrderTemplate(OrderTemplateTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
     self.reason_dropdown.visible = False

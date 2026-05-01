@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 
 class HistoryTemplate(HistoryTemplateTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
     order = self.item
